@@ -2,15 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct DropData
-{
-    string Monster_ID;
-    int Drop_ID;
-    int Monster_EXP;
-    int Monster_Gold;
-    int Monster_DGP;
-}
-
 public class MonsterData
 {
     string Monster_ID;

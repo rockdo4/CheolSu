@@ -12,8 +12,12 @@ public static class DataTableMgr
         tables.Clear();
         //static 생성자 처음 접근할 때 실행됨
 
-        var stringTable = new MonsterTable();
-        tables.Add(typeof(MonsterTable), stringTable);
+        var monsterTable = new MonsterTable();
+        var dropTable = new DropTable();
+
+
+        tables.Add(typeof(MonsterTable), monsterTable);
+        tables.Add(typeof(DropTable), dropTable);
     }
 
     public static T GetTable<T>() where T : DataTable
