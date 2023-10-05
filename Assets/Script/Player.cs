@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MainPlayer : Creature
 {
     public Image HPUI;
+    public GameObject background;
+
+    private List<BackGroundScroll> backGroundScrolls;
 
     private float attackDelay = 2f;
     private float lastAttackTime;
@@ -16,6 +20,7 @@ public class MainPlayer : Creature
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        backGroundScrolls = background.GetComponentsInChildren<BackGroundScroll>().ToList();
     }
 
     private void Start()
@@ -23,6 +28,12 @@ public class MainPlayer : Creature
         currentHealth = maxHealth;
 
         animator.SetBool("Move", true);
+        for(int i=0; i<backGroundScrolls.Count; i++)
+        {
+            backGroundScrolls[i].enabled = true;
+        }
+
+        var list = DataTableMgr.GetTable<MonsterTable>();
     }
 
     // Update is called once per frame
@@ -55,6 +66,10 @@ public class MainPlayer : Creature
         {
             animator.SetBool("Move", false);
             enemy = collision.gameObject.GetComponent<Monster>();
+            for (int i = 0; i < backGroundScrolls.Count; i++)
+            {
+                backGroundScrolls[i].enabled = false;
+            }
         }
     }
 
@@ -64,6 +79,10 @@ public class MainPlayer : Creature
         {
             animator.SetBool("Move", true);
             enemy = null;
+            for (int i = 0; i < backGroundScrolls.Count; i++)
+            {
+                backGroundScrolls[i].enabled = true;
+            }
         }
     }
 
@@ -75,6 +94,10 @@ public class MainPlayer : Creature
     private void StartMove()
     {
         animator.SetBool("Move", true);
+        for (int i = 0; i < backGroundScrolls.Count; i++)
+        {
+            backGroundScrolls[i].enabled = true;
+        }
     }
 
     override public void TakeDamage(int damage)
@@ -82,7 +105,7 @@ public class MainPlayer : Creature
         base.TakeDamage(damage);
         if (dead)
         {
-            animator.SetBool("Death", true);
+            animator.SetBool("Dead", true);
         }
         HPUI.fillAmount = (float)currentHealth / maxHealth;
     }
