@@ -3,20 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Creature
+  - 
   - Water
   - UI
   - 
   - 
   - 
-  - 
-  - 
+  - PopUp
+  - Main
   - 
   - 
   - 
@@ -42,9 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Creature
-    uniqueID: 2815713043
+  - name: back
+    uniqueID: 318150073
     locked: 0
-  - name: UI
-    uniqueID: 4092567069
+  - name: ui
+    uniqueID: 597838529
     locked: 0
