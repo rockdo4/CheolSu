@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,13 @@ public class Player : Creature
 
     private Animator animator;
     private Creature enemy = null;
+
+    public struct PlayerInven
+    {
+        int _gold;
+        int _dragon;
+        int _diamond;
+    }
 
     private void Awake()
     {
@@ -144,5 +152,10 @@ public class Player : Creature
     {
         currentHealth = MaxHealth;
         UpdateHealth();
+    }
+
+    public void GetItem()
+    {
+
     }
 }

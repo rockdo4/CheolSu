@@ -96,7 +96,7 @@ public class Monster : Creature
 
     private void Destroy()
     {
-        GameManager.Instance.MonsterDie();
+        GameManager.Instance.MonsterDie(Drop_ID);
         MonsterSpawner.Instance.SummonMonster();
         player.MonsterDie();
         Destroy(gameObject);

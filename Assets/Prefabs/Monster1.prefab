@@ -81,7 +81,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1479254253
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -4551999497626061999, guid: 38e26291822c9b9479504c21a5a98126, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -175,8 +175,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78270679fcad1d245a9b94d49f552d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 100
+  currentHealth: 0
+  Damage: 30
+  dead: 0
   speed: 0.15
   HPUI: {fileID: 6230254326634407372}
+  ID: 
+  Name: 
+  Masin_Armor: 0
+  Masin_Shield: 0
+  Divine: 0
+  Type: 0
+  Drop_ID: 0
 --- !u!1 &6372044470396677121
 GameObject:
   m_ObjectHideFlags: 0

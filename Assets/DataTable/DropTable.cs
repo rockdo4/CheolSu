@@ -19,7 +19,8 @@ public class DropTable : DataTable
         public int Monster_DGP { get; set; }
     }
 
-    protected List<DropData> m_MonsterList = new List<DropData>();
+    //protected List<DropData> m_DropTableList = new List<DropData>();
+    protected Dictionary<int, DropData> m_DropTableDictionary = new Dictionary<int, DropData>();
 
     public DropTable()
     {
@@ -46,7 +47,7 @@ public class DropTable : DataTable
             {
                 var temp = new DropData();
                 temp = record;
-                m_MonsterList.Add(temp);
+                m_DropTableDictionary.Add(temp.Drop_ID, temp);
             }
         }
         catch (Exception ex)
@@ -54,5 +55,11 @@ public class DropTable : DataTable
             Debug.Log(ex.Message);
             Debug.LogError("csv 로드 에러");
         }
+    }
+
+    public DropData GetMonsterData(int ID)
+    {
+        var data = m_DropTableDictionary[ID];
+        return data;
     }
 }

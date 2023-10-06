@@ -52,9 +52,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void MonsterDie()
+    public void MonsterDie(int Drop_ID)
     {
-        remainMonster -= 1;
+        //플레이어 한테 보상
+        
+
+        remainMonster -= 1; //남은 몹 수 감소
         if (remainMonster > 0) return; //잡아야 될 몹이 아직 남아있으면 수만 줄이고 return
 
         //다 잡으면 다시 채우고
