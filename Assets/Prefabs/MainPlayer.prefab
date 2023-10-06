@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HPUI: {fileID: 0}
+  background: {fileID: 0}
 --- !u!95 &7494676080365845071
 Animator:
   serializedVersion: 5

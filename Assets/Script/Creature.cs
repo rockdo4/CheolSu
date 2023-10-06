@@ -7,10 +7,10 @@ using UnityEngine;
 
 public class Creature : MonoBehaviour
 {
-    protected int maxHealth = 100;
-    protected int currentHealth = 0;
-    protected int damage = 30;
-    protected bool dead = false;
+    public int MaxHealth = 100;
+    public int currentHealth = 0;
+    public int Damage = 30;
+    public bool dead = false;
 
     protected Action onDeath;
 

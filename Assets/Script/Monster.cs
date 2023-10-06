@@ -12,11 +12,20 @@ public class Monster : Creature
     private Animator animator;
     private Rigidbody rb;
     private BoxCollider bc;
-    private MainPlayer player = null;
+    private Player player = null;
 
     private float attackDelay = 3f;
     private float lastAttackTime;
-    private bool move = true;
+    private bool move = false;
+
+    //monster info
+    public string ID;
+    public string Name;
+    public int Masin_Armor;
+    public int Masin_Shield;
+    public int Divine;
+    public int Type;
+    public int Drop_ID;
 
 
     // Start is called before the first frame update
@@ -28,9 +37,26 @@ public class Monster : Creature
     }
     private void Start()
     {
-        currentHealth = maxHealth;
-        move = true;
-        animator.SetBool("Move", true);
+        int mainStage = GameManager.Instance.gameInfo.mainStageCurr;
+        int subStage = GameManager.Instance.gameInfo.subStageCurr;
+        int currentStage = ((mainStage - 1) * 9) + subStage;
+
+        var info = DataTableMgr.GetTable<MonsterTable>().GetMonsterData(currentStage - 1);
+
+        MaxHealth = info.Monster_Hp;
+        Damage = info.Monster_Atk;
+        ID = info.Monster_ID;
+        Name = info.Monster_Name;
+        Masin_Armor = info.Masin_Armor;
+        Masin_Shield = info.Masin_Shield;
+        Divine = info.Monster_Divine;
+        Type = info.Monster_Type;
+        Drop_ID = info.Drop_ID;
+
+        currentHealth = MaxHealth;
+        Debug.Log($"KF{mainStage} - {subStage}, {ID}, {Name}, {MaxHealth}, {Damage}");
+
+        Invoke("StartMove", 0.5f);
     }
 
     private void FixedUpdate()
@@ -46,10 +72,17 @@ public class Monster : Creature
         Attack();
     }
 
+    private void StartMove()
+    {
+        move = true;
+        animator.SetBool("Move", true);
+    }
+
     private void Attack()
     {
         if (player == null) return;
         if (lastAttackTime + attackDelay > Time.time) return;
+        if (player.dead) return;
 
         animator.SetTrigger("Attack");
         lastAttackTime = Time.time;
@@ -58,12 +91,13 @@ public class Monster : Creature
     private void GiveDamage()
     {
         if (player == null) return;
-        player.TakeDamage(damage);
+        player.TakeDamage(Damage);
     }
 
     private void Destroy()
     {
-        Debug.Log("Á×À½");
+        GameManager.Instance.MonsterDie();
+        MonsterSpawner.Instance.SummonMonster();
         player.MonsterDie();
         Destroy(gameObject);
     }
@@ -72,7 +106,7 @@ public class Monster : Creature
     {
         base.TakeDamage(damage);
 
-        HPUI.fillAmount = (float)currentHealth / maxHealth;
+        HPUI.fillAmount = (float)currentHealth / MaxHealth;
         if (dead)
         {
             animator.SetBool("Death", true);
@@ -89,7 +123,7 @@ public class Monster : Creature
     {
         if (collision.CompareTag("Player"))
         {
-            player = collision.gameObject.GetComponent<MainPlayer>();
+            player = collision.gameObject.GetComponent<Player>();
             animator.SetBool("Move", false);
             move = false;
         }

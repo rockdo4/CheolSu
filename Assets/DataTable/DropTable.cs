@@ -47,7 +47,6 @@ public class DropTable : DataTable
                 var temp = new DropData();
                 temp = record;
                 m_MonsterList.Add(temp);
-                Debug.Log(temp.Monster_Name);
             }
         }
         catch (Exception ex)

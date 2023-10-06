@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainPlayer : Creature
+public class Player : Creature
 {
     public Image HPUI;
     public GameObject background;
@@ -25,7 +26,7 @@ public class MainPlayer : Creature
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = MaxHealth;
 
         animator.SetBool("Move", true);
         for(int i=0; i<backGroundScrolls.Count; i++)
@@ -51,13 +52,12 @@ public class MainPlayer : Creature
 
         animator.SetTrigger("Attack");
         lastAttackTime = Time.time;
-        Debug.Log(Time.time);
     }
 
     private void GiveDamage()
     {
         if(enemy == null) return;
-        enemy.TakeDamage(damage);
+        enemy.TakeDamage(Damage);
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -106,7 +106,43 @@ public class MainPlayer : Creature
         if (dead)
         {
             animator.SetBool("Dead", true);
+            StartCoroutine(DieProgress());
         }
-        HPUI.fillAmount = (float)currentHealth / maxHealth;
+        UpdateHealth();
+    }
+
+    private void UpdateHealth()
+    {
+        HPUI.fillAmount = (float)currentHealth / MaxHealth;
+    }
+
+    public void RespawnPlayer()
+    {
+        //MonsterSpawner.Instance.SummonMonster();
+        animator.SetBool("Dead", false);
+        dead = false;
+
+        currentHealth = MaxHealth;
+        UpdateHealth();
+
+
+    }
+
+    IEnumerator DieProgress()
+    {
+        GameManager.Instance.PlayerDie();
+
+        yield return new WaitForSeconds(3f);
+
+        if (enemy != null) { Destroy(enemy.gameObject); }
+        MonsterSpawner.Instance.SummonMonster();
+        RespawnPlayer();
+        StartMove();
+    }
+
+    public void StageClear()
+    {
+        currentHealth = MaxHealth;
+        UpdateHealth();
     }
 }
