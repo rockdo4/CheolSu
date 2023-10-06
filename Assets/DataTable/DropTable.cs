@@ -7,18 +7,18 @@ using System.Globalization;
 using System.IO;
 using UnityEngine;
 
+public class DropData
+{
+    public string Monster_Name { get; set; }
+    public string Monster_ID { get; set; }
+    public int Drop_ID { get; set; }
+    public int Monster_EXP { get; set; }
+    public int Monster_Gold { get; set; }
+    public int Monster_DGP { get; set; }
+}
+
 public class DropTable : DataTable
 {
-    public class DropData
-    {
-        public string Monster_Name { get; set; }
-        public string Monster_ID { get; set; }
-        public int Drop_ID { get; set; }
-        public int Monster_EXP { get; set; }
-        public int Monster_Gold { get; set; }
-        public int Monster_DGP { get; set; }
-    }
-
     //protected List<DropData> m_DropTableList = new List<DropData>();
     protected Dictionary<int, DropData> m_DropTableDictionary = new Dictionary<int, DropData>();
 

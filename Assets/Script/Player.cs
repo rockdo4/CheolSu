@@ -6,6 +6,14 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class PlayerInven
+{
+    public int _gold = 0;
+    public int _dragon = 0;
+    public int _diamond = 0;
+    public int _exp = 0;
+}
+
 public class Player : Creature
 {
     public Image HPUI;
@@ -17,14 +25,9 @@ public class Player : Creature
     private float lastAttackTime;
 
     private Animator animator;
-    private Creature enemy = null;
+    private Creature enemy = null;   
 
-    public struct PlayerInven
-    {
-        int _gold;
-        int _dragon;
-        int _diamond;
-    }
+    public PlayerInven inventory = new PlayerInven();
 
     private void Awake()
     {
@@ -106,6 +109,8 @@ public class Player : Creature
         {
             backGroundScrolls[i].enabled = true;
         }
+
+        Debug.Log($"gold : {inventory._gold}, exp : {inventory._exp}, dgp : {inventory._dragon}");
     }
 
     override public void TakeDamage(int damage)
@@ -154,8 +159,10 @@ public class Player : Creature
         UpdateHealth();
     }
 
-    public void GetItem()
+    public void GetItem(DropData itemTable)
     {
-
+        inventory._exp += itemTable.Monster_EXP;
+        inventory._gold += itemTable.Monster_Gold;
+        inventory._dragon += itemTable.Monster_DGP;
     }
 }
