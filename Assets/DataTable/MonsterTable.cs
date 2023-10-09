@@ -18,7 +18,7 @@ public class MonsterTable : DataTable
         public int Masin_Armor { get; set; }
         public int Monster_Atk { get; set; }
         public int Masin_Shield { get; set; }
-        public int Monster_Divine { get; set; }
+        public int Monster_Divine { get; set; } 
         public int Monster_Type { get; set; }
         public int Drop_ID { get; set; }
     }

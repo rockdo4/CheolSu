@@ -3,21 +3,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerInven
+public class PlayerStatus
 {
     public int _gold = 0;
     public int _dragon = 0;
     public int _diamond = 0;
     public int _exp = 0;
+    public int _level = 1;
+    public int _levelPoint = 0;
 }
 
 public class Player : Creature
 {
     public Image HPUI;
     public GameObject background;
+    public PlayerInfo playerInfo;
 
     private List<BackGroundScroll> backGroundScrolls;
 
@@ -27,12 +31,13 @@ public class Player : Creature
     private Animator animator;
     private Creature enemy = null;   
 
-    public PlayerInven inventory = new PlayerInven();
+    public PlayerStatus status = new PlayerStatus();
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         backGroundScrolls = background.GetComponentsInChildren<BackGroundScroll>().ToList();
+
     }
 
     private void Start()
@@ -110,7 +115,7 @@ public class Player : Creature
             backGroundScrolls[i].enabled = true;
         }
 
-        Debug.Log($"gold : {inventory._gold}, exp : {inventory._exp}, dgp : {inventory._dragon}");
+        Debug.Log($"gold : {status._gold}, exp : {status._exp}, dgp : {status._dragon}");
     }
 
     override public void TakeDamage(int damage)
@@ -161,8 +166,10 @@ public class Player : Creature
 
     public void GetItem(DropData itemTable)
     {
-        inventory._exp += itemTable.Monster_EXP;
-        inventory._gold += itemTable.Monster_Gold;
-        inventory._dragon += itemTable.Monster_DGP;
+        status._exp += itemTable.Monster_EXP;
+        status._gold += itemTable.Monster_Gold;
+        status._dragon += itemTable.Monster_DGP;
+
+        playerInfo.CheckLevelUp(this);
     }
 }

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -40,9 +37,9 @@ public class GameManager : MonoBehaviour
         if(true)
         {
             //저장 데이터가 없으면
-            gameInfo.mainStageMax = 2;
+            gameInfo.mainStageMax = 1;
             gameInfo.subStageMax = 1;
-            gameInfo.mainStageCurr = 2;
+            gameInfo.mainStageCurr = 1;
             gameInfo.subStageCurr = 1;
             remainMonster = monsterCount;
         }

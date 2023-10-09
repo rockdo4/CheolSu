@@ -35,7 +35,7 @@ public class DropTable : DataTable
         TextReader reader = new StringReader(csvData.text);
 
         var csvConfiguration = new CsvConfiguration(CultureInfo.InvariantCulture);
-        csvConfiguration.HasHeaderRecord = true; // CSV 파일에 헤더가 있는 경우
+        //csvConfiguration.HasHeaderRecord = true; // CSV 파일에 헤더가 있는 경우
 
         var csv = new CsvReader(reader, csvConfiguration);
 

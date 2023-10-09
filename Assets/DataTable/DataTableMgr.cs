@@ -14,10 +14,15 @@ public static class DataTableMgr
 
         var monsterTable = new MonsterTable();
         var dropTable = new DropTable();
-
+        var characterLevelTable = new CharacterTable();
+        var characterEnhanceTable = new CharacterEnhanceTable();
+        var goldEnhanceTable = new GoldEnhanceTable();
 
         tables.Add(typeof(MonsterTable), monsterTable);
         tables.Add(typeof(DropTable), dropTable);
+        tables.Add(typeof(CharacterTable), characterLevelTable);
+        tables.Add(typeof(CharacterEnhanceTable), characterEnhanceTable);
+        tables.Add(typeof(GoldEnhanceTable), goldEnhanceTable);
     }
 
     public static T GetTable<T>() where T : DataTable

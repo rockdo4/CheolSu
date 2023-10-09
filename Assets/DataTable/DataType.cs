@@ -15,13 +15,3 @@ public class MonsterData
     int Drop_ID;
 }
 
-public struct CharacterInfo
-{
-    int Character_ID;
-    int Character_Level;
-    int Character_Hp;
-    long Character_EXP;
-    int Character_Atk;
-    int Character_Masin_Atk;
-    int Character_Divine_Atk;
-}

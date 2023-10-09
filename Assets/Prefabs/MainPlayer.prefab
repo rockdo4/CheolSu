@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6661745221183434191}
   - component: {fileID: 6967242010745890020}
+  - component: {fileID: 138475217942317262}
   - component: {fileID: 7494676080365845071}
   - component: {fileID: 6401862986418752052}
   - component: {fileID: 8083079059474903883}
@@ -53,8 +54,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eadcbd0d762f8124796e2eb9bc41cb52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 100
+  currentHealth: 0
+  Damage: 30
+  dead: 0
   HPUI: {fileID: 0}
   background: {fileID: 0}
+  playerInfo: {fileID: 138475217942317262}
+--- !u!114 &138475217942317262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2183761856376519227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04c10dcf7ad8b94098b3fc11f0f6714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &7494676080365845071
 Animator:
   serializedVersion: 5
@@ -115,7 +133,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1479254253
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 4723107735738678597, guid: fc46633b0eb321e46838bcb9ff2d4150, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
