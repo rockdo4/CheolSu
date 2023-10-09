@@ -61,6 +61,12 @@ MonoBehaviour:
   HPUI: {fileID: 0}
   background: {fileID: 0}
   playerInfo: {fileID: 138475217942317262}
+  uiList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &138475217942317262
 MonoBehaviour:
   m_ObjectHideFlags: 0

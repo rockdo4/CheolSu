@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,11 +14,13 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
     public GameInfo gameInfo;
+    public TextMeshProUGUI stage;
+    public TextMeshProUGUI stageLoop;
 
     public Player player;
     public bool enterNext = true;
 
-    private int monsterCount = 2;
+    private int monsterCount = 1;
     private int remainMonster;
 
     private void Awake()
@@ -67,7 +71,7 @@ public class GameManager : MonoBehaviour
         if (gameInfo.mainStageMax == gameInfo.mainStageCurr && gameInfo.subStageMax == gameInfo.subStageCurr)
         {
             gameInfo.subStageMax++; //서브 스테이지 1 올림
-            if(gameInfo.subStageMax == 10) //서브 스테이지가 10이면
+            if(gameInfo.subStageMax == 11) //서브 스테이지가 10이면
             {
                 //서브 스테이지 0으로 줄이고 메인을 1 증가
                 gameInfo.subStageMax = 1;
@@ -79,11 +83,13 @@ public class GameManager : MonoBehaviour
 
         //반복 옵션 꺼져 있으면 다음 스테이지 진행
         gameInfo.subStageCurr++; 
-        if (gameInfo.subStageCurr == 10) 
+        if (gameInfo.subStageCurr == 11) 
         {
             gameInfo.subStageCurr = 1;
             gameInfo.mainStageCurr++;
         }
+
+        SetStageText();
     }
 
     //플레이어가 죽으면
@@ -96,8 +102,38 @@ public class GameManager : MonoBehaviour
         gameInfo.subStageCurr--;
         if (gameInfo.subStageCurr == 0)
         {
-            gameInfo.subStageCurr = 9;
+            gameInfo.subStageCurr = 10;
             gameInfo.mainStageCurr--;
         }
+        SetStageText();
+
+        if (!enterNext) return;
+        StageLoopOnOff();
+    }
+
+    public void SetStageText()
+    {
+        stage.SetText($"KF {gameInfo.mainStageCurr} - {gameInfo.subStageCurr}");
+    }
+
+    public void StageLoopOnOff()
+    {
+        if(enterNext)
+        {
+            //다음 스테이지 진입 비활성
+            enterNext = !enterNext;
+            stageLoop.SetText("스테이지 반복\nON");
+        }
+        else
+        {
+            //다음 스테이지 진입 활성
+            enterNext = !enterNext;
+            stageLoop.SetText("스테이지 반복\nOFF");
+        }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("UI Test");
     }
 }

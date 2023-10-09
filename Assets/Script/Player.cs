@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.U2D.Animation;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +22,7 @@ public class Player : Creature
     public Image HPUI;
     public GameObject background;
     public PlayerInfo playerInfo;
+    public List<TextMeshProUGUI> uiList;
 
     private List<BackGroundScroll> backGroundScrolls;
 
@@ -33,6 +34,8 @@ public class Player : Creature
 
     public PlayerStatus status = new PlayerStatus();
 
+    private int nextExp;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -42,6 +45,8 @@ public class Player : Creature
 
     private void Start()
     {
+        MaxHealth = 10;
+        Damage = 2;
         currentHealth = MaxHealth;
 
         animator.SetBool("Move", true);
@@ -104,6 +109,7 @@ public class Player : Creature
 
     public void MonsterDie()
     {
+        UpdateInterface();
         Invoke("StartMove", 0.5f);
     }
 
@@ -120,18 +126,26 @@ public class Player : Creature
 
     override public void TakeDamage(int damage)
     {
+        if (enemy.dead) return;
         base.TakeDamage(damage);
         if (dead)
         {
             animator.SetBool("Dead", true);
             StartCoroutine(DieProgress());
         }
-        UpdateHealth();
+        UpdateInterface();
     }
 
-    private void UpdateHealth()
+    public void UpdateInterface()
     {
         HPUI.fillAmount = (float)currentHealth / MaxHealth;
+        HPUI.GetComponentInChildren<TextMeshProUGUI>().SetText($"{currentHealth} / {MaxHealth}");
+
+        uiList[0].SetText($"{status._exp} / {nextExp}");
+        uiList[1].SetText($"{Damage}");
+        uiList[2].SetText($"{status._gold}");
+        uiList[3].SetText($"{status._levelPoint}");
+        uiList[4].SetText($"{status._level}");
     }
 
     public void RespawnPlayer()
@@ -141,7 +155,7 @@ public class Player : Creature
         dead = false;
 
         currentHealth = MaxHealth;
-        UpdateHealth();
+        UpdateInterface();
 
 
     }
@@ -161,7 +175,7 @@ public class Player : Creature
     public void StageClear()
     {
         currentHealth = MaxHealth;
-        UpdateHealth();
+        UpdateInterface();
     }
 
     public void GetItem(DropData itemTable)
@@ -170,6 +184,7 @@ public class Player : Creature
         status._gold += itemTable.Monster_Gold;
         status._dragon += itemTable.Monster_DGP;
 
-        playerInfo.CheckLevelUp(this);
+        nextExp = playerInfo.CheckLevelUp(this);
+        UpdateInterface();
     }
 }

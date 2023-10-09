@@ -36,7 +36,7 @@ public class Monster : Creature
     {
         int mainStage = GameManager.Instance.gameInfo.mainStageCurr;
         int subStage = GameManager.Instance.gameInfo.subStageCurr;
-        int currentStage = ((mainStage - 1) * 9) + subStage;
+        int currentStage = ((mainStage - 1) * 10) + subStage;
 
         var info = DataTableMgr.GetTable<MonsterTable>().GetMonsterData(currentStage - 1);
 
@@ -101,6 +101,7 @@ public class Monster : Creature
 
     override public void TakeDamage(int damage)
     {
+        if (player.dead) return;
         base.TakeDamage(damage);
 
         HPUI.fillAmount = (float)currentHealth / MaxHealth;

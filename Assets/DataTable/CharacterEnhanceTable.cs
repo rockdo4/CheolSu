@@ -46,7 +46,6 @@ public class CharacterEnhanceTable : DataTable
                 var temp = new CharacterEnhanceData();
                 temp = record;
                 m_CharacterEnhanceData.Add(temp);
-                //Debug.Log(temp.Monster_ID);
             }
         }
         catch (Exception ex)

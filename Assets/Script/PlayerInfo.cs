@@ -11,10 +11,12 @@ public class PlayerInfo : MonoBehaviour
     void Start()
     {
         charTable = DataTableMgr.GetTable<CharacterTable>();
+
+        
         //나중에 로드
     }
 
-    public void CheckLevelUp(Player info)
+    public int CheckLevelUp(Player info)
     {
         var data = charTable.GetData(info.status._level - 1);
 
@@ -31,5 +33,7 @@ public class PlayerInfo : MonoBehaviour
             //data.Char_GOD 신력
             //data.Char_MAP 마력
         }
+
+        return data.Char_EXP;
     }
 }

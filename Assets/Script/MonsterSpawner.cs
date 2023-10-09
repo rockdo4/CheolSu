@@ -39,7 +39,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         int mainStage = GameManager.Instance.gameInfo.mainStageCurr;
         int subStage = GameManager.Instance.gameInfo.subStageCurr;
-        int currentStage = ((mainStage - 1) * 9) + subStage;
+        int currentStage = ((mainStage - 1) * 10) + subStage;
 
         var monsterData = monsterTable.GetMonsterData(currentStage);
 
