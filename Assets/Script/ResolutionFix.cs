@@ -1,6 +1,8 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class ResolutionFix : MonoBehaviour
@@ -30,19 +32,18 @@ public class ResolutionFix : MonoBehaviour
             rect.x = (1f - scalewidth) / 2f;
         }
         thisCamera.rect = rect;
-
-        
     }
 
-    void OnPreCull() => GL.Clear(true, true, Color.black);
+    //void OnPreCull() => GL.Clear(true, true, Color.black);
 
     private void Start()
     {
-        originsPos = player.transform.position;
-        offset = thisCamera.transform.position.x - player.transform.position.x;
+        offset = (thisCamera.transform.position.x - player.transform.position.x) / screenWidth;
     }
     private void Update()
     {
-        thisCamera.transform.position = originsPos + new Vector3(offset * Screen.width, 0, 0);
+        var temp = offset * Screen.width;
+        
+        thisCamera.transform.position = new Vector3(player.transform.position.x + temp, thisCamera.transform.position.y, thisCamera.transform.position.z);
     }
 }

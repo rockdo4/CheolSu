@@ -17,12 +17,14 @@ public static class DataTableMgr
         var characterLevelTable = new CharacterTable();
         var characterEnhanceTable = new CharacterEnhanceTable();
         var goldEnhanceTable = new GoldEnhanceTable();
+        var skillTable = new SkillTable();
 
         tables.Add(typeof(MonsterTable), monsterTable);
         tables.Add(typeof(DropTable), dropTable);
         tables.Add(typeof(CharacterTable), characterLevelTable);
         tables.Add(typeof(CharacterEnhanceTable), characterEnhanceTable);
         tables.Add(typeof(GoldEnhanceTable), goldEnhanceTable);
+        tables.Add(typeof(SkillTable), skillTable);
     }
 
     public static T GetTable<T>() where T : DataTable
