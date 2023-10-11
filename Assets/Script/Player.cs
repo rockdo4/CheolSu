@@ -1,9 +1,6 @@
-using JetBrains.Annotations;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +19,7 @@ public class Player : Creature
     public Image HPUI;
     public GameObject background;
     public PlayerInfo playerInfo;
+    public PlayerSkill playerSkill;
 
     private List<BackGroundScroll> backGroundScrolls;
 
@@ -61,6 +59,7 @@ public class Player : Creature
         Attack();
     }
 
+    //평타
     private void Attack()
     {
         if (enemy == null) return;
@@ -70,12 +69,14 @@ public class Player : Creature
         lastAttackTime = Time.time;
     }
 
+    //데미지 줌
     private void GiveDamage()
     {
         if(enemy == null) return;
         enemy.TakeDamage(Damage);
     }
-
+    
+    //앞에 적 들어오면 확인
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Enemy"))
@@ -89,6 +90,7 @@ public class Player : Creature
         }
     }
 
+    //앞에 적 사라지면 이동
     private void OnTriggerExit(Collider collision)
     {
         if(collision.CompareTag("Enemy"))
@@ -102,11 +104,13 @@ public class Player : Creature
         }
     }
 
+    //몹 죽은거 확인
     public void MonsterDie()
     {
         Invoke("StartMove", 0.5f);
     }
 
+    //이동 시작
     private void StartMove()
     {
         animator.SetBool("Move", true);
@@ -118,6 +122,7 @@ public class Player : Creature
         Debug.Log($"gold : {status._gold}, exp : {status._exp}, dgp : {status._dragon}");
     }
 
+    //데미지 받음 추상 메소드 구현
     override public void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
@@ -129,11 +134,15 @@ public class Player : Creature
         UpdateHealth();
     }
 
+
+    //체력 바 업데이트
     private void UpdateHealth()
     {
         HPUI.fillAmount = (float)currentHealth / MaxHealth;
     }
 
+
+    //죽은 뒤 부활
     public void RespawnPlayer()
     {
         //MonsterSpawner.Instance.SummonMonster();
@@ -145,7 +154,7 @@ public class Player : Creature
 
 
     }
-
+      
     IEnumerator DieProgress()
     {
         GameManager.Instance.PlayerDie();

@@ -62,10 +62,10 @@ public class SkillTable : DataTable
 
             foreach (var record in records)
             {
-                Debug.Log(record.Skill_Name);
-                //var temp = new SkillData();
-                //temp = record;
-                //m_SkillTableDictionary.Add(temp.Skill_ID, temp);
+                //Debug.Log(record.Skill_Name);
+                var temp = new SkillData();
+                temp = record;
+                m_SkillTableDictionary.Add(temp.Skill_ID, temp);
             }
         }
         catch (Exception ex)

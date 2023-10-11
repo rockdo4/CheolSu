@@ -2233,6 +2233,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267518031}
   m_CullTransparentMesh: 1
+--- !u!1 &272039427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2183761856376519227, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
+  m_PrefabInstance: {fileID: 1107880388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &274904072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,12 +2400,32 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6967242010745890020, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
   m_PrefabInstance: {fileID: 1107880388}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 272039427}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eadcbd0d762f8124796e2eb9bc41cb52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &294279067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272039427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2947c7a2465ef0340bd1af0cdb427d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magma:
+  - {fileID: 7422769134988805060, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
+  - {fileID: 2131262354121555501, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
+  - {fileID: 4690749610073464178, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
+  explosion:
+  - {fileID: 371044775753599773, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
+  - {fileID: 3123562649251334627, guid: de3efd0be15da954886e3506d8f32046, type: 3}
+  - {fileID: 6744752361442629274, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
 --- !u!1 &298886311
 GameObject:
   m_ObjectHideFlags: 0
@@ -9131,10 +9156,17 @@ PrefabInstance:
       propertyPath: background
       value: 
       objectReference: {fileID: 325822027}
+    - target: {fileID: 6967242010745890020, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
+      propertyPath: playerSkill
+      value: 
+      objectReference: {fileID: 294279067}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2183761856376519227, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 294279067}
   m_SourcePrefab: {fileID: 100100000, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
 --- !u!224 &1110021441 stripped
 RectTransform:
@@ -17411,10 +17443,10 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 963194228}
   - {fileID: 325822028}
   - {fileID: 1940991359}
   - {fileID: 1107880388}
   - {fileID: 1074561114}
   - {fileID: 833484915}
   - {fileID: 1836959252}
-  - {fileID: 963194228}
