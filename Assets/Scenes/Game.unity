@@ -9083,49 +9083,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2183761856376519227, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 7.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 7.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.57
+      value: 13.64
       objectReference: {fileID: 0}
     - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 1.58
       objectReference: {fileID: 0}
     - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9148,14 +9112,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 13.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 6661745221183434191, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -9175,10 +9131,6 @@ PrefabInstance:
       propertyPath: background
       value: 
       objectReference: {fileID: 325822027}
-    - target: {fileID: 8851477657804033629, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
