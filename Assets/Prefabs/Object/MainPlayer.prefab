@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6401862986418752052}
   - component: {fileID: 8083079059474903883}
   - component: {fileID: 8661830096091660812}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: MainPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -38,6 +38,7 @@ Transform:
   m_Children:
   - {fileID: 541721322140878865}
   - {fileID: 3149039534075488931}
+  - {fileID: 2447315469448552114}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6967242010745890020
@@ -85,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2947c7a2465ef0340bd1af0cdb427d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magmaPos: {fileID: 2447315469448552114}
 --- !u!95 &7494676080365845071
 Animator:
   serializedVersion: 5
@@ -206,6 +208,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!1 &3326272904832931205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2447315469448552114}
+  m_Layer: 6
+  m_Name: MagmaPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2447315469448552114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3326272904832931205}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.713, y: 0.086, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6661745221183434191}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8851477657804033629
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 541721322140878865}
   - component: {fileID: 1937709289335814806}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: TargetArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,6 +367,10 @@ PrefabInstance:
     - target: {fileID: 8733514384126542107, guid: f1af39430f465a0409101c4dc48fa376, type: 3}
       propertyPath: m_Name
       value: Level_Up_blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733514384126542107, guid: f1af39430f465a0409101c4dc48fa376, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

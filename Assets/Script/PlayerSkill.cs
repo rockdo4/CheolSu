@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Net.Http.Headers;
 using UnityEngine;
 
 public struct SkillInfo
@@ -28,7 +24,9 @@ public class PlayerSkill : MonoBehaviour
     private SkillInfo desireInfo;
 
     private SkillTable skillTable;
-    
+
+    public Transform magmaPos;
+
 
     private void Start()
     {
@@ -61,7 +59,7 @@ public class PlayerSkill : MonoBehaviour
     public void ActiveMagma()
     {
         var obj = ObjectPoolManager.instance.GetGo("SkillEffect");
-        obj.GetComponent<SkillEffect>().SkillMagma(player, magmaInfo);
+        obj.GetComponent<SkillEffect>().SkillMagma(player, magmaInfo, magmaPos);
     }
 
     public void ActiveExplosion()

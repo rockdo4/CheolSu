@@ -28,4 +28,9 @@ public class Creature : MonoBehaviour
             dead = true;
         }
     }
+
+    IEnumerator TakeDotDamage(int damage)
+    {
+        yield return null;
+    }
 }

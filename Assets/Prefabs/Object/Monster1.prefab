@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 235393451378585452}
   - component: {fileID: 8981961771246126614}
   - component: {fileID: 3210633388540081773}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Monster1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2351164931219866936}
   - component: {fileID: 8763046017464777909}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 7819380999722556967}
   - component: {fileID: 515629724283312500}
   - component: {fileID: 6588237045320971267}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 2566714023614809555}
   - component: {fileID: 5796592829591133013}
   - component: {fileID: 6230254326634407372}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: currHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 1932362377826931437}
   - component: {fileID: 9005451494101767147}
   - component: {fileID: 5781057506609083068}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: maxHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
