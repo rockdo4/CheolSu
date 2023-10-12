@@ -50,6 +50,7 @@ public class MonsterTable : DataTable
             {
                 var temp = new MonsterData();
                 temp = record;
+               
                 m_MonsterList.Add(temp);
                 Debug.Log(temp.Monster_Hp);
             }
