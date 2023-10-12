@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using UnityEngine;
 using Unity.VisualScripting;
+using JetBrains.Annotations;
 
 enum SKillType
 {
@@ -23,8 +24,6 @@ public class SkillData
     public int Skill_Cool { get; set; }
     public float Skill_Dmg { get; set; }
     public float Skill_LevelUpDmgIncrease { get; set; }
-    public float Skill_Heal { get; set; }
-    public float Skill_LevelUpHealIncrease { get; set; }
     public int Skill_ATKUp { get; set; }
     public int Skill_LevelUpATKUpIncrease { get; set; }
     public float Skill_ATKSpeed { get; set; }
@@ -62,7 +61,6 @@ public class SkillTable : DataTable
 
             foreach (var record in records)
             {
-                //Debug.Log(record.Skill_Name);
                 var temp = new SkillData();
                 temp = record;
                 m_SkillTableDictionary.Add(temp.Skill_ID, temp);
@@ -77,7 +75,10 @@ public class SkillTable : DataTable
 
     public SkillData GetSkillData(int ID)
     {
-        var data = m_SkillTableDictionary[ID];
-        return data;
+        if(m_SkillTableDictionary.ContainsKey(ID))
+        {
+            return m_SkillTableDictionary[ID];
+        }
+        return null;
     }
 }

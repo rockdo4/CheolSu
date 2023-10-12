@@ -1,10 +1,10 @@
-﻿Skill_Name,Skill_ID,Skill_Type,Skill_LearnLevel,Skill_Cool,Skill_Dmg,Skill_LevelUpDmgIncrease,Skill_Heal,Skill_LevelUpHealIncrease,Skill_ATKUp,Skill_LevelUpATKUpIncrease,Skill_ATKSpeed,Skill_LevelUpATKSpeedIncrease,Skill_MAP,Skill_LevelUpMAPIncrease,Skill_GOD,Skill_LevelUpGODIncrease
-공기 파괴,11000101,1,5,5,1.3,0.1,0,0,0,0,0,0,0,0,0,0
-지면 폭발,11000102,1,10,15,3,0.2,0,0,0,0,0,0,0,0,0,0
-용암 번개,11000103,1,20,20,5,0.5,0,0,0,0,0,0,0,0,0,0
-용암 샷건,11000104,1,30,10,4,0.5,0,0,0,0,0,0,0,0,0,0
-마신의 축복,11000105,1,35,30,0,0,30,0.5,0,0,0,0,0,0,0,0
-용암 충전,11000106,1,40,30,0,0,0,0,300,30,0,0,0,0,0,0
-운동량 증가,21000101,2,10,0,0,0,0,0,10,2,0,0,0,0,0,0
-칼질,21000102,2,15,0,0,0,0,0,0,0,0.5,0.5,0,0,0,0
-철수의 염원,21000103,2,30,0,0,0,0,0,0,0,0,0,5,5,5,5
+﻿Skill_Name,Skill_ID,Skill_Type,Skill_LearnLevel,Skill_Cool,Skill_Dmg,Skill_LevelUpDmgIncrease,Skill_ATKUp,Skill_LevelUpATKUpIncrease,Skill_ATKSpeed,Skill_LevelUpATKSpeedIncrease,Skill_MAP,Skill_LevelUpMAPIncrease,Skill_GOD,Skill_LevelUpGODIncrease
+용암조종_A,11000101,1,5,10,1.3,0.1,0,0,0,0,0,0,0,0
+용암조종_B,11000102,1,0,10,6.1,0.2,0,0,0,0,20,2,20,2
+용암조종_C,11000103,1,0,5,15.9,0.3,0,0,0,0,118,3,118,3
+익스플로전_A,11000201,1,20,15,2,0.1,0,0,0,0,0,0,0,0
+익스플로전_B,11000202,1,0,10,6.9,0.3,0,0,0,0,0,0,0,0
+익스플로전_C,11000203,1,0,5,21.6,0.5,300,10,0,0,0,0,0,0
+운동량 증가,21000101,2,10,0,0,0,10,2,0,0,0,0,0,0
+칼질,21000102,2,15,0,0,0,0,0,0.5,0.5,0,0,0,0
+철수의 염원,21000103,2,30,0,0,0,0,0,0,0,5,5,5,5

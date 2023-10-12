@@ -7,30 +7,21 @@ public class ObjectPoolManager : MonoBehaviour
     [System.Serializable]
     private class ObjectInfo
     {
-        // 오브젝트 이름
         public string objectName;
-        // 오브젝트 풀에서 관리할 오브젝트
         public GameObject prefab;
-        // 몇개를 미리 생성 해놓을건지
         public int count;
     }
 
-
     public static ObjectPoolManager instance;
 
-    // 오브젝트풀 매니저 준비 완료표시
     public bool IsReady { get; private set; }
 
     [SerializeField]
     private ObjectInfo[] objectInfos = null;
 
-    // 생성할 오브젝트의 key값지정을 위한 변수
     private string objectName;
 
-    // 오브젝트풀들을 관리할 딕셔너리
     private Dictionary<string, IObjectPool<GameObject>> ojbectPoolDic = new Dictionary<string, IObjectPool<GameObject>>();
-
-    // 오브젝트풀에서 오브젝트를 새로 생성할때 사용할 딕셔너리
     private Dictionary<string, GameObject> goDic = new Dictionary<string, GameObject>();
 
     private void Awake()
@@ -62,7 +53,7 @@ public class ObjectPoolManager : MonoBehaviour
             goDic.Add(objectInfos[idx].objectName, objectInfos[idx].prefab);
             ojbectPoolDic.Add(objectInfos[idx].objectName, pool);
 
-            // 미리 오브젝트 생성 해놓기
+            // 미리 오브젝트 생성
             for (int i = 0; i < objectInfos[idx].count; i++)
             {
                 objectName = objectInfos[idx].objectName;

@@ -27,7 +27,7 @@ public class Player : Creature
     private float lastAttackTime;
 
     private Animator animator;
-    private Creature enemy = null;   
+    public Creature enemy = null;   
 
     public PlayerStatus status = new PlayerStatus();
 

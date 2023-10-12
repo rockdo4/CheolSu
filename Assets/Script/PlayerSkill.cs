@@ -1,31 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Net.Http.Headers;
 using UnityEngine;
 
-public struct Skill
+public struct SkillInfo
 {
     public int maxLevel;
     public int level;
     public int cost;
     public float increaseCost;
     public SkillData data;
+
+    public const int Skill_Tier1 = 50;
+    public const int Skill_Tier2 = 100;
+    public const int Skill_Tier3 = 201;
 }
 
 public class PlayerSkill : MonoBehaviour
 {
     private Player player;
 
-    private const int Skill_Tier1 = 50;
-    private const int Skill_Tier2 = 100;
-    private const int Skill_Tier3 = 201;
-
-    [SerializeField]
-    private List<ParticleSystem> magma;
-    private Skill magmaInfo;
-
-    [SerializeField]
-    private List<ParticleSystem> explosion;
-    private Skill explosionInfo;
+    private SkillInfo magmaInfo;
+    private SkillInfo explosionInfo;
+    private SkillInfo exerciseInfo;
+    private SkillInfo fenceInfo;
+    private SkillInfo desireInfo;
 
     private SkillTable skillTable;
     
@@ -36,92 +36,160 @@ public class PlayerSkill : MonoBehaviour
         skillTable = DataTableMgr.GetTable<SkillTable>();
 
         magmaInfo.data = skillTable.GetSkillData(11000101);
-        //explosionInfo.data = skillTable.GetSkillData(11000201);
-    }
-
-    public void UseMagma(Creature enemy, int damage)
-    {
-        switch(magmaInfo.level)
-        {
-            case < Skill_Tier1:
-                MagmaTier1(enemy, damage);
-                break;
-            case < Skill_Tier2:
-                MagmaTier2(enemy, damage);
-                break;
-            case < Skill_Tier3:
-                MagmaTier3(enemy, damage);
-                break;
-            default: 
-                break;
-        }
+        explosionInfo.data = skillTable.GetSkillData(11000201);
+        exerciseInfo.data = skillTable.GetSkillData(21000101);
+        fenceInfo.data = skillTable.GetSkillData(21000102);
+        desireInfo.data = skillTable.GetSkillData(21000103);
     }
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            MagmaTier1(default, default);
+            ActiveMagma();
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            MagmaTier2(default, default);
+            ActiveExplosion();
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            MagmaTier3(default, default);
+            
         }
     }
 
-    public void UseExplosion()
+    public void ActiveMagma()
     {
-
+        var obj = ObjectPoolManager.instance.GetGo("SkillEffect");
+        obj.GetComponent<SkillEffect>().SkillMagma(player, magmaInfo);
     }
 
-    public void MagmaTier1(Creature enemy, int damage)
+    public void ActiveExplosion()
     {
-        var effect = Instantiate(magma[0], player.transform.position, Quaternion.identity);
-        effect.Stop();
-        effect.Play();
+        var obj = ObjectPoolManager.instance.GetGo("SkillEffect");
+        obj.GetComponent<SkillEffect>().SkillExplosion(player, explosionInfo);
     }
 
-    public void MagmaTier2(Creature enemy, int damage)
+    public void UpgradeMagma()
     {
-        var effect = Instantiate(magma[1], player.transform.position, Quaternion.identity);
-        effect.Stop();
-        effect.Play();
-    }
-
-    public void MagmaTier3(Creature enemy, int damage)
-    {
-        var effect = Instantiate(magma[2], player.transform.position, Quaternion.identity);
-        effect.Stop();
-        effect.Play();
-    }
-
-    public void ExplosionTier1()
-    {
-        explosion[0].Play();
-    }
-
-    public void ExplosionTier2()
-    {
-        explosion[1].Play();
-    }
-
-    public void ExplosionTier3()
-    {
-        explosion[2].Play();
-    }
-
-    IEnumerator TakeDot(Creature enemy, int damage, int count)
-    {
-        while(count > 0)
+        if(magmaInfo.level >= magmaInfo.maxLevel)
         {
-            yield return new WaitForSeconds(0.2f);
-            enemy.TakeDamage(damage);
-            count--;
+            Debug.Log("최대 레벨");
+            return;
         }
-        yield return null;
+
+        var cost = magmaInfo.cost * Mathf.Pow(magmaInfo.increaseCost, magmaInfo.level - 1);
+
+        if(player.status._gold < (int)cost)
+        {
+            Debug.Log("골드 모자람");
+            return;
+        }
+
+        player.status._gold -= (int)cost;
+        magmaInfo.level++;
+        Debug.Log("업그레이드");
+
+        if (magmaInfo.level == SkillInfo.Skill_Tier1)
+        {
+            magmaInfo.data = skillTable.GetSkillData(11000102);
+        }
+        else if(magmaInfo.level == SkillInfo.Skill_Tier2)
+        {
+            magmaInfo.data = skillTable.GetSkillData(11000103);
+        }
+    }
+
+    public void UpgradeExplosion()
+    {
+        if (explosionInfo.level >= explosionInfo.maxLevel)
+        {
+            Debug.Log("최대 레벨");
+            return;
+        }
+
+        var cost = explosionInfo.cost * Mathf.Pow(explosionInfo.increaseCost, explosionInfo.level - 1);
+
+        if (player.status._gold < (int)cost)
+        {
+            Debug.Log("골드 모자람");
+            return;
+        }
+
+        player.status._gold -= (int)cost;
+        explosionInfo.level++;
+        Debug.Log("업그레이드");
+
+        if (explosionInfo.level == SkillInfo.Skill_Tier1)
+        {
+            explosionInfo.data = skillTable.GetSkillData(11000102);
+        }
+        else if (explosionInfo.level == SkillInfo.Skill_Tier2)
+        {
+            explosionInfo.data = skillTable.GetSkillData(11000103);
+        }
+    }
+
+    public void UpgradeExercise()
+    {
+        if (exerciseInfo.level >= exerciseInfo.maxLevel)
+        {
+            Debug.Log("최대 레벨");
+            return;
+        }
+
+        var cost = exerciseInfo.cost * Mathf.Pow(exerciseInfo.increaseCost, exerciseInfo.level - 1);
+
+        if (player.status._gold < (int)cost)
+        {
+            Debug.Log("골드 모자람");
+            return;
+        }
+
+        player.status._gold -= (int)cost;
+        exerciseInfo.level++;
+        Debug.Log("업그레이드");
+    }
+
+    public void UpgradeFence()
+    {
+        if (fenceInfo.level >= fenceInfo.maxLevel)
+        {
+            Debug.Log("최대 레벨");
+            return;
+        }
+
+        var cost = fenceInfo.cost * Mathf.Pow(fenceInfo.increaseCost, fenceInfo.level - 1);
+
+        if (player.status._gold < (int)cost)
+        {
+            Debug.Log("골드 모자람");
+            return;
+        }
+
+        player.status._gold -= (int)cost;
+        fenceInfo.level++;
+        Debug.Log("업그레이드");
+    }
+
+    public void UpgradeDesire()
+    {
+        if (desireInfo.level >= desireInfo.maxLevel)
+        {
+            Debug.Log("최대 레벨");
+            return;
+        }
+
+        var cost = desireInfo.cost * Mathf.Pow(desireInfo.increaseCost, desireInfo.level - 1);
+
+        if (player.status._gold < (int)cost)
+        {
+            Debug.Log("골드 모자람");
+            return;
+        }
+
+        player.status._gold -= (int)cost;
+        desireInfo.level++;
+        Debug.Log("업그레이드");
     }
 }
