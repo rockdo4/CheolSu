@@ -52,7 +52,6 @@ public class MonsterTable : DataTable
                 temp = record;
                
                 m_MonsterList.Add(temp);
-                Debug.Log(temp.Monster_Hp);
             }
         }
         catch(Exception ex)

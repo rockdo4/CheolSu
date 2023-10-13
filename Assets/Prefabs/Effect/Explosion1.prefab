@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 371044775753599773}
   - component: {fileID: 371044775753599774}
   - component: {fileID: -5078578687441363476}
+  - component: {fileID: 1634734958399258682}
   m_Layer: 0
   m_Name: Explosion1
   m_TagString: Untagged
@@ -3678,7 +3679,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -3856,7 +3857,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 192
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -3864,12 +3865,12 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 2
     inside: 0
     outside: 0
     enter: 2
-    exit: 0
+    exit: 2
     colliderQueryMode: 1
     radiusScale: 1
     primitives:
@@ -4910,3 +4911,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7996b47c1e70d24bb1036976633b118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1634734958399258682
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371044775753599775}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

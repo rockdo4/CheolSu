@@ -35,7 +35,7 @@ public class MonsterSpawner : MonoBehaviour
         
     }
 
-    public void SummonMonster()
+    public Creature SummonMonster()
     {
         int mainStage = GameManager.Instance.gameInfo.mainStageCurr;
         int subStage = GameManager.Instance.gameInfo.subStageCurr;
@@ -46,5 +46,6 @@ public class MonsterSpawner : MonoBehaviour
         var monster = Instantiate(MonsterPrefabList[mainStage], transform.position, Quaternion.identity);
         var info = monster.GetComponent<Monster>();
         //Debug.Log($"KF{mainStage} - {subStage}, {info.ID}, {info.Name}, {info.MaxHealth}, {info.Damage}");
+        return info;
     }
 }

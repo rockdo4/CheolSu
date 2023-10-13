@@ -1,5 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class Monster : Creature
 {
@@ -101,13 +105,33 @@ public class Monster : Creature
 
     override public void TakeDamage(int damage)
     {
-        if (player.dead) return;
+        if (player != null)
+        {
+            if (player.dead) return;
+        }
+
         base.TakeDamage(damage);
 
         HPUI.fillAmount = (float)currentHealth / MaxHealth;
         if (dead)
         {
             animator.SetBool("Death", true);
+        }
+    }
+
+    public void Dot(int count, int damage)
+    {
+        StartCoroutine(TakeDotDamage(count, damage));
+    }
+
+    public IEnumerator TakeDotDamage(int count, int damage)
+    {
+        while (count > 0)
+        {
+            yield return new WaitForSeconds(0.2f);
+            Debug.Log(damage);
+            TakeDamage(Mathf.RoundToInt(damage * 0.2f));
+            count--;
         }
     }
 

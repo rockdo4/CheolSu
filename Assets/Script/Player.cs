@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class PlayerStatus
 {
-    public int _gold = 0;
+    public int _gold = 2100000000;
     public int _dragon = 0;
     public int _diamond = 0;
     public int _exp = 0;
@@ -30,7 +30,7 @@ public class Player : Creature
     private float lastAttackTime;
 
     private Animator animator;
-    private Creature enemy = null;   
+    public Creature enemy = null;   
 
     public PlayerStatus status = new PlayerStatus();
 
@@ -45,8 +45,8 @@ public class Player : Creature
 
     private void Start()
     {
-        MaxHealth = 10;
-        Damage = 2;
+        MaxHealth = 10000;
+        Damage = 100;
         currentHealth = MaxHealth;
 
         animator.SetBool("Move", true);
@@ -141,6 +141,7 @@ public class Player : Creature
         HPUI.fillAmount = (float)currentHealth / MaxHealth;
         HPUI.GetComponentInChildren<TextMeshProUGUI>().SetText($"{currentHealth} / {MaxHealth}");
 
+        if (uiList.Count == 0) return;
         uiList[0].SetText($"{status._exp} / {nextExp}");
         uiList[1].SetText($"{Damage}");
         uiList[2].SetText($"{status._gold}");
@@ -156,8 +157,6 @@ public class Player : Creature
 
         currentHealth = MaxHealth;
         UpdateInterface();
-
-
     }
 
     IEnumerator DieProgress()

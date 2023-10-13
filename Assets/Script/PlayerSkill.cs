@@ -23,6 +23,7 @@ public class PlayerSkill : MonoBehaviour
     private SkillInfo fenceInfo;
     private SkillInfo desireInfo;
 
+
     private SkillTable skillTable;
 
     public Transform magmaPos;
@@ -30,14 +31,48 @@ public class PlayerSkill : MonoBehaviour
 
     private void Start()
     {
+        SkillCostTable skillCostTable = DataTableMgr.GetTable<SkillCostTable>();
+        
         player = GetComponentInParent<Player>();
         skillTable = DataTableMgr.GetTable<SkillTable>();
 
+        var magma = skillCostTable.GetCostData(0);
         magmaInfo.data = skillTable.GetSkillData(11000101);
+        magmaInfo.maxLevel = magma.maxLevel;
+        magmaInfo.cost = magma.cost;
+        magmaInfo.increaseCost = magma.increaseCost;
+        magmaInfo.level = 1;
+
+        var explosion = skillCostTable.GetCostData(1);
         explosionInfo.data = skillTable.GetSkillData(11000201);
+        explosionInfo.maxLevel = explosion.maxLevel;
+        explosionInfo.cost = explosion.cost;
+        explosionInfo.increaseCost = explosion.increaseCost;
+        explosionInfo.level = 1;
+
+        var exercise = skillCostTable.GetCostData(2);
         exerciseInfo.data = skillTable.GetSkillData(21000101);
+        exerciseInfo.maxLevel = exercise.maxLevel;
+        exerciseInfo.cost = exercise.cost;
+        exerciseInfo.increaseCost = exercise.increaseCost;
+        exerciseInfo.level = 1;
+
+        var fence = skillCostTable.GetCostData(3);
         fenceInfo.data = skillTable.GetSkillData(21000102);
+        fenceInfo.maxLevel = fence.maxLevel;
+        fenceInfo.cost = fence.cost;
+        fenceInfo.increaseCost = fence.increaseCost;
+        fenceInfo.level = 1;
+
+        var desire = skillCostTable.GetCostData(4);
         desireInfo.data = skillTable.GetSkillData(21000103);
+        desireInfo.maxLevel = desire.maxLevel;
+        desireInfo.cost = desire.cost;
+        desireInfo.increaseCost = desire.increaseCost;
+        desireInfo.level = 1;
+
+        //데이터 있으면 로드
+        //아래에 추가 해야함
     }
 
     private void Update()
@@ -52,7 +87,11 @@ public class PlayerSkill : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            
+            UpgradeMagma();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            UpgradeExplosion();
         }
     }
 
@@ -86,7 +125,7 @@ public class PlayerSkill : MonoBehaviour
 
         player.status._gold -= (int)cost;
         magmaInfo.level++;
-        Debug.Log("업그레이드");
+        Debug.Log(("업그레이드", "현재 레벨: " + magmaInfo.level));
 
         if (magmaInfo.level == SkillInfo.Skill_Tier1)
         {
@@ -116,7 +155,7 @@ public class PlayerSkill : MonoBehaviour
 
         player.status._gold -= (int)cost;
         explosionInfo.level++;
-        Debug.Log("업그레이드");
+        Debug.Log(("업그레이드", "현재 레벨: " + explosionInfo.level));
 
         if (explosionInfo.level == SkillInfo.Skill_Tier1)
         {

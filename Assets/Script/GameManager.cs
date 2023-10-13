@@ -41,10 +41,10 @@ public class GameManager : MonoBehaviour
         if(true)
         {
             //저장 데이터가 없으면
-            gameInfo.mainStageMax = 1;
-            gameInfo.subStageMax = 1;
-            gameInfo.mainStageCurr = 1;
-            gameInfo.subStageCurr = 1;
+            gameInfo.mainStageMax = 4;
+            gameInfo.subStageMax = 4;
+            gameInfo.mainStageCurr = 4;
+            gameInfo.subStageCurr = 4;
             remainMonster = monsterCount;
         }
         else
@@ -113,11 +113,13 @@ public class GameManager : MonoBehaviour
 
     public void SetStageText()
     {
+        if (stage == null) return;
         stage.SetText($"KF {gameInfo.mainStageCurr} - {gameInfo.subStageCurr}");
     }
 
     public void StageLoopOnOff()
     {
+        if(stageLoop == null) return;   
         if(enterNext)
         {
             //다음 스테이지 진입 비활성

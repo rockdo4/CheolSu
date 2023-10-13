@@ -18,6 +18,7 @@ public static class DataTableMgr
         var characterEnhanceTable = new CharacterEnhanceTable();
         var goldEnhanceTable = new GoldEnhanceTable();
         var skillTable = new SkillTable();
+        var skillCostTable = new SkillCostTable();
 
         tables.Add(typeof(MonsterTable), monsterTable);
         tables.Add(typeof(DropTable), dropTable);
@@ -25,6 +26,7 @@ public static class DataTableMgr
         tables.Add(typeof(CharacterEnhanceTable), characterEnhanceTable);
         tables.Add(typeof(GoldEnhanceTable), goldEnhanceTable);
         tables.Add(typeof(SkillTable), skillTable);
+        tables.Add(typeof(SkillCostTable), skillCostTable);
     }
 
     public static T GetTable<T>() where T : DataTable

@@ -107,6 +107,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7422769134988805060, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422769134988805060, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
+      propertyPath: TriggerModule.exit
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422769134988805060, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
       propertyPath: TriggerModule.enter
       value: 2
       objectReference: {fileID: 0}
@@ -124,7 +132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7422769134988805060, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
       propertyPath: CollisionModule.enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7422769134988805060, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
       propertyPath: CollisionModule.collisionMode
@@ -132,10 +140,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7422769134988805060, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
       propertyPath: CollisionModule.m_Bounce.scalar
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7422769134988805060, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
       propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422769134988805060, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7422769134988805060, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
@@ -148,6 +160,10 @@ PrefabInstance:
       objectReference: {fileID: 3921807229554328711, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
     - target: {fileID: 7422769134988805060, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
       propertyPath: CollisionModule.multiplyColliderForceByParticleSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422769134988805060, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByCollisionAngle
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7422769134988805062, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
@@ -163,6 +179,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7422769134988805062, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7977352042285096294}
+    - targetCorrespondingSourceObject: {fileID: 7422769134988805062, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1349475803628340399}
   m_SourcePrefab: {fileID: 100100000, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
 --- !u!198 &5451959586129981121 stripped
 ParticleSystem:
@@ -186,6 +205,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7996b47c1e70d24bb1036976633b118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1349475803628340399
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451959586129981123}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &5451959586129981126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7422769134988805059, guid: 06a1d75dac014e24291ede0621b70276, type: 3}
@@ -240,6 +280,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2131262354121555501, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131262354121555501, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
+      propertyPath: TriggerModule.exit
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131262354121555501, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
       propertyPath: TriggerModule.enter
       value: 2
       objectReference: {fileID: 0}
@@ -257,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2131262354121555501, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
       propertyPath: CollisionModule.enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2131262354121555501, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
       propertyPath: CollisionModule.collisionMode
@@ -265,10 +313,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2131262354121555501, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
       propertyPath: CollisionModule.m_Bounce.scalar
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2131262354121555501, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
       propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131262354121555501, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2131262354121555501, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
@@ -279,6 +331,14 @@ PrefabInstance:
       propertyPath: TriggerModule.primitives.Array.data[0]
       value: 
       objectReference: {fileID: 3921807229554328711, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
+    - target: {fileID: 2131262354121555501, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByParticleSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131262354121555501, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByCollisionAngle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2131262354121555503, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
       propertyPath: m_Name
       value: Flame2
@@ -291,6 +351,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2131262354121555503, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2296464386238976570}
+    - targetCorrespondingSourceObject: {fileID: 2131262354121555503, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1350877986108150767}
   m_SourcePrefab: {fileID: 100100000, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
 --- !u!1 &3739815934668969813 stripped
 GameObject:
@@ -309,6 +372,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7996b47c1e70d24bb1036976633b118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1350877986108150767
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3739815934668969813}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &3739815934668969814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2131262354121555500, guid: a1b12535cc7dae74cabe8bb19cfaa212, type: 3}
@@ -372,6 +456,14 @@ PrefabInstance:
       value: Flame3
       objectReference: {fileID: 0}
     - target: {fileID: 4690749610073464178, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690749610073464178, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
+      propertyPath: TriggerModule.exit
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690749610073464178, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
       propertyPath: TriggerModule.enter
       value: 2
       objectReference: {fileID: 0}
@@ -389,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4690749610073464178, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
       propertyPath: CollisionModule.enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4690749610073464178, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
       propertyPath: CollisionModule.collisionMode
@@ -397,10 +489,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4690749610073464178, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
       propertyPath: CollisionModule.m_Bounce.scalar
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4690749610073464178, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
       propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690749610073464178, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4690749610073464178, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
@@ -411,6 +507,14 @@ PrefabInstance:
       propertyPath: TriggerModule.primitives.Array.data[0]
       value: 
       objectReference: {fileID: 3921807229554328711, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
+    - target: {fileID: 4690749610073464178, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByParticleSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690749610073464178, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByCollisionAngle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 133095500291312139, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
     m_RemovedGameObjects: []
@@ -419,6 +523,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4690749610073464176, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7644075989880512085}
+    - targetCorrespondingSourceObject: {fileID: 4690749610073464176, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4633416863695021388}
   m_SourcePrefab: {fileID: 100100000, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
 --- !u!198 &301193359835909392 stripped
 ParticleSystem:
@@ -442,6 +549,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7996b47c1e70d24bb1036976633b118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &4633416863695021388
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301193359835909394}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &301193359835909423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4690749610073464141, guid: 666e42b16c460d641ba1480607e72a36, type: 3}
@@ -455,6 +583,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2268869174791438508}
     m_Modifications:
+    - target: {fileID: 6744752361442629274, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744752361442629274, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
+      propertyPath: TriggerModule.exit
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6744752361442629274, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
       propertyPath: TriggerModule.enter
       value: 2
@@ -473,7 +609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6744752361442629274, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
       propertyPath: CollisionModule.enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6744752361442629274, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
       propertyPath: CollisionModule.collisionMode
@@ -481,11 +617,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6744752361442629274, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
       propertyPath: CollisionModule.m_Bounce.scalar
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6744752361442629274, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
       propertyPath: CollisionModule.collisionMessages
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744752361442629274, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6744752361442629274, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
@@ -495,6 +635,14 @@ PrefabInstance:
       propertyPath: TriggerModule.primitives.Array.data[0]
       value: 
       objectReference: {fileID: 3921807229554328711, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
+    - target: {fileID: 6744752361442629274, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByParticleSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744752361442629274, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByCollisionAngle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6744752361442629275, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -547,6 +695,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6744752361442629276, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6444040766398248895}
+    - targetCorrespondingSourceObject: {fileID: 6744752361442629276, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4937163121651108812}
   m_SourcePrefab: {fileID: 100100000, guid: 9a1f1b10133bf3a46adf20636c9d5a6d, type: 3}
 --- !u!4 &1659965804776751514 stripped
 Transform:
@@ -575,6 +726,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7996b47c1e70d24bb1036976633b118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &4937163121651108812
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659965804776751517}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5583948013181531281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -624,6 +796,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3123562649251334627, guid: de3efd0be15da954886e3506d8f32046, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123562649251334627, guid: de3efd0be15da954886e3506d8f32046, type: 3}
+      propertyPath: TriggerModule.exit
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123562649251334627, guid: de3efd0be15da954886e3506d8f32046, type: 3}
       propertyPath: TriggerModule.enter
       value: 2
       objectReference: {fileID: 0}
@@ -641,7 +821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3123562649251334627, guid: de3efd0be15da954886e3506d8f32046, type: 3}
       propertyPath: CollisionModule.enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3123562649251334627, guid: de3efd0be15da954886e3506d8f32046, type: 3}
       propertyPath: CollisionModule.collisionMode
@@ -649,11 +829,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3123562649251334627, guid: de3efd0be15da954886e3506d8f32046, type: 3}
       propertyPath: CollisionModule.m_Bounce.scalar
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3123562649251334627, guid: de3efd0be15da954886e3506d8f32046, type: 3}
       propertyPath: CollisionModule.collisionMessages
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123562649251334627, guid: de3efd0be15da954886e3506d8f32046, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3123562649251334627, guid: de3efd0be15da954886e3506d8f32046, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
@@ -663,6 +847,14 @@ PrefabInstance:
       propertyPath: TriggerModule.primitives.Array.data[0]
       value: 
       objectReference: {fileID: 3921807229554328711, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
+    - target: {fileID: 3123562649251334627, guid: de3efd0be15da954886e3506d8f32046, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByParticleSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123562649251334627, guid: de3efd0be15da954886e3506d8f32046, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByCollisionAngle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3123562649251334629, guid: de3efd0be15da954886e3506d8f32046, type: 3}
       propertyPath: m_Name
       value: Explosion2
@@ -675,6 +867,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3123562649251334629, guid: de3efd0be15da954886e3506d8f32046, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4800409450314401653}
+    - targetCorrespondingSourceObject: {fileID: 3123562649251334629, guid: de3efd0be15da954886e3506d8f32046, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7570951893483063208}
   m_SourcePrefab: {fileID: 100100000, guid: de3efd0be15da954886e3506d8f32046, type: 3}
 --- !u!198 &7360909892257004914 stripped
 ParticleSystem:
@@ -703,6 +898,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7996b47c1e70d24bb1036976633b118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7570951893483063208
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7360909892257004916}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &6011962749339891063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -752,6 +968,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 371044775753599773, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 371044775753599773, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
+      propertyPath: TriggerModule.exit
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 371044775753599773, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
       propertyPath: TriggerModule.enter
       value: 2
       objectReference: {fileID: 0}
@@ -765,7 +989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 371044775753599773, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
       propertyPath: CollisionModule.enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 371044775753599773, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
       propertyPath: CollisionModule.collisionMode
@@ -773,7 +997,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 371044775753599773, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
       propertyPath: CollisionModule.m_Bounce.scalar
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 371044775753599773, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 371044775753599773, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
@@ -783,6 +1011,14 @@ PrefabInstance:
       propertyPath: TriggerModule.primitives.Array.data[0]
       value: 
       objectReference: {fileID: 3921807229554328711, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
+    - target: {fileID: 371044775753599773, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByParticleSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 371044775753599773, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByCollisionAngle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 371044775753599774, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -799,6 +1035,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 371044775753599775, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2218903826353866403}
+    - targetCorrespondingSourceObject: {fileID: 371044775753599775, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5944503127624090867}
   m_SourcePrefab: {fileID: 100100000, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
 --- !u!1 &6217499684601478760 stripped
 GameObject:
@@ -817,6 +1056,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7996b47c1e70d24bb1036976633b118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &5944503127624090867
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6217499684601478760}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &6217499684601478762 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 371044775753599773, guid: 56f3630aa61075b4bbcb1dc755a806a7, type: 3}
