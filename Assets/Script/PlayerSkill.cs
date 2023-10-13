@@ -159,11 +159,11 @@ public class PlayerSkill : MonoBehaviour
 
         if (explosionInfo.level == SkillInfo.Skill_Tier1)
         {
-            explosionInfo.data = skillTable.GetSkillData(11000102);
+            explosionInfo.data = skillTable.GetSkillData(11000202);
         }
         else if (explosionInfo.level == SkillInfo.Skill_Tier2)
         {
-            explosionInfo.data = skillTable.GetSkillData(11000103);
+            explosionInfo.data = skillTable.GetSkillData(11000203);
         }
     }
 
