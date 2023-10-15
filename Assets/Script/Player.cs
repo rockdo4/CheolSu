@@ -104,6 +104,7 @@ public class Player : Creature
         if(Input.GetKeyDown(KeyCode.PageUp))
         {
             status._gold += 10000;
+            UpdateInterface();
         }
     }
 
@@ -177,6 +178,17 @@ public class Player : Creature
         UpdateInterface();
     }
 
+    public void AbsoluteTakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        if (dead)
+        {
+            animator.SetBool("Dead", true);
+            StartCoroutine(DieProgress());
+        }
+        UpdateInterface();
+    }
+
     public void UpdateInterface()
     {
         HPUI.fillAmount = (float)currentHealth / MaxHealth;
@@ -232,5 +244,10 @@ public class Player : Creature
 
         nextExp = playerInfo.CheckLevelUp(this);
         UpdateInterface();
+    }
+
+    public void PlayerKill()
+    {
+        AbsoluteTakeDamage(MaxHealth);
     }
 }

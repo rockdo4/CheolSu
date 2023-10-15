@@ -103,6 +103,9 @@ public class GameManager : MonoBehaviour
         //다시 살림
 
         //한단계 아래로 내림
+
+        if(gameInfo.mainStageCurr == 1 &&  gameInfo.subStageCurr == 1) { return; }
+
         Debug.Log("스테이지 하락");
         gameInfo.subStageCurr--;
         if (gameInfo.subStageCurr == 0)
