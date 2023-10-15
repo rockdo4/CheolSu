@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        SetStageText();
+    }
+
     public GameManager()
     {
         if(true)
@@ -114,7 +119,7 @@ public class GameManager : MonoBehaviour
     public void SetStageText()
     {
         if (stage == null) return;
-        stage.SetText($"KF {gameInfo.mainStageCurr} - {gameInfo.subStageCurr}");
+        stage.SetText($"현재 스테이지 : KF {gameInfo.mainStageCurr} - {gameInfo.subStageCurr}");
     }
 
     public void StageLoopOnOff()

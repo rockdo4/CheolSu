@@ -51,6 +51,8 @@ public class SkillEffect : PoolAble
         currentSkill = info;
         this.player = player;
 
+        if (player.enemy == null) return;
+
         switch (info.level)
         {
             case < SkillInfo.Skill_Tier1:

@@ -16,7 +16,9 @@ public class PlayerStatus
     public int _diamond = 0;
     public int _exp = 0;
     public int _level = 1;
-    public int _levelPoint = 0;
+    public int _levelPoint = 110;
+    public int _MAP = 0;
+    public int _GOD = 0;
 }
 
 public class Item
@@ -43,7 +45,7 @@ public class Player : Creature
 
     private List<BackGroundScroll> backGroundScrolls;
 
-    private float attackDelay = 2f;
+    private float attackDelay = 1f;
     private float lastAttackTime;
 
     private Animator animator;
@@ -56,24 +58,27 @@ public class Player : Creature
 
     private void Awake()
     {
-        GachaManager.Instance.SetPlayer(this);
-        animator = GetComponent<Animator>();
-        backGroundScrolls = background.GetComponentsInChildren<BackGroundScroll>().ToList();
 
-        var table = DataTableMgr.GetTable<GachaTable>();
-
-        foreach(var data in table.m_WeaponList)
-        {
-            itemList.Add(data, new Item(data, 0, 0));
-        }
-        foreach(var data in table.m_ArmorList)
-        {
-            itemList.Add(data, new Item(data, 0, 0));
-        }
     }
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
+        backGroundScrolls = background.GetComponentsInChildren<BackGroundScroll>().ToList();
+        GachaManager.Instance.SetPlayer(this);
+
+        var table = DataTableMgr.GetTable<GachaTable>();
+
+        foreach (var data in table.m_WeaponList)
+        {
+            itemList.Add(data, new Item(data, 0, 0));
+        }
+        foreach (var data in table.m_ArmorList)
+        {
+            itemList.Add(data, new Item(data, 0, 0));
+        }
+
+
         MaxHealth = 10000;
         Damage = 100;
         currentHealth = MaxHealth;

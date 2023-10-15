@@ -1,7 +1,7 @@
-using Rito;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GachaManager : MonoBehaviour
 {
@@ -12,6 +12,12 @@ public class GachaManager : MonoBehaviour
     private GachaTable gachaTable;
 
     private Player player;
+
+    public GridLayoutGroup gachaList;
+    public GameObject[] weaponList;
+    public GameObject[] armorList;
+    public Text[] weaponCount;
+    public Text[] armorCount;
 
     private void Awake()
     {
@@ -49,34 +55,94 @@ public class GachaManager : MonoBehaviour
             Debug.Log(item);
         }
 
+
+        UpdateWeaponCount();
+        UpdateArmorCount();
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            var data = weaponPicker.GetRandomPick();
+    }
+    public void WeaponGacha()
+    {
+        var data = weaponPicker.GetRandomPick();
 
-            if(player != null)
-            {
-                player.itemList[data].quantity++;
-                Debug.Log($"이름 : {data.Item_Name}, 레어도 : {data.Item_Type}, 현재 수량: {player.itemList[data].quantity}");
-            }
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            var data = armorPicker.GetRandomPick();
+        if (player == null) return;
 
-            if (player != null)
-            {
-                player.itemList[data].quantity++;
-                Debug.Log($"이름 : {data.Item_Name}, 레어도 : {data.Item_Type}, 현재 수량: {player.itemList[data].quantity}");
-            }
+        player.itemList[data].quantity++;
+        Debug.Log($"이름 : {data.Item_Name}, 레어도 : {data.Item_Type}, 현재 수량: {player.itemList[data].quantity}");
+
+        var item = Instantiate(weaponList[data.Item_ID - 1]);
+        item.transform.SetParent(gachaList.transform, false);
+        UpdateWeaponCount();
+    }
+
+    public void WeaponGacha11()
+    {
+        for (int i = 0; i <11; i++)
+        {
+            WeaponGacha();
         }
+        UpdateWeaponCount();
+    }
+
+    public void ArmorGacha()
+    {
+        var data = armorPicker.GetRandomPick();
+
+        if (player == null) return;
+        
+        player.itemList[data].quantity++;
+        Debug.Log($"이름 : {data.Item_Name}, 레어도 : {data.Item_Type}, 현재 수량: {player.itemList[data].quantity}");
+
+        var item = Instantiate(armorList[data.Item_ID - 1]);
+        item.transform.SetParent(gachaList.transform, false);
+        UpdateArmorCount();
+    }
+
+    public void ArmorGacha11()
+    {
+        for(int i=0; i<11; i++)
+        {
+            ArmorGacha();
+        }
+        UpdateArmorCount();
     }
 
     public void SetPlayer(Player p)
     {
         player = p;
+    }
+
+    public void ClearGachaList()
+    {
+        foreach(Transform child in gachaList.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    public void UpdateWeaponCount()
+    {
+        foreach (var data in gachaTable.m_WeaponList)
+        {
+            var item = player.itemList[data];
+
+            if(item == null) continue;
+
+            weaponCount[data.Item_ID - 1].text = $"{item.quantity}";
+        }
+    }
+
+    public void UpdateArmorCount()
+    {
+        foreach (var data in gachaTable.m_ArmorList)
+        {
+            var item = player.itemList[data];
+
+            if (item == null) continue;
+
+            armorCount[data.Item_ID - 1].text = $"{item.quantity}";
+        }
     }
 }

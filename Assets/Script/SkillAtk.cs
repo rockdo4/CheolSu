@@ -65,14 +65,12 @@ public class SkillAtk : MonoBehaviour
                 ratio = info.Skill_Dmg + (info.Skill_LevelUpDmgIncrease * (skillInfo.level - 1));
                 Debug.Log((ratio, damage));
                 target.TakeDamage((int)ratio * damage);
-                Debug.Log("1");
 
                 break;
             case 11000102:
                 ratio = info.Skill_Dmg + (info.Skill_LevelUpDmgIncrease * (skillInfo.level - SkillInfo.Skill_Tier1));
                 Debug.Log((ratio, damage));
                 target.TakeDamage((int)ratio * damage);
-                Debug.Log("2");
 
                 break;
             case 11000103:
@@ -80,14 +78,12 @@ public class SkillAtk : MonoBehaviour
                 Debug.Log((ratio, damage));
                 target.TakeDamage((int)ratio * damage);
                 target.StartCoroutine(DotDamage(target, 10));
-                Debug.Log("3");
 
                 break;
             case 11000201:
                 ratio = info.Skill_Dmg + (info.Skill_LevelUpDmgIncrease * (skillInfo.level - 1));
                 Debug.Log((ratio, damage));
                 target.TakeDamage((int)ratio * damage);
-                Debug.Log("4");
 
                 break;
             case 11000202:
@@ -95,7 +91,6 @@ public class SkillAtk : MonoBehaviour
                 Debug.Log((ratio, damage));
                 target.TakeDamage((int)ratio * damage);
                 target.StartCoroutine(DotDamage(target, 10));
-                Debug.Log("5");
 
                 break;
             case 11000203:
@@ -103,7 +98,7 @@ public class SkillAtk : MonoBehaviour
                 Debug.Log((ratio, damage));
                 target.TakeDamage((int)ratio * damage);
                 target.StartCoroutine(DotDamage(target, 10));
-                Debug.Log("6");
+
                 break;
         }
     }

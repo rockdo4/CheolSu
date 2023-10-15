@@ -42,9 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: back
+  - name: object
     uniqueID: 318150073
     locked: 0
-  - name: ui
+  - name: backLayer
+    uniqueID: 4132638333
+    locked: 0
+  - name: frontLayer
     uniqueID: 597838529
+    locked: 0
+  - name: 
+    uniqueID: 1203481025
     locked: 0
