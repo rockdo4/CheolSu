@@ -46,10 +46,10 @@ public class GameManager : MonoBehaviour
         if(true)
         {
             //저장 데이터가 없으면
-            gameInfo.mainStageMax = 4;
-            gameInfo.subStageMax = 4;
-            gameInfo.mainStageCurr = 4;
-            gameInfo.subStageCurr = 4;
+            gameInfo.mainStageMax = 1;
+            gameInfo.subStageMax = 1;
+            gameInfo.mainStageCurr = 1;
+            gameInfo.subStageCurr = 1;
             remainMonster = monsterCount;
         }
         else
@@ -129,13 +129,13 @@ public class GameManager : MonoBehaviour
         {
             //다음 스테이지 진입 비활성
             enterNext = !enterNext;
-            stageLoop.SetText("스테이지 반복\nON");
+            stageLoop.SetText("반복\nON");
         }
         else
         {
             //다음 스테이지 진입 활성
             enterNext = !enterNext;
-            stageLoop.SetText("스테이지 반복\nOFF");
+            stageLoop.SetText("반복\nOFF");
         }
     }
 

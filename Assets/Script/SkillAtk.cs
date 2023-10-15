@@ -1,10 +1,7 @@
-using DG.Tweening;
+
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.TextCore;
+
 
 public class SkillAtk : MonoBehaviour
 {
@@ -49,7 +46,6 @@ public class SkillAtk : MonoBehaviour
         Once = true;
         var target = other.GetComponent<Monster>();
 
-        player.enemy = target;
         DamageProgress(target);
     }
 

@@ -19,6 +19,7 @@ public class PlayerInfo : MonoBehaviour
     public int CheckLevelUp(Player info)
     {
         var data = charTable.GetData(info.status._level - 1);
+        Debug.Log(data.Char_EXP);
 
         //·¹º§¾÷
         if(data.Char_EXP <= info.status._exp)

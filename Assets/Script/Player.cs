@@ -11,14 +11,15 @@ using UnityEngine.UI;
 
 public class PlayerStatus
 {
-    public int _gold = 2100000000;
+    public int _gold = 0;
     public int _dragon = 0;
     public int _diamond = 0;
     public int _exp = 0;
     public int _level = 1;
-    public int _levelPoint = 110;
+    public int _levelPoint = 0;
     public int _MAP = 0;
     public int _GOD = 0;
+    public float attackDelay = 2f;
 }
 
 public class Item
@@ -42,10 +43,10 @@ public class Player : Creature
     public GameObject background;
     public PlayerInfo playerInfo;
     public List<TextMeshProUGUI> uiList;
+    public List<Text> uiList2;
 
     private List<BackGroundScroll> backGroundScrolls;
 
-    private float attackDelay = 1f;
     private float lastAttackTime;
 
     private Animator animator;
@@ -58,7 +59,7 @@ public class Player : Creature
 
     private void Awake()
     {
-
+        
     }
 
     private void Start()
@@ -78,9 +79,8 @@ public class Player : Creature
             itemList.Add(data, new Item(data, 0, 0));
         }
 
-
-        MaxHealth = 10000;
-        Damage = 100;
+        MaxHealth = 10;
+        Damage = 2;
         currentHealth = MaxHealth;
 
         animator.SetBool("Move", true);
@@ -90,6 +90,8 @@ public class Player : Creature
         }
 
         var list = DataTableMgr.GetTable<MonsterTable>();
+
+        //UpdateInterface();
     }
 
     // Update is called once per frame
@@ -98,12 +100,17 @@ public class Player : Creature
         if (dead) return;
 
         Attack();
+
+        if(Input.GetKeyDown(KeyCode.PageUp))
+        {
+            status._gold += 10000;
+        }
     }
 
     private void Attack()
     {
         if (enemy == null) return;
-        if (lastAttackTime + attackDelay > Time.time) return;
+        if (lastAttackTime + status.attackDelay > Time.time) return;
 
         animator.SetTrigger("Attack");
         lastAttackTime = Time.time;
@@ -176,11 +183,17 @@ public class Player : Creature
         HPUI.GetComponentInChildren<TextMeshProUGUI>().SetText($"{currentHealth} / {MaxHealth}");
 
         if (uiList.Count == 0) return;
-        uiList[0].SetText($"{status._exp} / {nextExp}");
-        uiList[1].SetText($"{Damage}");
-        uiList[2].SetText($"{status._gold}");
-        uiList[3].SetText($"{status._levelPoint}");
-        uiList[4].SetText($"{status._level}");
+
+        nextExp = playerInfo.CheckLevelUp(this);
+
+        uiList[0].SetText($"EXP : {status._exp} / {nextExp}");
+        uiList[1].SetText($"{status._level}");
+        uiList[2].SetText($"{status._gold} G");
+
+        uiList2[0].text = $"체력 : {currentHealth}/{MaxHealth}";
+        uiList2[1].text = $"공격력 : {Damage}";
+        uiList2[2].text = $"마력 : {status._MAP}";
+        uiList2[3].text = $"신력 : {status._GOD}";
     }
 
     public void RespawnPlayer()

@@ -50,10 +50,10 @@ public class GachaManager : MonoBehaviour
             armorPicker.Add(data, data.Item_Random);
         }
 
-        foreach (var item in weaponPicker.GetNormalizedItemDictReadonly())
-        {
-            Debug.Log(item);
-        }
+        //foreach (var item in weaponPicker.GetNormalizedItemDictReadonly())
+        //{
+        //    Debug.Log(item);
+        //}
 
 
         UpdateWeaponCount();

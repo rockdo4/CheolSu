@@ -1,4 +1,9 @@
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public struct SkillInfo
 {
@@ -23,11 +28,21 @@ public class PlayerSkill : MonoBehaviour
     private SkillInfo fenceInfo;
     private SkillInfo desireInfo;
 
+    public List<Text> magmaText;
+    public List<Text> explosionText;
+    public List<Text> exerciseText;
+    public List<Text> fenceText;
+    public List<Text> desireText;
+
 
     private SkillTable skillTable;
 
     public Transform magmaPos;
 
+    private float magmaCoolTime;
+    private float explosionCoolTime;
+    public TextMeshProUGUI magmaTimer;
+    public TextMeshProUGUI explosionTimer;
 
     private void Start()
     {
@@ -71,40 +86,68 @@ public class PlayerSkill : MonoBehaviour
         desireInfo.increaseCost = desire.increaseCost;
         desireInfo.level = 1;
 
+        magmaCoolTime = 0;
+        explosionCoolTime = 0;
         //데이터 있으면 로드
         //아래에 추가 해야함
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if(magmaCoolTime > 0)
         {
-            ActiveMagma();
+            magmaTimer.gameObject.SetActive(true);
+            magmaCoolTime -= Time.deltaTime;
+            magmaTimer.SetText($"{Mathf.RoundToInt(magmaCoolTime)}");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        else
         {
-            ActiveExplosion();
+            magmaTimer.gameObject.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+
+        if(explosionCoolTime > 0)
         {
-            UpgradeMagma();
+            explosionTimer.gameObject.SetActive(true);
+            explosionCoolTime -= Time.deltaTime;
+            explosionTimer.SetText($"{Mathf.RoundToInt(explosionCoolTime)}");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        else
         {
-            UpgradeExplosion();
+            explosionTimer.gameObject.SetActive(false);
         }
     }
 
     public void ActiveMagma()
     {
+        if(magmaCoolTime > 0)
+        {
+            Debug.Log("쿨타임");
+            return;
+        }
+
         var obj = ObjectPoolManager.instance.GetGo("SkillEffect");
         obj.GetComponent<SkillEffect>().SkillMagma(player, magmaInfo, magmaPos);
+
+        magmaCoolTime = magmaInfo.data.Skill_Cool;
     }
 
     public void ActiveExplosion()
     {
+        if (player.enemy == null)
+        {
+            Debug.Log("대상이 없음");
+            return;
+        }
+        if (explosionCoolTime > 0)
+        {
+            Debug.Log("쿨타임");
+            return;
+        }
+
         var obj = ObjectPoolManager.instance.GetGo("SkillEffect");
         obj.GetComponent<SkillEffect>().SkillExplosion(player, explosionInfo);
+
+        explosionCoolTime = explosionInfo.data.Skill_Cool;
     }
 
     public void UpgradeMagma()
@@ -124,6 +167,8 @@ public class PlayerSkill : MonoBehaviour
         }
 
         player.status._gold -= (int)cost;
+
+
         magmaInfo.level++;
         Debug.Log(("업그레이드", "현재 레벨: " + magmaInfo.level));
 
@@ -135,6 +180,25 @@ public class PlayerSkill : MonoBehaviour
         {
             magmaInfo.data = skillTable.GetSkillData(11000103);
         }
+
+        float ratio;
+        if(magmaInfo.level < SkillInfo.Skill_Tier1)
+        {
+            ratio = magmaInfo.data.Skill_Dmg + (magmaInfo.data.Skill_LevelUpDmgIncrease * (magmaInfo.level - 1));
+        }
+        else if(magmaInfo.level < SkillInfo.Skill_Tier2)
+        {
+            ratio = magmaInfo.data.Skill_Dmg + (magmaInfo.data.Skill_LevelUpDmgIncrease * (magmaInfo.level - SkillInfo.Skill_Tier1));
+        }
+        else
+        {
+            ratio = magmaInfo.data.Skill_Dmg + (magmaInfo.data.Skill_LevelUpDmgIncrease * (magmaInfo.level - SkillInfo.Skill_Tier2));
+        }   
+
+        magmaText[0].text = $"LV. {magmaInfo.level}";
+        magmaText[1].text = $"비용: {Mathf.RoundToInt(magmaInfo.cost * Mathf.Pow(magmaInfo.increaseCost, magmaInfo.level - 1))}G";
+        magmaText[2].text = $"김철수가 용암의 힘을 조종해 적을 공격한다.\r\n강화 레벨에 따라 스킬이 강력해 진다.\r\n\r\n" +
+            $"공격력의 {Mathf.RoundToInt(ratio * 100)}% 로 1회 타격한다.";
     }
 
     public void UpgradeExplosion()
@@ -165,6 +229,25 @@ public class PlayerSkill : MonoBehaviour
         {
             explosionInfo.data = skillTable.GetSkillData(11000203);
         }
+
+        float ratio;
+        if (explosionInfo.level < SkillInfo.Skill_Tier1)
+        {
+            ratio = explosionInfo.data.Skill_Dmg + (explosionInfo.data.Skill_LevelUpDmgIncrease * (explosionInfo.level - 1));
+        }
+        else if (explosionInfo.level < SkillInfo.Skill_Tier2)
+        {
+            ratio = explosionInfo.data.Skill_Dmg + (explosionInfo.data.Skill_LevelUpDmgIncrease * (explosionInfo.level - SkillInfo.Skill_Tier1));
+        }
+        else
+        {
+            ratio = explosionInfo.data.Skill_Dmg + (explosionInfo.data.Skill_LevelUpDmgIncrease * (explosionInfo.level - SkillInfo.Skill_Tier2));
+        }
+
+        explosionText[0].text = $"LV. {explosionInfo.level}";
+        explosionText[1].text = $"비용: {Mathf.RoundToInt(explosionInfo.cost * Mathf.Pow(explosionInfo.increaseCost, explosionInfo.level - 1))}G";
+        explosionText[2].text = $"김철수가 적의 내면에 있는 용암을 폭발시킨다.\r\n강화 레벨에 따라 스킬이 강력해 진다.\r\n\r\n" +
+            $"현재 공격력의 {Mathf.RoundToInt(ratio * 100)}% 만큼 적을 1회 타격한다.";
     }
 
     public void UpgradeExercise()
@@ -183,9 +266,15 @@ public class PlayerSkill : MonoBehaviour
             return;
         }
 
+        player.Damage += exerciseInfo.data.Skill_LevelUpATKUpIncrease;
+
         player.status._gold -= (int)cost;
         exerciseInfo.level++;
         Debug.Log("업그레이드");
+
+        exerciseText[0].text = $"LV. {exerciseInfo.level}";
+        exerciseText[1].text = $"비용: {Mathf.RoundToInt(exerciseInfo.cost * Mathf.Pow(exerciseInfo.increaseCost, exerciseInfo.level - 1))}G";
+        exerciseText[2].text = $"김철수가 틈틈히 운동을 하여 영구 공격력이\n10 만큼 증가한다.";
     }
 
     public void UpgradeFence()
@@ -203,10 +292,15 @@ public class PlayerSkill : MonoBehaviour
             Debug.Log("골드 모자람");
             return;
         }
+        player.status.attackDelay -= fenceInfo.data.Skill_LevelUpATKSpeedIncrease;
 
         player.status._gold -= (int)cost;
         fenceInfo.level++;
         Debug.Log("업그레이드");
+
+        fenceText[0].text = $"LV. {fenceInfo.level}";
+        fenceText[1].text = $"비용: {Mathf.RoundToInt(fenceInfo.cost * Mathf.Pow(fenceInfo.increaseCost, fenceInfo.level - 1))}G";
+        fenceText[2].text = $"김철수가 칼질을 연습하여 공격속도가 \r\n0.5% 만큼 증가한다.";
     }
 
     public void UpgradeDesire()
@@ -225,8 +319,17 @@ public class PlayerSkill : MonoBehaviour
             return;
         }
 
+        player.status._MAP += desireInfo.data.Skill_LevelUpMAPIncrease;
+        player.status._GOD += desireInfo.data.Skill_LevelUpGODIncrease;
+
         player.status._gold -= (int)cost;
         desireInfo.level++;
         Debug.Log("업그레이드");
+
+        desireText[0].text = $"LV. {desireInfo.level}";
+        desireText[1].text = $"비용: {Mathf.RoundToInt(desireInfo.cost * Mathf.Pow(desireInfo.increaseCost, desireInfo.level - 1))}G";
+        desireText[2].text = $"김철수가 마신에게 기도하여 마력과 신력이 \r\n각각 5 증가한다.";
     }
+
+    
 }

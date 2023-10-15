@@ -60,6 +60,10 @@ public class DropTable : DataTable
     public DropData GetMonsterData(int ID)
     {
         var data = m_DropTableDictionary[ID];
+        if(data == null)
+        {
+            return null;
+        }
         return data;
     }
 }

@@ -38,12 +38,12 @@ public class ResolutionFix : MonoBehaviour
 
     private void Start()
     {
-        offset = (thisCamera.transform.position.x - player.transform.position.x) / screenWidth;
+        //offset = (thisCamera.transform.position.x - player.transform.position.x) / screenWidth;
     }
     private void Update()
     {
-        var temp = offset * Screen.width;
+        //var temp = offset * Screen.width;
         
-        thisCamera.transform.position = new Vector3(player.transform.position.x + temp, thisCamera.transform.position.y, thisCamera.transform.position.z);
+        //thisCamera.transform.position = new Vector3(player.transform.position.x + temp, thisCamera.transform.position.y, thisCamera.transform.position.z);
     }
 }

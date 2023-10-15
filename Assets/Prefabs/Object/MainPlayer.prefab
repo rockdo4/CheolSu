@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 6661745221183434191}
   - component: {fileID: 6967242010745890020}
   - component: {fileID: 138475217942317262}
+  - component: {fileID: 6479412901287321146}
   - component: {fileID: 7494676080365845071}
   - component: {fileID: 6401862986418752052}
   - component: {fileID: 8083079059474903883}
   - component: {fileID: 8661830096091660812}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: MainPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -35,6 +36,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 541721322140878865}
+  - {fileID: 655366316377860774}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -65,8 +67,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  uiList2:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!114 &138475217942317262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,6 +85,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04c10dcf7ad8b94098b3fc11f0f6714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6479412901287321146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2183761856376519227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2947c7a2465ef0340bd1af0cdb427d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magmaText:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  explosionText:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  exerciseText:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fenceText:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  desireText:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  magmaPos: {fileID: 655366316377860774}
+  magmaTimer: {fileID: 0}
+  explosionTimer: {fileID: 0}
 --- !u!95 &7494676080365845071
 Animator:
   serializedVersion: 5
@@ -138,9 +179,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1479254253
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 318150073
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: fc46633b0eb321e46838bcb9ff2d4150, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -200,6 +241,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!1 &3906622254574509099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 655366316377860774}
+  m_Layer: 6
+  m_Name: MagmaPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &655366316377860774
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3906622254574509099}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6661745221183434191}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.105, y: 0.075}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8851477657804033629
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 541721322140878865}
   - component: {fileID: 1937709289335814806}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: TargetArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

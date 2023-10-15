@@ -57,6 +57,10 @@ public class SkillCostTable : DataTable
     public SkillCostData GetCostData(int idx)
     {
         var data = m_SkillCostList[idx];
+        if(data == null)
+        {
+            return null;
+        }
         return data;
     }
 }

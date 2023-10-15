@@ -60,6 +60,7 @@ public class UpgradeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdatePoint();
     }
 
 
@@ -140,6 +141,7 @@ public class UpgradeManager : MonoBehaviour
     public void GoldUpgradeHealth()
     {
         var data = goldEnhanceTable.GetData(goldLevel.hp_level);
+        if (data == null) return;
 
         if (data.HP_Gold <= player.status._gold)
         {
@@ -162,6 +164,7 @@ public class UpgradeManager : MonoBehaviour
     public void GoldUpgradeDamage()
     {
         var data = goldEnhanceTable.GetData(goldLevel.atk_level);
+        if (data == null) return;
 
         if (data.ATK_Gold <= player.status._gold)
         {
@@ -184,6 +187,7 @@ public class UpgradeManager : MonoBehaviour
     public void GoldUpgradeMAP()
     {
         var data = goldEnhanceTable.GetData(goldLevel.MAP_level);
+        if (data == null) return;
 
         if (data.MAP_Gold <= player.status._gold)
         {
@@ -207,6 +211,7 @@ public class UpgradeManager : MonoBehaviour
     public void GoldUpgradeGOD()
     {
         var data = goldEnhanceTable.GetData(goldLevel.GOD_level);
+        if (data == null) return;
 
         if (data.GOD_Gold <= player.status._gold)
         {
@@ -230,6 +235,7 @@ public class UpgradeManager : MonoBehaviour
     public void PointUpgradeHealth()
     {
         var data = enhanceTable.GetData(charLevel.hp_level);
+        if (data == null) return;
 
         if (player.status._levelPoint > 0)
         {
@@ -248,6 +254,7 @@ public class UpgradeManager : MonoBehaviour
     public void PointUpgradeDamage()
     {
         var data = enhanceTable.GetData(charLevel.atk_level);
+        if (data == null) return;
 
         if (player.status._levelPoint > 0)
         {
@@ -267,6 +274,7 @@ public class UpgradeManager : MonoBehaviour
     public void PointUpgradeMAP()
     {
         var data = enhanceTable.GetData(charLevel.MAP_level);
+        if (data == null) return;
 
         if (player.status._levelPoint > 0)
         {
@@ -286,6 +294,7 @@ public class UpgradeManager : MonoBehaviour
     public void PointUpgradeGOD()
     {
         var data = enhanceTable.GetData(charLevel.GOD_level);
+        if (data == null) return;
 
         if (player.status._levelPoint > 0)
         {
