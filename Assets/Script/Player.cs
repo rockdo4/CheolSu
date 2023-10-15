@@ -1,9 +1,11 @@
+using DG.Tweening;
 using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +18,21 @@ public class PlayerStatus
     public int _level = 1;
     public int _levelPoint = 0;
 }
+
+public class Item
+{
+    public GachaData data;
+    public int quantity;
+    public int enhance;
+
+    public Item(GachaData data, int quantity, int enhance)
+    {
+        this.data = data;
+        this.quantity = quantity;
+        this.enhance = enhance;
+    }
+}
+
 
 public class Player : Creature
 {
@@ -33,14 +50,26 @@ public class Player : Creature
     public Creature enemy = null;   
 
     public PlayerStatus status = new PlayerStatus();
+    public Dictionary<GachaData, Item> itemList = new Dictionary<GachaData, Item>();
 
     private int nextExp;
 
     private void Awake()
     {
+        GachaManager.Instance.SetPlayer(this);
         animator = GetComponent<Animator>();
         backGroundScrolls = background.GetComponentsInChildren<BackGroundScroll>().ToList();
 
+        var table = DataTableMgr.GetTable<GachaTable>();
+
+        foreach(var data in table.m_WeaponList)
+        {
+            itemList.Add(data, new Item(data, 0, 0));
+        }
+        foreach(var data in table.m_ArmorList)
+        {
+            itemList.Add(data, new Item(data, 0, 0));
+        }
     }
 
     private void Start()
