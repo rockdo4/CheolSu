@@ -69,6 +69,9 @@ public class GachaManager : MonoBehaviour
 
         if (player == null) return;
 
+        if (!player.itemList[data].unlock) 
+            player.itemList[data].unlock = true;
+
         player.itemList[data].quantity++;
         Debug.Log($"이름 : {data.Item_Name}, 레어도 : {data.Item_Type}, 현재 수량: {player.itemList[data].quantity}");
 
@@ -91,7 +94,9 @@ public class GachaManager : MonoBehaviour
         var data = armorPicker.GetRandomPick();
 
         if (player == null) return;
-        
+        if (!player.itemList[data].unlock)
+            player.itemList[data].unlock = true;
+
         player.itemList[data].quantity++;
         Debug.Log($"이름 : {data.Item_Name}, 레어도 : {data.Item_Type}, 현재 수량: {player.itemList[data].quantity}");
 

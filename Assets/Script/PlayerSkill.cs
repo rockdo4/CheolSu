@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,12 +35,14 @@ public class PlayerSkill : MonoBehaviour
 
     private SkillTable skillTable;
 
+    private bool autoSkill = false;
     public Transform magmaPos;
 
     private float magmaCoolTime;
     private float explosionCoolTime;
     public TextMeshProUGUI magmaTimer;
     public TextMeshProUGUI explosionTimer;
+    public TextMeshProUGUI auto;
 
     private void Start()
     {
@@ -114,6 +114,14 @@ public class PlayerSkill : MonoBehaviour
         else
         {
             explosionTimer.gameObject.SetActive(false);
+        }
+
+        if(autoSkill)
+        {
+            if (player.enemy == null) return;
+
+            if(magmaCoolTime <= 0)  ActiveMagma();
+            if(explosionCoolTime <= 0) ActiveExplosion();
         }
     }
 
@@ -274,7 +282,7 @@ public class PlayerSkill : MonoBehaviour
 
         exerciseText[0].text = $"LV. {exerciseInfo.level}";
         exerciseText[1].text = $"비용: {Mathf.RoundToInt(exerciseInfo.cost * Mathf.Pow(exerciseInfo.increaseCost, exerciseInfo.level - 1))}G";
-        exerciseText[2].text = $"김철수가 틈틈히 운동을 하여 영구 공격력이\n10 만큼 증가한다.";
+        exerciseText[2].text = $"김철수가 틈틈히 운동을 하여 영구 공격력이\n2 만큼 증가한다.";
     }
 
     public void UpgradeFence()
@@ -331,5 +339,12 @@ public class PlayerSkill : MonoBehaviour
         desireText[2].text = $"김철수가 마신에게 기도하여 마력과 신력이 \r\n각각 5 증가한다.";
     }
 
-    
+    public void AutoOnOff()
+    {
+        autoSkill = !autoSkill;
+        if (autoSkill)
+            auto.SetText("Auto\nOn");
+        else
+            auto.SetText("Auto\nOFF");
+    }
 }

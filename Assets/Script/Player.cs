@@ -20,6 +20,10 @@ public class PlayerStatus
     public int _MAP = 0;
     public int _GOD = 0;
     public float attackDelay = 2f;
+
+    public GachaData e_weapon;
+    public GachaData e_topArmor;
+    public GachaData e_bottomArmor;
 }
 
 public class Item
@@ -27,6 +31,8 @@ public class Item
     public GachaData data;
     public int quantity;
     public int enhance;
+
+    public bool unlock = false;
 
     public Item(GachaData data, int quantity, int enhance)
     {
