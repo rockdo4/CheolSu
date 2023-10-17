@@ -1,10 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EquipmentEnchantManager : MonoBehaviour
 {
+    [System.Serializable]
+    private class EnchantInfo
+    {
+        public Text NameEnchant;
+        public Text ItemInfo;
+        public Text Cost;
+        public Button equipButton;
+        public Button enchantButton;
+    }
+
+    [SerializeField]
+    private EnchantInfo[] enchantInfos;
+
     public Player player;
     public Dictionary<GachaData, Item> list;
     public GachaTable table;
@@ -23,13 +35,11 @@ public class EquipmentEnchantManager : MonoBehaviour
     {
         for (int i = 0; i < enchantButton.Length; i++)
         {
-            equipButton[i].onClick.AddListener(() => EnchantEquipment(i));
+            var temp = i;
+            enchantInfos[temp].equipButton.onClick.AddListener(() => EquipItem(temp));
+            enchantInfos[temp].enchantButton.onClick.AddListener(() => EnchantEquipment(temp));
         }
 
-        for (int i = 0; i < equipButton.Length; i++)
-        {
-            equipButton[i].onClick.AddListener(() => EquipItem(i));
-        }
     }
 
     private void Update()
@@ -39,33 +49,57 @@ public class EquipmentEnchantManager : MonoBehaviour
 
     private void EnchantEquipment(int num)
     {
-        var data = table.GetWeaponData(num); //아이템 번호 받아서 찾음
+        GachaData data = null;
+
+        if (num < 20)
+        {
+            data = table.GetWeaponData(num); //아이템 번호 받아서 찾음
+        }
+        else if (num >= 20)
+        {
+            data = table.GetArmorData(num - 20);
+        }
+
         var item = list[data]; //그걸로 딕셔너리에서 뽑아옴
 
         if (!item.unlock) return; //언락 안됐으면 리턴
 
         if (player.status._gold < item.data.Item_Gold + (item.data.Item_LevelUp_Gold * item.enhance)) return;
-        player.status._gold -= item.data.Item_Gold;
+
+        player.status._gold -= item.data.Item_Gold + (item.data.Item_LevelUp_Gold * item.enhance);
         item.enhance++;
+
+        enchantInfos[num].NameEnchant.text = $"{item.data.Item_Name} +{item.enhance}";
+        enchantInfos[num].Cost.text = $"비용: {item.data.Item_Gold + (item.data.Item_LevelUp_Gold * item.enhance)}G";
+
 
         switch (item.data.Item_Kind)
         {
             case 1:
+                enchantInfos[num].ItemInfo.text = $"\n\n장착 효과\n\n공격력 {item.data.Item_ATK + (item.data.Item_LevelUp_ATKUP * item.enhance)}증가";
+
                 if(player.status.e_weapon == item.data)
                 {
-                    EquipItem(num);
+                    player.Damage += item.data.Item_LevelUp_ATKUP;
                 }
                 break;
             case 2:
-                if(player.status.e_topArmor == item.data)
+                enchantInfos[num].ItemInfo.text = $"\n\n장착 효과\n\n체력 {item.data.Item_HP + (item.data.Item_LevelUp_HPUP * item.enhance)}증가";
+
+                if (player.status.e_topArmor == item.data)
                 {
-                    EquipItem(num);
+                    player.MaxHealth += item.data.Item_LevelUp_HPUP;
                 }
                 break;
             case 3:
+                enchantInfos[num].ItemInfo.text = $"\n\n장착 효과\n\n" +
+                    $"마력 {item.data.Item_MAP + (item.data.Item_LevelUP_MAPUP * item.enhance)}증가\n" +
+                    $"신력 {item.data.Item_GOD + (item.data.Item_LevelUP_GODUP * item.enhance)}증가";
+
                 if (player.status.e_bottomArmor == item.data)
                 {
-                    EquipItem(num);
+                    player.status._MAP += item.data.Item_MAP;
+                    player.status._GOD += item.data.Item_GOD;
                 }
                 break;
         }
@@ -73,12 +107,22 @@ public class EquipmentEnchantManager : MonoBehaviour
 
     private void EquipItem(int num)
     {
-        if (num >= 20) num -= 20;
+        GachaData data = null;
+        if (num < 20)
+        {
+            data = table.GetWeaponData(num); //아이템 번호 받아서 찾음
+        }
+        else if (num >= 20)
+        {
+            data = table.GetArmorData(num - 20);
+        }
 
-        var data = table.GetWeaponData(num); //아이템 번호 받아서 찾음
         var item = list[data]; //그걸로 딕셔너리에서 뽑아옴
-
-        if (!item.unlock) return; //언락 안됐으면 리턴
+        if (!item.unlock) 
+        {
+            Debug.Log("언락 안됨");
+            return; //언락 안됐으면 리턴
+        }
 
         switch (item.data.Item_Kind) //아이템 종류
         {
@@ -89,6 +133,7 @@ public class EquipmentEnchantManager : MonoBehaviour
                     player.Damage -= e_weapon.Item_ATK + (e_weapon.Item_LevelUp_ATKUP * list[e_weapon].enhance);
                 }
                 player.Damage += item.data.Item_ATK + (item.data.Item_LevelUp_ATKUP * item.enhance);
+                player.status.e_weapon = item.data;
 
                 break;
             case 2:
@@ -98,6 +143,7 @@ public class EquipmentEnchantManager : MonoBehaviour
                     player.MaxHealth -= e_top.Item_HP + (e_top.Item_LevelUp_HPUP * list[e_top].enhance);
                 }
                 player.MaxHealth += item.data.Item_HP + (item.data.Item_LevelUp_HPUP * item.enhance);
+                player.status.e_topArmor = item.data;
 
                 break;
             case 3:
@@ -109,6 +155,7 @@ public class EquipmentEnchantManager : MonoBehaviour
                 }
                 player.status._MAP += item.data.Item_MAP + (item.data.Item_LevelUP_MAPUP * item.enhance);
                 player.status._GOD += item.data.Item_GOD + (item.data.Item_LevelUP_GODUP * item.enhance);
+                player.status.e_bottomArmor = item.data;
 
                 break;
         }

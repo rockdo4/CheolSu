@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 16507259}
   - component: {fileID: 16507258}
   m_Layer: 5
-  m_Name: Count5-3
+  m_Name: Count5-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6603,7 +6603,7 @@ GameObject:
   - component: {fileID: 532278049}
   - component: {fileID: 532278048}
   m_Layer: 5
-  m_Name: Count4-4
+  m_Name: Count4-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7572,7 +7572,7 @@ GameObject:
   - component: {fileID: 642839235}
   - component: {fileID: 642839234}
   m_Layer: 5
-  m_Name: Count4-1
+  m_Name: Count4-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7814,7 +7814,7 @@ GameObject:
   - component: {fileID: 672327548}
   - component: {fileID: 672327547}
   m_Layer: 5
-  m_Name: Count2-4
+  m_Name: Count2-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10064,7 +10064,7 @@ GameObject:
   - component: {fileID: 908773048}
   - component: {fileID: 908773047}
   m_Layer: 5
-  m_Name: Count3-3
+  m_Name: Count3-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10143,7 +10143,7 @@ GameObject:
   - component: {fileID: 910097394}
   - component: {fileID: 910097393}
   m_Layer: 5
-  m_Name: Count4-2
+  m_Name: Count4-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10318,6 +10318,207 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d1183fd6bcc6144a7148af45d0dbd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enchantInfos:
+  - NameEnchant: {fileID: 3098307171727102274}
+    ItemInfo: {fileID: 4061441893117585684}
+    Cost: {fileID: 7822468332210580422}
+    equipButton: {fileID: 2453454388195242980}
+    enchantButton: {fileID: 8789388138779414607}
+  - NameEnchant: {fileID: 8777692994006241847}
+    ItemInfo: {fileID: 2009685269816368547}
+    Cost: {fileID: 1242565303232417746}
+    equipButton: {fileID: 8252143515989945945}
+    enchantButton: {fileID: 2749845395318856696}
+  - NameEnchant: {fileID: 2759326868647293427}
+    ItemInfo: {fileID: 997451195939284903}
+    Cost: {fileID: 1887633622650443246}
+    equipButton: {fileID: 7065564444854621975}
+    enchantButton: {fileID: 6341800095833392487}
+  - NameEnchant: {fileID: 4114531354652702272}
+    ItemInfo: {fileID: 8787570653825387158}
+    Cost: {fileID: 913976208240259416}
+    equipButton: {fileID: 7647211414177031844}
+    enchantButton: {fileID: 7218093769525306079}
+  - NameEnchant: {fileID: 6866375282738468955}
+    ItemInfo: {fileID: 3442297810161174591}
+    Cost: {fileID: 6966227650918054843}
+    equipButton: {fileID: 7951682376422281493}
+    enchantButton: {fileID: 6603110136002095790}
+  - NameEnchant: {fileID: 7750230128083179057}
+    ItemInfo: {fileID: 3529474018036634187}
+    Cost: {fileID: 4860881999230580341}
+    equipButton: {fileID: 652803627049033290}
+    enchantButton: {fileID: 5208716578560920204}
+  - NameEnchant: {fileID: 6646102786544643179}
+    ItemInfo: {fileID: 1419542824855830302}
+    Cost: {fileID: 5719933941223971532}
+    equipButton: {fileID: 8749760004940956803}
+    enchantButton: {fileID: 8514910928869317569}
+  - NameEnchant: {fileID: 5750906313697668958}
+    ItemInfo: {fileID: 2282464048574442471}
+    Cost: {fileID: 9085993968914991356}
+    equipButton: {fileID: 5170602567673038614}
+    enchantButton: {fileID: 5030694654004575676}
+  - NameEnchant: {fileID: 2537631029418255473}
+    ItemInfo: {fileID: 6218962957510484282}
+    Cost: {fileID: 309368099591371770}
+    equipButton: {fileID: 616957874587578561}
+    enchantButton: {fileID: 3568598548894738083}
+  - NameEnchant: {fileID: 3222686276568809339}
+    ItemInfo: {fileID: 5362500627960087712}
+    Cost: {fileID: 2346325119686975891}
+    equipButton: {fileID: 3385450199029954009}
+    enchantButton: {fileID: 3934594814736389795}
+  - NameEnchant: {fileID: 4897671326183829067}
+    ItemInfo: {fileID: 2340779030217225005}
+    Cost: {fileID: 8157682424852354790}
+    equipButton: {fileID: 1412848597636336189}
+    enchantButton: {fileID: 4032313239267375337}
+  - NameEnchant: {fileID: 8676980513347378550}
+    ItemInfo: {fileID: 6424597775694272150}
+    Cost: {fileID: 8703568587959724601}
+    equipButton: {fileID: 7692998569232390897}
+    enchantButton: {fileID: 303013236789014570}
+  - NameEnchant: {fileID: 1288807071338738241}
+    ItemInfo: {fileID: 3726332751300614325}
+    Cost: {fileID: 1257917338130439031}
+    equipButton: {fileID: 3129714620312286134}
+    enchantButton: {fileID: 7250743987546926160}
+  - NameEnchant: {fileID: 5144022410192867074}
+    ItemInfo: {fileID: 6335795208162418036}
+    Cost: {fileID: 4332298857285560495}
+    equipButton: {fileID: 2571523974866717608}
+    enchantButton: {fileID: 4701305949396205350}
+  - NameEnchant: {fileID: 5805426641730755005}
+    ItemInfo: {fileID: 1394274108152852608}
+    Cost: {fileID: 4211468616606176845}
+    equipButton: {fileID: 751668951057970138}
+    enchantButton: {fileID: 8253569934567570534}
+  - NameEnchant: {fileID: 7130293894588707920}
+    ItemInfo: {fileID: 4267627740510782854}
+    Cost: {fileID: 4401856197936879433}
+    equipButton: {fileID: 356715440857390377}
+    enchantButton: {fileID: 1344577480485843069}
+  - NameEnchant: {fileID: 7695720566877013379}
+    ItemInfo: {fileID: 8423518563632463947}
+    Cost: {fileID: 1601757314610086048}
+    equipButton: {fileID: 6697524308319990344}
+    enchantButton: {fileID: 5740443667092737771}
+  - NameEnchant: {fileID: 1345467741312195445}
+    ItemInfo: {fileID: 2689013017640772854}
+    Cost: {fileID: 3291401646966009380}
+    equipButton: {fileID: 776348318789134301}
+    enchantButton: {fileID: 2710599639443630870}
+  - NameEnchant: {fileID: 806317211424634771}
+    ItemInfo: {fileID: 4089703504503264244}
+    Cost: {fileID: 3265758396750431573}
+    equipButton: {fileID: 659750277769323050}
+    enchantButton: {fileID: 8182691005057131430}
+  - NameEnchant: {fileID: 5315497637544706063}
+    ItemInfo: {fileID: 2749770222150679149}
+    Cost: {fileID: 933747463363418048}
+    equipButton: {fileID: 5226073084896678848}
+    enchantButton: {fileID: 1168386711012112460}
+  - NameEnchant: {fileID: 7528463784453442238}
+    ItemInfo: {fileID: 7415626552437064427}
+    Cost: {fileID: 1222843379988312931}
+    equipButton: {fileID: 3748008147423826281}
+    enchantButton: {fileID: 7227357642870286067}
+  - NameEnchant: {fileID: 3138643831693506400}
+    ItemInfo: {fileID: 16620964891752797}
+    Cost: {fileID: 633037857221830508}
+    equipButton: {fileID: 471327893837311658}
+    enchantButton: {fileID: 8940169020700851526}
+  - NameEnchant: {fileID: 8655008982074528764}
+    ItemInfo: {fileID: 2066180509220552050}
+    Cost: {fileID: 4274618317958474688}
+    equipButton: {fileID: 6417537471355659834}
+    enchantButton: {fileID: 8285125471102610340}
+  - NameEnchant: {fileID: 7994788531766213150}
+    ItemInfo: {fileID: 8074364184440002825}
+    Cost: {fileID: 72632973972433792}
+    equipButton: {fileID: 7627216356818048616}
+    enchantButton: {fileID: 9217957471174777282}
+  - NameEnchant: {fileID: 5110697149788023894}
+    ItemInfo: {fileID: 8567793438934495760}
+    Cost: {fileID: 1731939891631697727}
+    equipButton: {fileID: 1366653649632270150}
+    enchantButton: {fileID: 1299707827934374482}
+  - NameEnchant: {fileID: 15123927106941945}
+    ItemInfo: {fileID: 5961320213538634250}
+    Cost: {fileID: 8533955052238283199}
+    equipButton: {fileID: 618359165168336958}
+    enchantButton: {fileID: 4966446493180128285}
+  - NameEnchant: {fileID: 2249964971541882589}
+    ItemInfo: {fileID: 7051073182212018476}
+    Cost: {fileID: 6426627449825788534}
+    equipButton: {fileID: 7059687361102752689}
+    enchantButton: {fileID: 363166373356717190}
+  - NameEnchant: {fileID: 1749227658275320206}
+    ItemInfo: {fileID: 4873609959015831163}
+    Cost: {fileID: 3146449364015382717}
+    equipButton: {fileID: 1976050397702804682}
+    enchantButton: {fileID: 8973406030633638478}
+  - NameEnchant: {fileID: 7539402502586498527}
+    ItemInfo: {fileID: 6750004955049170217}
+    Cost: {fileID: 1888569781294293203}
+    equipButton: {fileID: 2665843483454508789}
+    enchantButton: {fileID: 9047484017284289560}
+  - NameEnchant: {fileID: 8870296846425056859}
+    ItemInfo: {fileID: 1685830909242331374}
+    Cost: {fileID: 3560297892337647485}
+    equipButton: {fileID: 4710918778997760037}
+    enchantButton: {fileID: 2887325351533130080}
+  - NameEnchant: {fileID: 7290794724531144387}
+    ItemInfo: {fileID: 8954571905164321138}
+    Cost: {fileID: 7308330196342574445}
+    equipButton: {fileID: 3211054054208890560}
+    enchantButton: {fileID: 6373918641700373838}
+  - NameEnchant: {fileID: 6321915021186047141}
+    ItemInfo: {fileID: 4011570413028742076}
+    Cost: {fileID: 1295158624111568646}
+    equipButton: {fileID: 3114387408684043134}
+    enchantButton: {fileID: 7708212308483667552}
+  - NameEnchant: {fileID: 6768942257582782686}
+    ItemInfo: {fileID: 2250831971561708580}
+    Cost: {fileID: 6500508579393320805}
+    equipButton: {fileID: 2923494763949113212}
+    enchantButton: {fileID: 8601221165188179757}
+  - NameEnchant: {fileID: 1485398769305410107}
+    ItemInfo: {fileID: 5252965652256168491}
+    Cost: {fileID: 3881973659315457792}
+    equipButton: {fileID: 424441640790539674}
+    enchantButton: {fileID: 3002251525890655734}
+  - NameEnchant: {fileID: 999571317766106428}
+    ItemInfo: {fileID: 1992323459786911298}
+    Cost: {fileID: 4546334599429694265}
+    equipButton: {fileID: 8213083332515097686}
+    enchantButton: {fileID: 702182396552604080}
+  - NameEnchant: {fileID: 6510953039121047379}
+    ItemInfo: {fileID: 2170682571925988407}
+    Cost: {fileID: 3017675741799443806}
+    equipButton: {fileID: 5236858090688047428}
+    enchantButton: {fileID: 7910718537066390314}
+  - NameEnchant: {fileID: 5800896522614045481}
+    ItemInfo: {fileID: 5217357546439983238}
+    Cost: {fileID: 6829392487460226849}
+    equipButton: {fileID: 429978791598682612}
+    enchantButton: {fileID: 8130913403038722523}
+  - NameEnchant: {fileID: 3003458988775205242}
+    ItemInfo: {fileID: 6087737292575979548}
+    Cost: {fileID: 2547191215878823095}
+    equipButton: {fileID: 2496547431936853191}
+    enchantButton: {fileID: 571927484779984362}
+  - NameEnchant: {fileID: 3872117980611849455}
+    ItemInfo: {fileID: 7882800751243524191}
+    Cost: {fileID: 1244048099520361474}
+    equipButton: {fileID: 2828150296035801356}
+    enchantButton: {fileID: 7131602037439704575}
+  - NameEnchant: {fileID: 739396586212512657}
+    ItemInfo: {fileID: 6574681249394961868}
+    Cost: {fileID: 2835354877503396250}
+    equipButton: {fileID: 1327583336771100907}
+    enchantButton: {fileID: 3839402958342162739}
   player: {fileID: 294279060}
   equipButton:
   - {fileID: 2453454388195242980}
@@ -14597,22 +14798,22 @@ MonoBehaviour:
   - {fileID: 260106058}
   - {fileID: 1267132051}
   - {fileID: 1867679834}
-  - {fileID: 1346671624}
-  - {fileID: 1784005365}
-  - {fileID: 1223525282}
   - {fileID: 672327547}
-  - {fileID: 1458411745}
-  - {fileID: 2005578270}
-  - {fileID: 908773047}
+  - {fileID: 1223525282}
+  - {fileID: 1784005365}
+  - {fileID: 1346671624}
   - {fileID: 1986071569}
-  - {fileID: 642839234}
-  - {fileID: 910097393}
-  - {fileID: 1958123435}
+  - {fileID: 908773047}
+  - {fileID: 2005578270}
+  - {fileID: 1458411745}
   - {fileID: 532278048}
-  - {fileID: 1955020771}
-  - {fileID: 2092252570}
-  - {fileID: 16507258}
+  - {fileID: 1958123435}
+  - {fileID: 910097393}
+  - {fileID: 642839234}
   - {fileID: 2073081372}
+  - {fileID: 16507258}
+  - {fileID: 2092252570}
+  - {fileID: 1955020771}
   armorCount:
   - {fileID: 1109169936}
   - {fileID: 1029407044}
@@ -15302,7 +15503,7 @@ GameObject:
   - component: {fileID: 1223525283}
   - component: {fileID: 1223525282}
   m_Layer: 5
-  m_Name: Count2-3
+  m_Name: Count2-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17504,7 +17705,7 @@ GameObject:
   - component: {fileID: 1346671625}
   - component: {fileID: 1346671624}
   m_Layer: 5
-  m_Name: Count2-1
+  m_Name: Count2-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18577,7 +18778,7 @@ GameObject:
   - component: {fileID: 1458411746}
   - component: {fileID: 1458411745}
   m_Layer: 5
-  m_Name: Count3-1
+  m_Name: Count3-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21922,7 +22123,7 @@ GameObject:
   - component: {fileID: 1784005366}
   - component: {fileID: 1784005365}
   m_Layer: 5
-  m_Name: Count2-2
+  m_Name: Count2-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24327,7 +24528,7 @@ GameObject:
   - component: {fileID: 1955020772}
   - component: {fileID: 1955020771}
   m_Layer: 5
-  m_Name: Count5-1
+  m_Name: Count5-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24406,7 +24607,7 @@ GameObject:
   - component: {fileID: 1958123436}
   - component: {fileID: 1958123435}
   m_Layer: 5
-  m_Name: Count4-3
+  m_Name: Count4-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24778,7 +24979,7 @@ GameObject:
   - component: {fileID: 1986071570}
   - component: {fileID: 1986071569}
   m_Layer: 5
-  m_Name: Count3-4
+  m_Name: Count3-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25150,7 +25351,7 @@ GameObject:
   - component: {fileID: 2005578271}
   - component: {fileID: 2005578270}
   m_Layer: 5
-  m_Name: Count3-2
+  m_Name: Count3-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26604,7 +26805,7 @@ GameObject:
   - component: {fileID: 2073081373}
   - component: {fileID: 2073081372}
   m_Layer: 5
-  m_Name: Count5-4
+  m_Name: Count5-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27020,7 +27221,7 @@ GameObject:
   - component: {fileID: 2092252571}
   - component: {fileID: 2092252570}
   m_Layer: 5
-  m_Name: Count5-2
+  m_Name: Count5-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43940,7 +44141,7 @@ GameObject:
   - component: {fileID: 3308365266261075987}
   - component: {fileID: 72632973972433792}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44133,7 +44334,7 @@ GameObject:
   - component: {fileID: 6046338358555258740}
   - component: {fileID: 1242565303232417746}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44181,7 +44382,7 @@ GameObject:
   - component: {fileID: 5971702377290634846}
   - component: {fileID: 2547191215878823095}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44309,7 +44510,7 @@ GameObject:
   - component: {fileID: 4545900151674373269}
   - component: {fileID: 3291401646966009380}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45572,7 +45773,7 @@ GameObject:
   - component: {fileID: 4613642974269571374}
   - component: {fileID: 3017675741799443806}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46743,7 +46944,7 @@ GameObject:
   - component: {fileID: 4512989376016654057}
   - component: {fileID: 3560297892337647485}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46788,7 +46989,7 @@ GameObject:
   - component: {fileID: 8170476790683497410}
   - component: {fileID: 4211468616606176845}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46859,7 +47060,7 @@ GameObject:
   - component: {fileID: 1981251970299552883}
   - component: {fileID: 1888569781294293203}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50769,7 +50970,7 @@ GameObject:
   - component: {fileID: 4551198566744884777}
   - component: {fileID: 309368099591371770}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50949,7 +51150,7 @@ GameObject:
   - component: {fileID: 595731625143038133}
   - component: {fileID: 3146449364015382717}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51007,7 +51208,7 @@ GameObject:
   - component: {fileID: 7085757537432969918}
   - component: {fileID: 8157682424852354790}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53587,7 +53788,7 @@ GameObject:
   - component: {fileID: 7371954292141120444}
   - component: {fileID: 4274618317958474688}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54641,7 +54842,7 @@ GameObject:
   - component: {fileID: 6883276872264897019}
   - component: {fileID: 2346325119686975891}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54833,7 +55034,7 @@ GameObject:
   - component: {fileID: 1141707135354034376}
   - component: {fileID: 6966227650918054843}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55537,7 +55738,7 @@ GameObject:
   - component: {fileID: 8608818070514669732}
   - component: {fileID: 3265758396750431573}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60892,9 +61093,9 @@ RectTransform:
   - {fileID: 1986071568}
   m_Father: {fileID: 7287824946069799964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 127.54654, y: -501.1267}
   m_SizeDelta: {x: 165.09308, y: 168.45068}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3463053924739940117
@@ -63100,7 +63301,7 @@ GameObject:
   - component: {fileID: 8978720475198467189}
   - component: {fileID: 1295158624111568646}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66012,7 +66213,7 @@ GameObject:
   - component: {fileID: 822271779531527258}
   - component: {fileID: 1601757314610086048}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66273,7 +66474,7 @@ GameObject:
   - component: {fileID: 2319000735865876400}
   - component: {fileID: 4332298857285560495}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66629,7 +66830,7 @@ GameObject:
   - component: {fileID: 8101792883956106407}
   - component: {fileID: 9085993968914991356}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66960,7 +67161,7 @@ GameObject:
   - component: {fileID: 7154202897527764799}
   - component: {fileID: 5719933941223971532}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72095,7 +72296,7 @@ GameObject:
   - component: {fileID: 2848712981670412455}
   - component: {fileID: 1222843379988312931}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73145,7 +73346,7 @@ GameObject:
   - component: {fileID: 6947788817650895990}
   - component: {fileID: 8533955052238283199}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74045,7 +74246,7 @@ GameObject:
   - component: {fileID: 2534528681252488586}
   - component: {fileID: 7308330196342574445}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76165,7 +76366,7 @@ GameObject:
   - component: {fileID: 5498713250762265962}
   - component: {fileID: 933747463363418048}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76805,7 +77006,7 @@ GameObject:
   - component: {fileID: 4239572254034589837}
   - component: {fileID: 1257917338130439031}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79129,7 +79330,7 @@ GameObject:
   - component: {fileID: 671222092269384317}
   - component: {fileID: 6500508579393320805}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83315,7 +83516,7 @@ GameObject:
   - component: {fileID: 7302196641345974972}
   - component: {fileID: 6829392487460226849}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85293,7 +85494,7 @@ GameObject:
   - component: {fileID: 7572287929614720966}
   - component: {fileID: 1244048099520361474}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85739,7 +85940,7 @@ GameObject:
   - component: {fileID: 3730041551912566699}
   - component: {fileID: 633037857221830508}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87037,7 +87238,7 @@ GameObject:
   - component: {fileID: 434077898852292385}
   - component: {fileID: 1731939891631697727}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87840,9 +88041,9 @@ RectTransform:
   - {fileID: 2073081371}
   m_Father: {fileID: 7287824946069799964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 127.54654, y: -898.0281}
   m_SizeDelta: {x: 165.09308, y: 168.45068}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7056186440366589921
@@ -88742,7 +88943,7 @@ GameObject:
   - component: {fileID: 2058921815480552188}
   - component: {fileID: 6426627449825788534}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89141,7 +89342,7 @@ GameObject:
   - component: {fileID: 3484889347968483353}
   - component: {fileID: 1887633622650443246}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89410,7 +89611,7 @@ GameObject:
   - component: {fileID: 6120863545410512740}
   - component: {fileID: 3881973659315457792}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89597,7 +89798,7 @@ GameObject:
   - component: {fileID: 3463053924739940117}
   - component: {fileID: 913976208240259416}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89994,9 +90195,9 @@ RectTransform:
   - {fileID: 1867679833}
   m_Father: {fileID: 7287824946069799964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 127.54654, y: -104.22534}
   m_SizeDelta: {x: 165.09308, y: 168.45068}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7268012453795858466
@@ -90224,7 +90425,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: -24.000061, y: 0}
-  m_SizeDelta: {x: 831.74, y: 0}
+  m_SizeDelta: {x: 831.74, y: 1002.2534}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7290189869068019676
 CanvasRenderer:
@@ -90352,7 +90553,7 @@ GameObject:
   - component: {fileID: 252687817354678271}
   - component: {fileID: 8703568587959724601}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91882,7 +92083,7 @@ GameObject:
   - component: {fileID: 2321280443396101002}
   - component: {fileID: 4401856197936879433}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97148,7 +97349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &8022577669755780397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -98384,9 +98585,9 @@ RectTransform:
   - {fileID: 532278047}
   m_Father: {fileID: 7287824946069799964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 127.54654, y: -699.5774}
   m_SizeDelta: {x: 165.09308, y: 168.45068}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &8210167381622560403
@@ -99002,7 +99203,7 @@ GameObject:
   - component: {fileID: 4579187007103155045}
   - component: {fileID: 4546334599429694265}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99875,9 +100076,9 @@ RectTransform:
   - {fileID: 672327546}
   m_Father: {fileID: 7287824946069799964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 127.54654, y: -302.67603}
   m_SizeDelta: {x: 165.09308, y: 168.45068}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &8297312785942013998
@@ -100008,7 +100209,7 @@ GameObject:
   - component: {fileID: 3806251320257502510}
   - component: {fileID: 2835354877503396250}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101864,7 +102065,7 @@ GameObject:
   - component: {fileID: 1470799202740432307}
   - component: {fileID: 4860881999230580341}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103485,7 +103686,7 @@ GameObject:
   - component: {fileID: 2751491052884159158}
   - component: {fileID: 7822468332210580422}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106168,9 +106369,9 @@ RectTransform:
   m_Father: {fileID: 2422206123137739709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &9120581906606019000
 GameObject:
@@ -106995,8 +107196,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1277123462559811048}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.2695408}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
