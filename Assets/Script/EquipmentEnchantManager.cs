@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class EquipmentEnchantManager : MonoBehaviour
@@ -24,22 +25,52 @@ public class EquipmentEnchantManager : MonoBehaviour
     public Button[] equipButton;
     public Button[] enchantButton;
 
+    public static EquipmentEnchantManager Instance;
 
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
         list = player.itemList;
         table = DataTableMgr.GetTable<GachaTable>();
     }
 
     private void Start()
     {
-        for (int i = 0; i < enchantButton.Length; i++)
+        for (int i = 0; i < enchantInfos.Length; i++)
         {
             var temp = i;
             enchantInfos[temp].equipButton.onClick.AddListener(() => EquipItem(temp));
             enchantInfos[temp].enchantButton.onClick.AddListener(() => EnchantEquipment(temp));
         }
 
+        for(int i=0; i<enchantInfos.Length; i++)
+        {
+            GachaData item = null;
+
+            if(i < 20)
+            {
+                item = table.GetWeaponData(i);
+            }
+            else if(i >= 20)
+            {
+                item = table.GetArmorData(i - 20);
+            }
+
+            enchantInfos[i].NameEnchant.text = $"{list[item].data.Item_Name} +{list[item].enhance}";
+
+            if (list[item].unlock)
+            {
+                Unlock(i);
+            }
+            else
+            {
+                Lock(i);
+            }
+        }
     }
 
     private void Update()
@@ -49,8 +80,8 @@ public class EquipmentEnchantManager : MonoBehaviour
 
     private void EnchantEquipment(int num)
     {
+        Debug.Log(Time.time);
         GachaData data = null;
-
         if (num < 20)
         {
             data = table.GetWeaponData(num); //아이템 번호 받아서 찾음
@@ -159,5 +190,34 @@ public class EquipmentEnchantManager : MonoBehaviour
 
                 break;
         }
+    }
+
+    public void Unlock(int num)
+    {
+        enchantInfos[num].enchantButton.gameObject.SetActive(true);
+        enchantInfos[num].equipButton.gameObject.SetActive(true);
+    }
+
+    public void UnlockArmor(GachaData data)
+    {
+        var index = table.m_ArmorList.FindIndex(x => data.Item_Name == x.Item_Name);
+        index += 20;
+
+        enchantInfos[index].enchantButton.gameObject.SetActive(true);
+        enchantInfos[index].equipButton.gameObject.SetActive(true);
+    }
+
+    public void UnlockWeapon(GachaData data)
+    {
+        var index = table.m_WeaponList.FindIndex(x => data.Item_Name == x.Item_Name);
+
+        enchantInfos[index].enchantButton.gameObject.SetActive(true);
+        enchantInfos[index].equipButton.gameObject.SetActive(true);
+    }
+
+    public void Lock(int num)
+    {
+        enchantInfos[num].enchantButton.gameObject.SetActive(false);
+        enchantInfos[num].equipButton.gameObject.SetActive(false);
     }
 }

@@ -19,6 +19,8 @@ public class GachaManager : MonoBehaviour
     public Text[] weaponCount;
     public Text[] armorCount;
 
+    private bool isCoroutine = false;
+
     private void Awake()
     {
         Debug.Log("생성");
@@ -69,8 +71,11 @@ public class GachaManager : MonoBehaviour
 
         if (player == null) return;
 
-        if (!player.itemList[data].unlock) 
+        if (!player.itemList[data].unlock)
+        {
             player.itemList[data].unlock = true;
+            EquipmentEnchantManager.Instance.UnlockWeapon(data);
+        }
 
         player.itemList[data].quantity++;
         Debug.Log($"이름 : {data.Item_Name}, 레어도 : {data.Item_Type}, 현재 수량: {player.itemList[data].quantity}");
@@ -80,13 +85,24 @@ public class GachaManager : MonoBehaviour
         UpdateWeaponCount();
     }
 
-    public void WeaponGacha11()
+    IEnumerator WeaponCoroutine(int count)
     {
-        for (int i = 0; i <11; i++)
+        isCoroutine = true;
+        while (count > 0)
         {
             WeaponGacha();
+            count--;
+            yield return new WaitForSeconds(0.02f);
         }
         UpdateWeaponCount();
+        isCoroutine = false;
+    }
+    public void WeaponGacha11()
+    {
+        if (!isCoroutine)
+        {
+            StartCoroutine(WeaponCoroutine(11));
+        }
     }
 
     public void ArmorGacha()
@@ -94,8 +110,12 @@ public class GachaManager : MonoBehaviour
         var data = armorPicker.GetRandomPick();
 
         if (player == null) return;
+
         if (!player.itemList[data].unlock)
+        {
             player.itemList[data].unlock = true;
+            EquipmentEnchantManager.Instance.UnlockArmor(data);
+        }
 
         player.itemList[data].quantity++;
         Debug.Log($"이름 : {data.Item_Name}, 레어도 : {data.Item_Type}, 현재 수량: {player.itemList[data].quantity}");
@@ -105,13 +125,23 @@ public class GachaManager : MonoBehaviour
         UpdateArmorCount();
     }
 
-    public void ArmorGacha11()
+    IEnumerator ArmorCoroutine(int count)
     {
-        for(int i=0; i<11; i++)
+        isCoroutine = true;
+        while (count > 0)
         {
             ArmorGacha();
+            count--;
+            yield return new WaitForSeconds(0.02f);
         }
         UpdateArmorCount();
+        isCoroutine = false;
+    }
+
+    public void ArmorGacha11()
+    {
+        if (isCoroutine) return;
+        StartCoroutine(ArmorCoroutine(11));
     }
 
     public void SetPlayer(Player p)

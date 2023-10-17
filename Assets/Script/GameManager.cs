@@ -146,4 +146,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("UI Test");
     }
+
+    public void LevelUp()
+    {
+        player.GetComponent<PlayerSkill>().UnlockSkill();
+    }
 }

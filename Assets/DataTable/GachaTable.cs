@@ -82,6 +82,7 @@ public class GachaTable : DataTable
         {
             return null;
         }
+
         return m_WeaponList[num];
     }
 

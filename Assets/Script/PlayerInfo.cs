@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 
@@ -31,8 +32,10 @@ public class PlayerInfo : MonoBehaviour
 
             info.MaxHealth += data.Char_HP;
             info.Damage += data.Char_ATK;
-            //data.Char_GOD 신력
-            //data.Char_MAP 마력
+            info.status._MAP += data.Char_MAP;
+            info.status._GOD += data.Char_GOD;
+
+            GameManager.Instance.LevelUp();
         }
 
         return data.Char_EXP;

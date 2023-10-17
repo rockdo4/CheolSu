@@ -47,7 +47,6 @@ public class CharacterTable : DataTable
             {
                 var temp = new CharacterLevelData();
                 temp = record;
-                Debug.Log(temp.Char_EXP);
                 m_CharacterLevelList.Add(temp);
                 //Debug.Log(temp.Monster_ID);
             }

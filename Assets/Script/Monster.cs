@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
@@ -10,10 +12,11 @@ public class Monster : Creature
     public float speed = 0.1f;
 
     public Image HPUI;
+    public Image ShieldUI;
     private Animator animator;
     private Rigidbody rb;
     private BoxCollider bc;
-    private Player player = null;
+    private Player player;
 
     private float attackDelay = 3f;
     private float lastAttackTime;
@@ -28,6 +31,7 @@ public class Monster : Creature
     public int Type;
     public int Drop_ID;
 
+    public int currShield;
 
     // Start is called before the first frame update
     private void Awake()
@@ -38,6 +42,8 @@ public class Monster : Creature
     }
     private void Start()
     {
+        player = GameManager.Instance.player;
+
         int mainStage = GameManager.Instance.gameInfo.mainStageCurr;
         int subStage = GameManager.Instance.gameInfo.subStageCurr;
         int currentStage = ((mainStage - 1) * 10) + subStage;
@@ -55,6 +61,7 @@ public class Monster : Creature
         Drop_ID = info.Drop_ID;
 
         currentHealth = MaxHealth;
+        currShield = Masin_Shield;
         Debug.Log($"KF{mainStage} - {subStage}, {ID}, {Name}, {MaxHealth}, {Damage}");
 
         Invoke("StartMove", 0.5f);
@@ -105,10 +112,29 @@ public class Monster : Creature
 
     override public void TakeDamage(int damage)
     {
+
         if (player != null)
         {
             if (player.dead) return;
         }
+
+        if(currShield > 0)
+        {
+            if(player.status._MAP >= Masin_Armor)
+            {
+                currShield -= damage;
+            }
+            else
+            {
+                currShield -= Mathf.RoundToInt(damage / 2);
+            }
+
+            if (currShield < 0) currShield = 0;
+            ShieldUI.fillAmount = (float)currShield / Masin_Shield;
+
+            return;
+        }
+        if (Masin_Shield == 0) ShieldUI.fillAmount = 0;
 
         base.TakeDamage(damage);
 

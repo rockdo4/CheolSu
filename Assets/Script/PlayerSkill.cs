@@ -32,6 +32,9 @@ public class PlayerSkill : MonoBehaviour
     public List<Text> fenceText;
     public List<Text> desireText;
 
+    public List<Button> button;
+    public List<Image> activeButton;
+
 
     private SkillTable skillTable;
 
@@ -90,6 +93,8 @@ public class PlayerSkill : MonoBehaviour
         explosionCoolTime = 0;
         //데이터 있으면 로드
         //아래에 추가 해야함
+
+        LockSkill();
     }
 
     private void Update()
@@ -127,6 +132,7 @@ public class PlayerSkill : MonoBehaviour
 
     public void ActiveMagma()
     {
+        if (player.status._level < magmaInfo.data.Skill_LearnLevel) return;
         if(magmaCoolTime > 0)
         {
             Debug.Log("쿨타임");
@@ -141,6 +147,7 @@ public class PlayerSkill : MonoBehaviour
 
     public void ActiveExplosion()
     {
+        if (player.status._level < explosionInfo.data.Skill_LearnLevel) return;
         if (player.enemy == null)
         {
             Debug.Log("대상이 없음");
@@ -346,5 +353,55 @@ public class PlayerSkill : MonoBehaviour
             auto.SetText("Auto\nOn");
         else
             auto.SetText("Auto\nOFF");
+    }
+
+    public void UnlockSkill()
+    {
+        if(player.status._level == magmaInfo.data.Skill_LearnLevel)
+        {
+            button[0].gameObject.SetActive(true);
+            activeButton[0].color = Color.white;
+        }
+        else if (player.status._level == explosionInfo.data.Skill_LearnLevel)
+        {
+            button[1].gameObject.SetActive(true);
+            activeButton[1].color = Color.white;
+        }
+        else if (player.status._level == exerciseInfo.data.Skill_LearnLevel)
+        {
+            button[2].gameObject.SetActive(true);
+        }
+        else if (player.status._level == fenceInfo.data.Skill_LearnLevel)
+        {
+            button[3].gameObject.SetActive(true);
+        }
+        else if (player.status._level == desireInfo.data.Skill_LearnLevel)
+        {
+            button[4].gameObject.SetActive(true);
+        }
+    }
+
+    public void LockSkill()
+    {
+        if (player.status._level < magmaInfo.data.Skill_LearnLevel)
+        {
+            button[0].gameObject.SetActive(false);
+            activeButton[0].color = Color.gray;
+        }
+
+        if (player.status._level < explosionInfo.data.Skill_LearnLevel)
+        {
+            button[1].gameObject.SetActive(false);
+            activeButton[1].color = Color.gray;
+        }
+
+        if (player.status._level < exerciseInfo.data.Skill_LearnLevel)
+            button[2].gameObject.SetActive(false);
+
+        if (player.status._level < fenceInfo.data.Skill_LearnLevel)
+            button[3].gameObject.SetActive(false);
+
+        if (player.status._level < desireInfo.data.Skill_LearnLevel)
+            button[4].gameObject.SetActive(false);
     }
 }

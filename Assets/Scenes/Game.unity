@@ -3154,7 +3154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2, y: -540}
+  m_AnchoredPosition: {x: -1.9998779, y: -540}
   m_SizeDelta: {x: -2225.8, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &260106056
@@ -13757,7 +13757,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.9433962, g: 0.084549636, b: 0.084549636, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -13990,6 +13990,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1305309482}
     - target: {fileID: 6479412901287321146, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
+      propertyPath: button.Array.data[0]
+      value: 
+      objectReference: {fileID: 2194540340722661016}
+    - target: {fileID: 6479412901287321146, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
+      propertyPath: button.Array.data[1]
+      value: 
+      objectReference: {fileID: 4106601541041536185}
+    - target: {fileID: 6479412901287321146, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
+      propertyPath: button.Array.data[2]
+      value: 
+      objectReference: {fileID: 2259055881993267028}
+    - target: {fileID: 6479412901287321146, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
+      propertyPath: button.Array.data[3]
+      value: 
+      objectReference: {fileID: 6643942587269040391}
+    - target: {fileID: 6479412901287321146, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
+      propertyPath: button.Array.data[4]
+      value: 
+      objectReference: {fileID: 8858415396101473263}
+    - target: {fileID: 6479412901287321146, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
+      propertyPath: activeButton.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6479412901287321146, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
       propertyPath: fenceText.Array.data[0]
       value: 
       objectReference: {fileID: 3170130243851484466}
@@ -14025,6 +14049,14 @@ PrefabInstance:
       propertyPath: desireText.Array.data[2]
       value: 
       objectReference: {fileID: 7846127319790344843}
+    - target: {fileID: 6479412901287321146, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
+      propertyPath: activeButton.Array.data[0]
+      value: 
+      objectReference: {fileID: 1771529918}
+    - target: {fileID: 6479412901287321146, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
+      propertyPath: activeButton.Array.data[1]
+      value: 
+      objectReference: {fileID: 1329256149}
     - target: {fileID: 6479412901287321146, guid: 16f3fe05893c6ca469aca9d690c82e69, type: 3}
       propertyPath: exerciseText.Array.data[0]
       value: 
@@ -37922,7 +37954,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5078873114284610272}
   m_HandleRect: {fileID: 9212373860402032154}
   m_Direction: 2
-  m_Value: 1.0000002
+  m_Value: 0.99999976
   m_Size: 0.7304592
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -57276,7 +57308,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD558\uAE09 \uC545\uB9C8\uC758 \uAC80 +1"
+  m_Text: "\uD558\uAE09 \uC545\uB9C8\uC758 \uAC80 +0"
 --- !u!224 &3107146392020275501
 RectTransform:
   m_ObjectHideFlags: 0
@@ -103954,7 +103986,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC911\uAE09 \uC545\uB9C8\uC758 \uAC80 +1"
+  m_Text: "\uC911\uAE09 \uC545\uB9C8\uC758 \uAC80 +0"
 --- !u!222 &8780464192078281924
 CanvasRenderer:
   m_ObjectHideFlags: 0
