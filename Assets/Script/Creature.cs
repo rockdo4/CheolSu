@@ -7,10 +7,11 @@ using UnityEngine;
 
 public class Creature : MonoBehaviour
 {
-    public int MaxHealth = 100;
+    public int MaxHealth { get; set; }
     public int currentHealth = 0;
-    public int Damage = 30;
+    public int Damage { get; set; }
     public bool dead = false;
+    public Transform popPos;
 
     protected Action onDeath;
 
@@ -29,8 +30,10 @@ public class Creature : MonoBehaviour
         }
     }
 
-    IEnumerator TakeDotDamage(int damage)
+    public void PopDamage(int damage, Color color, Vector3 position)
     {
-        yield return null;
+        var obj = ObjectPoolManager.instance.GetGo("PopDamage");
+        obj.transform.position = popPos.position;
+        obj.GetComponent<PopDamage>().damage.SetText($"{damage}");
     }
 }

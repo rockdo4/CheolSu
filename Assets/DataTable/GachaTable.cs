@@ -86,6 +86,25 @@ public class GachaTable : DataTable
         return m_WeaponList[num];
     }
 
+    public GachaData FindName(string Name)
+    {
+        for(int i=0; i<m_WeaponList.Count; i++)
+        {
+            if(m_WeaponList[i].Item_Name == Name)
+            {
+                return m_WeaponList[i];
+            }
+        }
+        for (int i = 0; i < m_ArmorList.Count; i++)
+        {
+            if (m_ArmorList[i].Item_Name == Name)
+            {
+                return m_ArmorList[i];
+            }
+        }
+        return null;
+    }
+
     public GachaData GetArmorData(int num)
     {
         if (num < 0 || num >= m_ArmorList.Count)

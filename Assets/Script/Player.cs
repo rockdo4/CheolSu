@@ -1,11 +1,7 @@
-using DG.Tweening;
-using JetBrains.Annotations;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -70,6 +66,8 @@ public class Player : Creature
 
     private void Start()
     {
+        //데이터 저장용
+        
         animator = GetComponent<Animator>();
         backGroundScrolls = background.GetComponentsInChildren<BackGroundScroll>().ToList();
         GachaManager.Instance.SetPlayer(this);
@@ -78,11 +76,17 @@ public class Player : Creature
 
         foreach (var data in table.m_WeaponList)
         {
-            itemList.Add(data, new Item(data, 0, 0));
+            var item = new Item(data, 0, 0);
+            itemList.Add(data, item);
+
+            Data.instance.itemList.Add(item);
         }
         foreach (var data in table.m_ArmorList)
         {
-            itemList.Add(data, new Item(data, 0, 0));
+            var item = new Item(data, 0, 0);
+            itemList.Add(data, item);
+
+            Data.instance.itemList.Add(item);
         }
 
         MaxHealth = 10;
@@ -176,6 +180,7 @@ public class Player : Creature
     {
         if (enemy.dead) return;
         base.TakeDamage(damage);
+        PopDamage(damage, Color.white, transform.position);
         if (dead)
         {
             animator.SetBool("Dead", true);
@@ -255,5 +260,19 @@ public class Player : Creature
     public void PlayerKill()
     {
         AbsoluteTakeDamage(MaxHealth);
+    }
+
+    public void DataSaveProcess()
+    {
+        Data.instance.status = status;
+        Data.instance.Maxhealth = MaxHealth;
+        Data.instance.Damage = Damage;
+        //List<SkillInfo> skillInfosList;
+        Data.instance.stageInfo = GameManager.Instance.gameInfo;
+    }
+
+    public void DataLoadProcess(SaveData data)
+    {
+
     }
 }

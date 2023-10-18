@@ -55,6 +55,7 @@ public class PlayerSkill : MonoBehaviour
         skillTable = DataTableMgr.GetTable<SkillTable>();
 
         var magma = skillCostTable.GetCostData(0);
+
         magmaInfo.data = skillTable.GetSkillData(11000101);
         magmaInfo.maxLevel = magma.maxLevel;
         magmaInfo.cost = magma.cost;
@@ -403,5 +404,21 @@ public class PlayerSkill : MonoBehaviour
 
         if (player.status._level < desireInfo.data.Skill_LearnLevel)
             button[4].gameObject.SetActive(false);
+    }
+
+    public void DataSaveProcess()
+    {
+        Data.instance.skillInfosList.Clear();
+
+        Data.instance.skillInfosList.Add(magmaInfo);
+        Data.instance.skillInfosList.Add(explosionInfo);
+        Data.instance.skillInfosList.Add(exerciseInfo);
+        Data.instance.skillInfosList.Add(fenceInfo);    
+        Data.instance.skillInfosList.Add(desireInfo);
+    }
+
+    public void DataLoadProcess(SaveData data)
+    {
+
     }
 }

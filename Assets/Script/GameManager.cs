@@ -2,15 +2,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public struct GameInfo
+{
+    public int mainStageMax { get; set; }
+    public int subStageMax { get; set; }
+    public int mainStageCurr { get; set; }
+    public int subStageCurr { get; set; }
+}
+
 public class GameManager : MonoBehaviour
 {
-    public struct GameInfo
-    {
-        public int mainStageMax { get; set; }
-        public int subStageMax { get; set; }
-        public int mainStageCurr { get; set; }
-        public int subStageCurr { get; set; }
-    }
+    
 
     public static GameManager Instance;
     public GameInfo gameInfo;
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI stageLoop;
 
     public Player player;
+    public PlayerSkill playerSkill;
     public bool enterNext = true;
 
     private int monsterCount = 1;
@@ -25,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+
         if (Instance == null)
         {
             Instance = this;
@@ -38,7 +42,24 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        var data = SaveLoadSystem.AutoLoad();
+
+        player.DataLoadProcess(data);
+        playerSkill.DataLoadProcess(data);
+
         SetStageText();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            player.DataSaveProcess();
+            playerSkill.DataSaveProcess();
+            var data = new SaveDataV1();
+            SaveLoadSystem.AutoSave(new SaveDataV1());
+            Debug.Log("세이브 완료");
+        }
     }
 
     public GameManager()

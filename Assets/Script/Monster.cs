@@ -1,11 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
 public class Monster : Creature
 {
@@ -34,6 +29,11 @@ public class Monster : Creature
     public int currShield;
 
     // Start is called before the first frame update
+    public void OnEnable()
+    {
+        
+    }
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -65,6 +65,12 @@ public class Monster : Creature
         Debug.Log($"KF{mainStage} - {subStage}, {ID}, {Name}, {MaxHealth}, {Damage}");
 
         Invoke("StartMove", 0.5f);
+
+        if (Masin_Shield == 0)
+        {
+            ShieldUI.GetComponentsInParent<Image>()[1].gameObject.SetActive(false);
+            ShieldUI.gameObject.SetActive(false);
+        }
     }
 
     private void FixedUpdate()
@@ -123,10 +129,12 @@ public class Monster : Creature
             if(player.status._MAP >= Masin_Armor)
             {
                 currShield -= damage;
+                PopDamage(damage, Color.blue, bc.transform.position);
             }
             else
             {
                 currShield -= Mathf.RoundToInt(damage / 2);
+                PopDamage(damage / 2, Color.blue, bc.transform.position);
             }
 
             if (currShield < 0) currShield = 0;
@@ -137,6 +145,7 @@ public class Monster : Creature
         if (Masin_Shield == 0) ShieldUI.fillAmount = 0;
 
         base.TakeDamage(damage);
+        PopDamage(damage, Color.white, bc.transform.position);
 
         HPUI.fillAmount = (float)currentHealth / MaxHealth;
         if (dead)
