@@ -39,13 +39,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+     
     private void Start()
     {
-        var data = SaveLoadSystem.AutoLoad();
+        var data = SaveLoadSystem.AutoLoad() as SaveDataV1;
 
         player.DataLoadProcess(data);
-        playerSkill.DataLoadProcess(data);
+        playerSkill.DataLoadProcess(data); //여기만 채우면 됨
 
         SetStageText();
     }
@@ -57,7 +57,8 @@ public class GameManager : MonoBehaviour
             player.DataSaveProcess();
             playerSkill.DataSaveProcess();
             var data = new SaveDataV1();
-            SaveLoadSystem.AutoSave(new SaveDataV1());
+
+            SaveLoadSystem.AutoSave(data);
             Debug.Log("세이브 완료");
         }
     }

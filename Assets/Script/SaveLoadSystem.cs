@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using Newtonsoft.Json;
@@ -92,6 +90,9 @@ public class SaveLoadSystem
         using (var reader = new JsonTextReader(new StringReader(json)))
         {
             var serialize = new JsonSerializer();
+            serialize.Converters.Add(new PlayerStatusConverter());
+            serialize.Converters.Add(new ItemListConverter());
+            serialize.Converters.Add(new SkillInfoConverter());
             switch (version)
             {
                 case 1:

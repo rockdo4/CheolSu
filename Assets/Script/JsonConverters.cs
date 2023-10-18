@@ -98,7 +98,7 @@ public class ItemListConverter : JsonConverter<List<Item>>
 
         var table = DataTableMgr.GetTable<GachaTable>();
 
-        for(int i=0; i<data.Count; i++)
+        for(int i=0; i<40; i++)
         {
             GachaData item = table.FindName((string)jObj[$"itemName{i}"]);
             int quantity = (int)jObj[$"itemQuantity{i}"];
@@ -138,7 +138,7 @@ public class SkillInfoConverter : JsonConverter<List<SkillInfo>>
         var table = DataTableMgr.GetTable<SkillTable>();
         var costTable = DataTableMgr.GetTable<SkillCostTable>();
         
-        for (int i = 0; i < jObj.Count; i++)
+        for (int i = 0; i < 5; i++)
         {
             SkillInfo info = new SkillInfo();
 
