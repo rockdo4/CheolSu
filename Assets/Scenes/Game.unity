@@ -11305,6 +11305,7 @@ MonoBehaviour:
   stageLoop: {fileID: 1464155397}
   player: {fileID: 294279060}
   playerSkill: {fileID: 1951153210}
+  upgradeManager: {fileID: 506472298}
   enterNext: 1
 --- !u!114 &963194230
 MonoBehaviour:
@@ -22775,8 +22776,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MonsterPrefabList:
-  - {fileID: 314453971557693793, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
-  - {fileID: 314453971557693793, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
+  - {fileID: 4087190103975380285, guid: 07037daab5ff0024e88fc89ad1387b60, type: 3}
+  - {fileID: 4087190103975380285, guid: 07037daab5ff0024e88fc89ad1387b60, type: 3}
   - {fileID: 314453971557693793, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
   - {fileID: 314453971557693793, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
   - {fileID: 314453971557693793, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
