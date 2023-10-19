@@ -41,9 +41,10 @@ public class MonsterSpawner : MonoBehaviour
         int subStage = GameManager.Instance.gameInfo.subStageCurr;
         int currentStage = ((mainStage - 1) * 10) + subStage;
 
-        var monsterData = monsterTable.GetMonsterData(currentStage);
+        var stage = ((mainStage - 1) * 2) + subStage / 10;
+        if (stage > 10) stage = 10;
 
-        var monster = Instantiate(MonsterPrefabList[mainStage], transform.position, Quaternion.identity);
+        var monster = Instantiate(MonsterPrefabList[stage], transform.position, Quaternion.identity);
         var info = monster.GetComponent<Monster>();
         //Debug.Log($"KF{mainStage} - {subStage}, {info.ID}, {info.Name}, {info.MaxHealth}, {info.Damage}");
         return info;
