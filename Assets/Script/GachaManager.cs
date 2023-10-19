@@ -27,6 +27,11 @@ public class GachaManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+
+            gachaTable = DataTableMgr.GetTable<GachaTable>();
+
+            weaponPicker = new WeightedRandomPicker<GachaData>();
+            armorPicker = new WeightedRandomPicker<GachaData>();
         }
         else
         {
@@ -37,10 +42,7 @@ public class GachaManager : MonoBehaviour
 
     private void Start()
     {
-        gachaTable = DataTableMgr.GetTable<GachaTable>();
-
-        weaponPicker = new WeightedRandomPicker<GachaData>();
-        armorPicker = new WeightedRandomPicker<GachaData>();
+        
 
         foreach(var data in gachaTable.m_WeaponList)
         {

@@ -96,7 +96,9 @@ public class EquipmentEnchantManager : MonoBehaviour
         if (!item.unlock) return; //언락 안됐으면 리턴
 
         if (player.status._gold < item.data.Item_Gold + (item.data.Item_LevelUp_Gold * item.enhance)) return;
+        if (item.quantity < 1) return;
 
+        item.quantity--;
         player.status._gold -= item.data.Item_Gold + (item.data.Item_LevelUp_Gold * item.enhance);
         item.enhance++;
 

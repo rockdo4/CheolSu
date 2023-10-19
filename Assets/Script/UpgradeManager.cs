@@ -64,6 +64,34 @@ public class UpgradeManager : MonoBehaviour
     void Update()
     {
         UpdatePoint();
+
+        var data = goldEnhanceTable.GetData(goldLevel.hp_level);
+        HPInfo.text = $"LV.{goldLevel.hp_level}\n{data.GB_HP} 증가";
+        GoldHP.text = $"레벨업 비용\n{data.HP_Gold}G";
+
+        data = goldEnhanceTable.GetData(goldLevel.atk_level);
+        DMGInfo.text = $"LV.{goldLevel.atk_level}\n{data.GB_ATK} 증가";
+        GoldAtk.text = $"레벨업 비용\n{data.ATK_Gold}G";
+
+        data = goldEnhanceTable.GetData(goldLevel.MAP_level);
+        MAPInfo.text = $"LV.{goldLevel.MAP_level}\n{data.GB_MAP} 증가";
+        GoldMAP.text = $"레벨업 비용\n{data.MAP_Gold}G";
+
+        data = goldEnhanceTable.GetData(goldLevel.GOD_level);
+        GODInfo.text = $"LV.{goldLevel.GOD_level}\n{data.GB_GOD} 증가";
+        GoldGOD.text = $"레벨업 비용\n{data.GOD_Gold}G";
+
+        var data2 = enhanceTable.GetData(charLevel.hp_level);
+        HPPointInfo.text = $"LV.{charLevel.hp_level}\n{data2.AB_HP} 증가";
+
+        data2 = enhanceTable.GetData(charLevel.atk_level);
+        DMGPointInfo.text = $"LV.{charLevel.atk_level}\n{data2.AB_ATK} 증가";
+
+        data2 = enhanceTable.GetData(charLevel.MAP_level);
+        MAPPointInfo.text = $"LV.{charLevel.MAP_level}\n{data2.AB_MAP} 증가";
+        
+        data2 = enhanceTable.GetData(charLevel.GOD_level);
+        GODPointInfo.text = $"LV.{charLevel.GOD_level}\n{data2.AB_GOD} 증가";
     }
 
 
@@ -151,7 +179,7 @@ public class UpgradeManager : MonoBehaviour
             player.status._gold -= data.HP_Gold;
             player.MaxHealth += data.GB_HP;
             goldLevel.hp_level++;
-            Debug.Log($"체력 {goldLevel.hp_level}에서 {goldLevel.hp_level + 1}로 업그레이드");
+            //Debug.Log($"체력 {goldLevel.hp_level}에서 {goldLevel.hp_level + 1}로 업그레이드");
 
             data = goldEnhanceTable.GetData(goldLevel.hp_level);
             //GoldHP.SetText($"골드 강화\n체력\n{data.HP_Gold}");
@@ -161,7 +189,7 @@ public class UpgradeManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("골드가 모자랍니다");
+            //Debug.Log("골드가 모자랍니다");
         }
     }
     public void GoldUpgradeDamage()
@@ -174,7 +202,7 @@ public class UpgradeManager : MonoBehaviour
             player.status._gold -= data.ATK_Gold;
             player.Damage += data.GB_ATK;
             goldLevel.atk_level++;
-            Debug.Log($"공격 {goldLevel.atk_level}에서 {goldLevel.atk_level + 1}로 업그레이드");
+            //Debug.Log($"공격 {goldLevel.atk_level}에서 {goldLevel.atk_level + 1}로 업그레이드");
 
             data = goldEnhanceTable.GetData(goldLevel.atk_level);
             //textGoldAtk.SetText($"골드 강화\n데미지\n{data.ATK_Gold}");
@@ -184,7 +212,7 @@ public class UpgradeManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("골드가 모자랍니다");
+            //Debug.Log("골드가 모자랍니다");
         }
     }
     public void GoldUpgradeMAP()
@@ -197,7 +225,7 @@ public class UpgradeManager : MonoBehaviour
             player.status._gold -= data.MAP_Gold;
             player.status._MAP += data.GB_MAP;
             goldLevel.MAP_level++;
-            Debug.Log($"마력 {goldLevel.MAP_level}에서 {goldLevel.MAP_level + 1}로 업그레이드");
+            //Debug.Log($"마력 {goldLevel.MAP_level}에서 {goldLevel.MAP_level + 1}로 업그레이드");
 
             data = goldEnhanceTable.GetData(goldLevel.MAP_level);
             //GoldHP.SetText($"골드 강화\n체력\n{data.HP_Gold}");
@@ -207,7 +235,7 @@ public class UpgradeManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("골드가 모자랍니다");
+            //Debug.Log("골드가 모자랍니다");
         }
     }
 
@@ -221,7 +249,7 @@ public class UpgradeManager : MonoBehaviour
             player.status._gold -= data.GOD_Gold;
             player.status._GOD += data.GB_GOD;
             goldLevel.GOD_level++;
-            Debug.Log($"신력 {goldLevel.GOD_level}에서 {goldLevel.GOD_level + 1}로 업그레이드");
+            //Debug.Log($"신력 {goldLevel.GOD_level}에서 {goldLevel.GOD_level + 1}로 업그레이드");
 
             data = goldEnhanceTable.GetData(goldLevel.GOD_level);
             //GoldHP.SetText($"골드 강화\n체력\n{data.HP_Gold}");
@@ -231,7 +259,7 @@ public class UpgradeManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("골드가 모자랍니다");
+            //Debug.Log("골드가 모자랍니다");
         }
     }
 
@@ -245,13 +273,13 @@ public class UpgradeManager : MonoBehaviour
             player.status._levelPoint--;
             player.MaxHealth += data.AB_HP;
             charLevel.hp_level++;
-            Debug.Log($"체력 {charLevel.hp_level}에서 {charLevel.hp_level + 1}로 업그레이드");
+            //Debug.Log($"체력 {charLevel.hp_level}에서 {charLevel.hp_level + 1}로 업그레이드");
             HPPointInfo.text = $"LV.{charLevel.hp_level}\n{data.AB_HP} 증가";
             UpdatePoint();
         }
         else
         {
-            Debug.Log("포인트가 모자랍니다");
+            //Debug.Log("포인트가 모자랍니다");
         }
     }
     public void PointUpgradeDamage()
@@ -264,13 +292,13 @@ public class UpgradeManager : MonoBehaviour
             player.status._levelPoint--;
             player.Damage += data.AB_ATK;
             charLevel.atk_level++;
-            Debug.Log($"공격 {charLevel.atk_level}에서 {charLevel.atk_level + 1}로 업그레이드");
+            //Debug.Log($"공격 {charLevel.atk_level}에서 {charLevel.atk_level + 1}로 업그레이드");
             DMGPointInfo.text = $"LV.{charLevel.atk_level}\n{data.AB_ATK} 증가";
             UpdatePoint();
         }
         else
         {
-            Debug.Log("포인트가 모자랍니다");
+            //Debug.Log("포인트가 모자랍니다");
         }
     }
 
@@ -284,13 +312,13 @@ public class UpgradeManager : MonoBehaviour
             player.status._level--;
             player.status._MAP += data.AB_MAP;
             charLevel.MAP_level++;
-            Debug.Log($"마력 {charLevel.MAP_level}에서 {charLevel.MAP_level + 1}로 업그레이드");
+            //Debug.Log($"마력 {charLevel.MAP_level}에서 {charLevel.MAP_level + 1}로 업그레이드");
             MAPPointInfo.text = $"LV.{charLevel.MAP_level}\n{data.AB_MAP} 증가";
             UpdatePoint();
         }
         else
         {
-            Debug.Log("포인트가 모자랍니다");
+            //Debug.Log("포인트가 모자랍니다");
         }
     }
 
@@ -304,13 +332,14 @@ public class UpgradeManager : MonoBehaviour
             player.status._levelPoint--;
             player.status._MAP += data.AB_GOD;
             charLevel.GOD_level++;
-            Debug.Log($"신력 {charLevel.GOD_level}에서 {charLevel.GOD_level + 1}로 업그레이드");
+            //Debug.Log($"신력 {charLevel.GOD_level}에서 {charLevel.GOD_level + 1}로 업그레이드");
+
             GODPointInfo.text = $"LV.{charLevel.GOD_level}\n{data.AB_GOD} 증가";
             UpdatePoint();
         }
         else
         {
-            Debug.Log("포인트가 모자랍니다");
+            //Debug.Log("포인트가 모자랍니다");
         }
     }
 

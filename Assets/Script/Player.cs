@@ -58,11 +58,13 @@ public class Player : Creature
     public PlayerStatus status = new PlayerStatus();
     public Dictionary<GachaData, Item> itemList = new Dictionary<GachaData, Item>();
 
+    private AudioSource audioSource;
+
     private int nextExp;
 
     private void Awake()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -123,9 +125,12 @@ public class Player : Creature
     private void Attack()
     {
         if (enemy == null) return;
+        if (enemy.dead) return;
         if (lastAttackTime + status.attackDelay > Time.time) return;
 
         animator.SetTrigger("Attack");
+        audioSource.Stop();
+        audioSource.Play();
         lastAttackTime = Time.time;
     }
 
@@ -263,6 +268,7 @@ public class Player : Creature
     public void PlayerKill()
     {
         if (dead) return;
+        if (enemy != null && enemy.dead) return;
 
         for (int i = 0; i < backGroundScrolls.Count; i++)
         {
@@ -294,8 +300,11 @@ public class Player : Creature
         {
             itemList.Add(item.data, item);
             Data.instance.itemList.Add(item);
+            //Debug.Log(item.quantity);
         }
 
         UpdateInterface();
+        GachaManager.Instance.UpdateArmorCount();
+        GachaManager.Instance.UpdateWeaponCount();
     }
 }

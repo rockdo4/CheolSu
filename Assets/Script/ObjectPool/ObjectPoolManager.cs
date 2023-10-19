@@ -62,7 +62,7 @@ public class ObjectPoolManager : MonoBehaviour
             }
         }
 
-        Debug.Log("오브젝트풀링 준비 완료");
+        //Debug.Log("오브젝트풀링 준비 완료");
         IsReady = true;
     }
 

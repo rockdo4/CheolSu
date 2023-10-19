@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public PlayerSkill playerSkill;
     public UpgradeManager upgradeManager;
     public StageChanger changer;
+    public BGM bgm;
 
     public bool enterNext = true;
 
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        var data = SaveLoadSystem.AutoLoad() as SaveDataV1;
+        if(data != null) existSaveData = true;
 
         if (Instance == null)
         {
@@ -55,7 +58,9 @@ public class GameManager : MonoBehaviour
             player.DataLoadProcess(data);
             playerSkill.DataLoadProcess(data);
             upgradeManager.DataLoadProcess(data);
+
         }
+        bgm.ChangeBGM(gameInfo.mainStageCurr);
     }
 
     private void Update()
@@ -120,6 +125,7 @@ public class GameManager : MonoBehaviour
             gameInfo.subStageCurr = 1;
             gameInfo.mainStageCurr++;
             changer.SetStage(gameInfo.mainStageCurr - 1);
+            bgm.ChangeBGM(gameInfo.mainStageCurr);
         }
 
         SetStageText();
@@ -140,6 +146,7 @@ public class GameManager : MonoBehaviour
             gameInfo.mainStageCurr--;
 
             changer.SetStage(gameInfo.mainStageCurr - 1);
+            bgm.ChangeBGM(gameInfo.mainStageCurr);
         }
         SetStageText();
 

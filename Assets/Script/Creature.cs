@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class Creature : MonoBehaviour
 {
-    public int MaxHealth { get; set; }
+    public int MaxHealth { get; set; } = 10;
     public int currentHealth = 0;
-    public int Damage { get; set; }
+    public int Damage { get; set; } = 2;
     public bool dead = false;
     public Transform popPos;
 
