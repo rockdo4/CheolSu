@@ -1,8 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.ComponentModel;
 
 public class SaveLoadSystem
 {
@@ -21,7 +22,7 @@ public class SaveLoadSystem
         "Save1.json",
         "Save2.json"
     };
-    private static string AutoSaveFileName { get; } = "AutoSave2";
+    private static string AutoSaveFileName { get; } = "AutoSave";
 
     public static string SaveDirectory
     {
@@ -67,8 +68,6 @@ public class SaveLoadSystem
             serialize.Converters.Add(new PlayerStatusConverter());
             serialize.Converters.Add(new ItemListConverter());
             serialize.Converters.Add(new SkillInfoConverter());
-            serialize.Converters.Add(new GoldConverter());
-            serialize.Converters.Add(new EnhanceConverter());
             serialize.Serialize(writer, data);
         }
     }
@@ -93,11 +92,6 @@ public class SaveLoadSystem
         using (var reader = new JsonTextReader(new StringReader(json)))
         {
             var serialize = new JsonSerializer();
-            serialize.Converters.Add(new PlayerStatusConverter());
-            serialize.Converters.Add(new ItemListConverter());
-            serialize.Converters.Add(new SkillInfoConverter());
-            serialize.Converters.Add(new GoldConverter());
-            serialize.Converters.Add(new EnhanceConverter());
             switch (version)
             {
                 case 1:

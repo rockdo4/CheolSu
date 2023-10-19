@@ -11305,7 +11305,6 @@ MonoBehaviour:
   stageLoop: {fileID: 1464155397}
   player: {fileID: 294279060}
   playerSkill: {fileID: 1951153210}
-  upgradeManager: {fileID: 506472298}
   enterNext: 1
 --- !u!114 &963194230
 MonoBehaviour:
@@ -22777,12 +22776,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MonsterPrefabList:
   - {fileID: 4087190103975380285, guid: 07037daab5ff0024e88fc89ad1387b60, type: 3}
-  - {fileID: 4087190103975380285, guid: 07037daab5ff0024e88fc89ad1387b60, type: 3}
   - {fileID: 314453971557693793, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
-  - {fileID: 314453971557693793, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
-  - {fileID: 314453971557693793, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
-  - {fileID: 314453971557693793, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
-  - {fileID: 314453971557693793, guid: ddca5d257fa053d4fae014b06b86895d, type: 3}
+  - {fileID: 2575710369701676797, guid: e85f6dcf157672346906c896656d3423, type: 3}
+  - {fileID: 1183972366826929363, guid: 3e47f1760dce08c4aba20b5317841ac1, type: 3}
+  - {fileID: 3223911285945125742, guid: dd6292bf0feb0784caa9a613f82efe58, type: 3}
+  - {fileID: 1253473075779445481, guid: c48c3dc57d8cba44bb1cbe332fd5996e, type: 3}
+  - {fileID: 205508820808583194, guid: 65f59e81b477d78458e205463a701068, type: 3}
+  - {fileID: 5152604712445359577, guid: 1ee3c7fba68e8294b9e55256a3c839b8, type: 3}
+  - {fileID: 5963361767443018950, guid: 71e3218aaaf173c46a333930f6c6ee49, type: 3}
 --- !u!4 &1836959252
 Transform:
   m_ObjectHideFlags: 0

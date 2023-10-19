@@ -74,28 +74,23 @@ public class Player : Creature
 
         var table = DataTableMgr.GetTable<GachaTable>();
 
-        //세이브 데이터 확인
-        if(!GameManager.existSaveData)
+        foreach (var data in table.m_WeaponList)
         {
-            foreach (var data in table.m_WeaponList)
-            {
-                var item = new Item(data, 0, 0);
-                itemList.Add(data, item);
+            var item = new Item(data, 0, 0);
+            itemList.Add(data, item);
 
-                Data.instance.itemList.Add(item);
-            }
-            foreach (var data in table.m_ArmorList)
-            {
-                var item = new Item(data, 0, 0);
-                itemList.Add(data, item);
+            Data.instance.itemList.Add(item);
+        }
+        foreach (var data in table.m_ArmorList)
+        {
+            var item = new Item(data, 0, 0);
+            itemList.Add(data, item);
 
-                Data.instance.itemList.Add(item);
-            }
-
-            MaxHealth = 10;
-            Damage = 2;
+            Data.instance.itemList.Add(item);
         }
 
+        MaxHealth = 10;
+        Damage = 2;
         currentHealth = MaxHealth;
 
         animator.SetBool("Move", true);
@@ -103,6 +98,10 @@ public class Player : Creature
         {
             backGroundScrolls[i].enabled = true;
         }
+
+        var list = DataTableMgr.GetTable<MonsterTable>();
+
+        //UpdateInterface();
     }
 
     // Update is called once per frame
@@ -272,16 +271,8 @@ public class Player : Creature
         Data.instance.stageInfo = GameManager.Instance.gameInfo;
     }
 
-    public void DataLoadProcess(SaveDataV1 data)
+    public void DataLoadProcess(SaveData data)
     {
-        status = data.status;
-        MaxHealth = data.Maxhealth;
-        Damage = data.Damage;
-        GameManager.Instance.gameInfo = data.stageInfo;
 
-        foreach(var item in data.itemList)
-        {
-            itemList.Add(item.data, item);
-        }
     }
 }

@@ -28,8 +28,6 @@ public class SaveDataV1 : SaveData
     public List<Item> itemList;
     public List<SkillInfo> skillInfosList;
     public GameInfo stageInfo;
-    public GoldEnhanceLevel goldEnhance;
-    public CharacterEnhanceLevel charEnhance;
 
     public override SaveData VersionUp()
     {

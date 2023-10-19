@@ -44,6 +44,7 @@ public class SkillCostTable : DataTable
                 var temp = new SkillCostData();
                 temp = record;
                 m_SkillCostList.Add(temp);
+                Debug.Log(temp.cost);
             }
         }
         catch (Exception ex)

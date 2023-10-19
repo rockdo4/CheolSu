@@ -98,17 +98,13 @@ public class ItemListConverter : JsonConverter<List<Item>>
 
         var table = DataTableMgr.GetTable<GachaTable>();
 
-        for(int i=0; i<40; i++)
+        for(int i=0; i<data.Count; i++)
         {
             GachaData item = table.FindName((string)jObj[$"itemName{i}"]);
             int quantity = (int)jObj[$"itemQuantity{i}"];
             int enhance = (int)jObj[$"itemEnhance{i}"];
-            bool unlock = (bool)jObj[$"unlock{i}"];
 
-            var obj = new Item(item, quantity, enhance);
-            obj.unlock = unlock;
-
-            data.Add(obj);
+            data.Add(new Item(item, quantity, enhance));
         }
 
         return data;
@@ -126,8 +122,6 @@ public class ItemListConverter : JsonConverter<List<Item>>
             writer.WriteValue(value[i].quantity);
             writer.WritePropertyName($"itemEnhance{i}");
             writer.WriteValue(value[i].enhance);
-            writer.WritePropertyName($"unlock{i}");
-            writer.WriteValue(value[i].unlock);
         }
 
         writer.WriteEndObject();
@@ -144,7 +138,7 @@ public class SkillInfoConverter : JsonConverter<List<SkillInfo>>
         var table = DataTableMgr.GetTable<SkillTable>();
         var costTable = DataTableMgr.GetTable<SkillCostTable>();
         
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < jObj.Count; i++)
         {
             SkillInfo info = new SkillInfo();
 
@@ -174,80 +168,6 @@ public class SkillInfoConverter : JsonConverter<List<SkillInfo>>
             writer.WritePropertyName($"SkillDataID{i}");
             writer.WriteValue(value[i].data.Skill_ID);
         }
-
-        writer.WriteEndObject();
-    }
-}
-
-public class GoldConverter : JsonConverter<GoldEnhanceLevel>
-{
-    public override GoldEnhanceLevel ReadJson(JsonReader reader, Type objectType, GoldEnhanceLevel existingValue, bool hasExistingValue, JsonSerializer serializer)
-    {
-        var jObj = JObject.Load(reader);
-        var data = new GoldEnhanceLevel();
-
-        data.hp_level = (int)jObj["hp_level"];
-        data.atk_level = (int)jObj["atk_level"];
-        data.MAP_level = (int)jObj["MAP_level"];
-        data.GOD_level = (int)jObj["GOD_level"];
-
-        return data;
-    }
-
-    public override void WriteJson(JsonWriter writer, GoldEnhanceLevel value, JsonSerializer serializer)
-    {
-        writer.WriteStartObject();
-
-        if(value == null)
-        {
-            value = new GoldEnhanceLevel();
-        }
-
-        writer.WritePropertyName("hp_level");
-        writer.WriteValue(value.hp_level);
-        writer.WritePropertyName("atk_level");
-        writer.WriteValue(value.atk_level);
-        writer.WritePropertyName("MAP_level");
-        writer.WriteValue(value.MAP_level);
-        writer.WritePropertyName("GOD_level");
-        writer.WriteValue(value.GOD_level);
-
-        writer.WriteEndObject();
-    }
-}
-
-public class EnhanceConverter : JsonConverter<CharacterEnhanceLevel>
-{
-    public override CharacterEnhanceLevel ReadJson(JsonReader reader, Type objectType, CharacterEnhanceLevel existingValue, bool hasExistingValue, JsonSerializer serializer)
-    {
-        var jObj = JObject.Load(reader);
-        var data = new CharacterEnhanceLevel();
-
-        data.hp_level = (int)jObj["hp_level"];
-        data.atk_level = (int)jObj["atk_level"];
-        data.MAP_level = (int)jObj["MAP_level"];
-        data.GOD_level = (int)jObj["GOD_level"];
-
-        return data;
-    }
-
-    public override void WriteJson(JsonWriter writer, CharacterEnhanceLevel value, JsonSerializer serializer)
-    {
-        writer.WriteStartObject();
-
-        if (value == null)
-        {
-            value = new CharacterEnhanceLevel();
-        }
-
-        writer.WritePropertyName("hp_level");
-        writer.WriteValue(value.hp_level);
-        writer.WritePropertyName("atk_level");
-        writer.WriteValue(value.atk_level);
-        writer.WritePropertyName("MAP_level");
-        writer.WriteValue(value.MAP_level);
-        writer.WritePropertyName("GOD_level");
-        writer.WriteValue(value.GOD_level);
 
         writer.WriteEndObject();
     }
