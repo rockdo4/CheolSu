@@ -34,7 +34,7 @@ public class ResolutionFix : MonoBehaviour
         thisCamera.rect = rect;
     }
 
-    //void OnPreCull() => GL.Clear(true, true, Color.black);
+    void OnPreCull() => GL.Clear(true, true, Color.black);
 
     private void Start()
     {

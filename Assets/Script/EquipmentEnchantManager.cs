@@ -60,16 +60,16 @@ public class EquipmentEnchantManager : MonoBehaviour
                 item = table.GetArmorData(i - 20);
             }
 
-            enchantInfos[i].NameEnchant.text = $"{list[item].data.Item_Name} +{list[item].enhance}";
+            //if (list[item].quantity > 0)
+            //{
+            //    Unlock(i);
+            //}
+            //else
+            //{
+            //    Lock(i);
+            //}
 
-            if (list[item].unlock)
-            {
-                Unlock(i);
-            }
-            else
-            {
-                Lock(i);
-            }
+            //enchantInfos[i].NameEnchant.text = $"{list[item].data.Item_Name} +{list[item].enhance}";
         }
     }
 

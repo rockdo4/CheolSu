@@ -296,9 +296,15 @@ public class Player : Creature
         Damage = data.Damage;
         GameManager.Instance.gameInfo = data.stageInfo;
 
+        var table = DataTableMgr.GetTable<GachaTable>();
+
+        
+
         foreach(var item in data.itemList)
         {
-            itemList.Add(item.data, item);
+            var obj = table.FindName(item.data.Item_Name);
+
+            itemList.Add(obj, item);
             Data.instance.itemList.Add(item);
             //Debug.Log(item.quantity);
         }
@@ -306,5 +312,7 @@ public class Player : Creature
         UpdateInterface();
         GachaManager.Instance.UpdateArmorCount();
         GachaManager.Instance.UpdateWeaponCount();
+
+        UpdateInterface();
     }
 }
