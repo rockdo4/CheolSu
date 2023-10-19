@@ -6,18 +6,18 @@ using UnityEngine.UI;
 
 public class GoldEnhanceLevel
 {
-    public int hp_level = 0;
-    public int atk_level = 0;
-    public int MAP_level = 0;
-    public int GOD_level = 0;
+    public int hp_level { get; set; } = 0;
+    public int atk_level { get; set; } = 0;
+    public int MAP_level { get; set; } = 0;
+    public int GOD_level { get; set; } = 0;
 }
 
 public class CharacterEnhanceLevel
 {
-    public int hp_level = 0;
-    public int atk_level = 0;
-    public int MAP_level = 0;
-    public int GOD_level = 0;
+    public int hp_level { get; set; } = 0;
+    public int atk_level { get; set; } = 0;
+    public int MAP_level { get; set; } = 0;
+    public int GOD_level { get; set; } = 0;
 }
 
 public class UpgradeManager : MonoBehaviour
@@ -51,8 +51,11 @@ public class UpgradeManager : MonoBehaviour
         enhanceTable = DataTableMgr.GetTable<CharacterEnhanceTable>();
         goldEnhanceTable = DataTableMgr.GetTable<GoldEnhanceTable>();
 
-        goldLevel = new GoldEnhanceLevel();
-        charLevel = new CharacterEnhanceLevel();
+        if(!GameManager.existSaveData)
+        {
+            goldLevel = new GoldEnhanceLevel();
+            charLevel = new CharacterEnhanceLevel();
+        }
 
         UpdatePoint();
     }
@@ -316,7 +319,17 @@ public class UpgradeManager : MonoBehaviour
     {
         CurrentGold.text = $"골드 : {player.status._gold}G";
         CurrentPoint.text = $"레벨업 포인트 : {player.status._levelPoint}";
+    }
 
-        
+    public void DataSaveProcess()
+    {
+        Data.instance.goldEnhance = goldLevel;
+        Data.instance.charEnhance = charLevel;
+    }
+
+    public void DataLoadProcess(SaveDataV1 data)
+    {
+        goldLevel = data.goldEnhance;
+        charLevel = data.charEnhance;
     }
 }

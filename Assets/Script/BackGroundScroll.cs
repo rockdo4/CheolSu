@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BackGroundScroll : MonoBehaviour
 {
-    public List<RectTransform> backGround;
+    public List<Transform> backGround;
     private int length;
     private float width;
     private Vector3 offset;

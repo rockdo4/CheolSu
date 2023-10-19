@@ -54,41 +54,64 @@ public class PlayerSkill : MonoBehaviour
         player = GetComponentInParent<Player>();
         skillTable = DataTableMgr.GetTable<SkillTable>();
 
-        var magma = skillCostTable.GetCostData(0);
+        if(!GameManager.existSaveData)
+        {
+            var magma = skillCostTable.GetCostData(0);
+            magmaInfo.data = skillTable.GetSkillData(11000101);
+            magmaInfo.maxLevel = magma.maxLevel;
+            magmaInfo.cost = magma.cost;
+            magmaInfo.increaseCost = magma.increaseCost;
+            magmaInfo.level = 1;
 
-        magmaInfo.data = skillTable.GetSkillData(11000101);
-        magmaInfo.maxLevel = magma.maxLevel;
-        magmaInfo.cost = magma.cost;
-        magmaInfo.increaseCost = magma.increaseCost;
-        magmaInfo.level = 1;
+            var explosion = skillCostTable.GetCostData(1);
+            explosionInfo.data = skillTable.GetSkillData(11000201);
+            explosionInfo.maxLevel = explosion.maxLevel;
+            explosionInfo.cost = explosion.cost;
+            explosionInfo.increaseCost = explosion.increaseCost;
+            explosionInfo.level = 1;
 
-        var explosion = skillCostTable.GetCostData(1);
-        explosionInfo.data = skillTable.GetSkillData(11000201);
-        explosionInfo.maxLevel = explosion.maxLevel;
-        explosionInfo.cost = explosion.cost;
-        explosionInfo.increaseCost = explosion.increaseCost;
-        explosionInfo.level = 1;
+            var exercise = skillCostTable.GetCostData(2);
+            exerciseInfo.data = skillTable.GetSkillData(21000101);
+            exerciseInfo.maxLevel = exercise.maxLevel;
+            exerciseInfo.cost = exercise.cost;
+            exerciseInfo.increaseCost = exercise.increaseCost;
+            exerciseInfo.level = 1;
 
-        var exercise = skillCostTable.GetCostData(2);
-        exerciseInfo.data = skillTable.GetSkillData(21000101);
-        exerciseInfo.maxLevel = exercise.maxLevel;
-        exerciseInfo.cost = exercise.cost;
-        exerciseInfo.increaseCost = exercise.increaseCost;
-        exerciseInfo.level = 1;
+            var fence = skillCostTable.GetCostData(3);
+            fenceInfo.data = skillTable.GetSkillData(21000102);
+            fenceInfo.maxLevel = fence.maxLevel;
+            fenceInfo.cost = fence.cost;
+            fenceInfo.increaseCost = fence.increaseCost;
+            fenceInfo.level = 1;
 
-        var fence = skillCostTable.GetCostData(3);
-        fenceInfo.data = skillTable.GetSkillData(21000102);
-        fenceInfo.maxLevel = fence.maxLevel;
-        fenceInfo.cost = fence.cost;
-        fenceInfo.increaseCost = fence.increaseCost;
-        fenceInfo.level = 1;
+            var desire = skillCostTable.GetCostData(4);
+            desireInfo.data = skillTable.GetSkillData(21000103);
+            desireInfo.maxLevel = desire.maxLevel;
+            desireInfo.cost = desire.cost;
+            desireInfo.increaseCost = desire.increaseCost;
+            desireInfo.level = 1;
+        }
+        else
+        {
+            if (SkillInfo.Skill_Tier1 <= magmaInfo.level && magmaInfo.level < SkillInfo.Skill_Tier2)
+            {
+                magmaInfo.data = skillTable.GetSkillData(11000102);
+            }
+            else if (SkillInfo.Skill_Tier2 <= magmaInfo.level && magmaInfo.level < SkillInfo.Skill_Tier3)
+            {
+                magmaInfo.data = skillTable.GetSkillData(11000103);
+            }
 
-        var desire = skillCostTable.GetCostData(4);
-        desireInfo.data = skillTable.GetSkillData(21000103);
-        desireInfo.maxLevel = desire.maxLevel;
-        desireInfo.cost = desire.cost;
-        desireInfo.increaseCost = desire.increaseCost;
-        desireInfo.level = 1;
+            if (SkillInfo.Skill_Tier1 <= explosionInfo.level && explosionInfo.level < SkillInfo.Skill_Tier2)
+            {
+                explosionInfo.data = skillTable.GetSkillData(11000202);
+            }
+            else if (SkillInfo.Skill_Tier2 <= explosionInfo.level && explosionInfo.level < SkillInfo.Skill_Tier3)
+            {
+                explosionInfo.data = skillTable.GetSkillData(11000203);
+            }
+        }
+        
 
         magmaCoolTime = 0;
         explosionCoolTime = 0;
@@ -417,8 +440,12 @@ public class PlayerSkill : MonoBehaviour
         Data.instance.skillInfosList.Add(desireInfo);
     }
 
-    public void DataLoadProcess(SaveData data)
+    public void DataLoadProcess(SaveDataV1 data)
     {
-
+        magmaInfo = data.skillInfosList[0];
+        explosionInfo = data.skillInfosList[1];
+        exerciseInfo = data.skillInfosList[2];
+        fenceInfo = data.skillInfosList[3];
+        desireInfo = data.skillInfosList[4];
     }
 }

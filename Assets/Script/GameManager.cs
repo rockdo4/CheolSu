@@ -12,7 +12,7 @@ public struct GameInfo
 
 public class GameManager : MonoBehaviour
 {
-    
+    public static bool existSaveData = false;
 
     public static GameManager Instance;
     public GameInfo gameInfo;
@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     public Player player;
     public PlayerSkill playerSkill;
+    public UpgradeManager upgradeManager;
+
     public bool enterNext = true;
 
     private int monsterCount = 1;
@@ -39,75 +41,76 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+     
     private void Start()
     {
-        var data = SaveLoadSystem.AutoLoad();
-
-        player.DataLoadProcess(data);
-        playerSkill.DataLoadProcess(data);
-
         SetStageText();
+
+        var data = SaveLoadSystem.AutoLoad() as SaveDataV1;
+
+        if (data != null)
+        {
+            existSaveData = true;
+            player.DataLoadProcess(data);
+            playerSkill.DataLoadProcess(data);
+            upgradeManager.DataLoadProcess(data);
+        }
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
+
             player.DataSaveProcess();
             playerSkill.DataSaveProcess();
+            upgradeManager.DataSaveProcess();
             var data = new SaveDataV1();
-            SaveLoadSystem.AutoSave(new SaveDataV1());
+
+            SaveLoadSystem.AutoSave(data);
             Debug.Log("세이브 완료");
         }
     }
 
     public GameManager()
     {
-        if(true)
+        if(!existSaveData)
         {
             //저장 데이터가 없으면
             gameInfo.mainStageMax = 1;
             gameInfo.subStageMax = 1;
             gameInfo.mainStageCurr = 1;
             gameInfo.subStageCurr = 1;
+        }
             remainMonster = monsterCount;
-        }
-        else
-        {
-            //저장 데이터가 있으면 데이터 로드
-        }
     }
 
     public void MonsterDie(int Drop_ID)
     {
-        //플레이어 한테 보상
+        //드랍
         var data = DataTableMgr.GetTable<DropTable>().GetMonsterData(Drop_ID);
         player.GetItem(data);
 
-        remainMonster -= 1; //남은 몹 수 감소
-        if (remainMonster > 0) return; //잡아야 될 몹이 아직 남아있으면 수만 줄이고 return
+        remainMonster -= 1;
+        if (remainMonster > 0) return;
 
-        //다 잡으면 다시 채우고
+        
         remainMonster = monsterCount;
         Debug.Log("스테이지 클리어");
-        player.StageClear();  //스테이지 클리어하면 캐릭터 체력 초기화
+        player.StageClear();  //스테이지 클리어
 
-        //현재 스테이지가 최대 스테이지랑 똑같으면
         if (gameInfo.mainStageMax == gameInfo.mainStageCurr && gameInfo.subStageMax == gameInfo.subStageCurr)
         {
-            gameInfo.subStageMax++; //서브 스테이지 1 올림
-            if(gameInfo.subStageMax == 11) //서브 스테이지가 10이면
+            gameInfo.subStageMax++; 
+            if(gameInfo.subStageMax == 11) 
             {
-                //서브 스테이지 0으로 줄이고 메인을 1 증가
                 gameInfo.subStageMax = 1;
                 gameInfo.mainStageMax++;
             }
         }
 
-        if (!enterNext) return; //스테이지 반복 옵션 켜져있으면 return
+        if (!enterNext) return; 
 
-        //반복 옵션 꺼져 있으면 다음 스테이지 진행
         gameInfo.subStageCurr++; 
         if (gameInfo.subStageCurr == 11) 
         {
@@ -118,12 +121,8 @@ public class GameManager : MonoBehaviour
         SetStageText();
     }
 
-    //플레이어가 죽으면
     public void PlayerDie()
     {
-        //다시 살림
-
-        //한단계 아래로 내림
 
         if(gameInfo.mainStageCurr == 1 &&  gameInfo.subStageCurr == 1) { return; }
 

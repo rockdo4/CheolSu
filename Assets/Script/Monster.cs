@@ -42,7 +42,7 @@ public class Monster : Creature
     }
     private void Start()
     {
-        player = GameManager.Instance.player;
+        //player = GameManager.Instance.player;
 
         int mainStage = GameManager.Instance.gameInfo.mainStageCurr;
         int subStage = GameManager.Instance.gameInfo.subStageCurr;
@@ -62,7 +62,7 @@ public class Monster : Creature
 
         currentHealth = MaxHealth;
         currShield = Masin_Shield;
-        Debug.Log($"KF{mainStage} - {subStage}, {ID}, {Name}, {MaxHealth}, {Damage}");
+        //Debug.Log($"KF{mainStage} - {subStage}, {ID}, {Name}, {MaxHealth}, {Damage}");
 
         Invoke("StartMove", 0.5f);
 
