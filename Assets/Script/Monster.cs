@@ -42,7 +42,7 @@ public class Monster : Creature
     }
     private void Start()
     {
-        player = GameManager.Instance.player;
+        //player = GameManager.Instance.player;
 
         int mainStage = GameManager.Instance.gameInfo.mainStageCurr;
         int subStage = GameManager.Instance.gameInfo.subStageCurr;

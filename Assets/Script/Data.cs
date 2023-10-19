@@ -25,4 +25,7 @@ public class Data : MonoBehaviour
     public List<Item> itemList = new List<Item>();
     public List<SkillInfo> skillInfosList = new List<SkillInfo>();
     public GameInfo stageInfo { get; set; }
+
+    public GoldEnhanceLevel goldEnhance = new GoldEnhanceLevel();
+    public CharacterEnhanceLevel charEnhance = new CharacterEnhanceLevel();
 }
