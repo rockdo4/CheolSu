@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public PlayerSkill playerSkill;
     public UpgradeManager upgradeManager;
+    public StageChanger changer;
 
     public bool enterNext = true;
 
@@ -106,6 +107,8 @@ public class GameManager : MonoBehaviour
             {
                 gameInfo.subStageMax = 1;
                 gameInfo.mainStageMax++;
+
+                
             }
         }
 
@@ -116,9 +119,12 @@ public class GameManager : MonoBehaviour
         {
             gameInfo.subStageCurr = 1;
             gameInfo.mainStageCurr++;
+            changer.SetStage(gameInfo.mainStageCurr - 1);
         }
 
         SetStageText();
+
+        
     }
 
     public void PlayerDie()
@@ -132,6 +138,8 @@ public class GameManager : MonoBehaviour
         {
             gameInfo.subStageCurr = 10;
             gameInfo.mainStageCurr--;
+
+            changer.SetStage(gameInfo.mainStageCurr - 1);
         }
         SetStageText();
 

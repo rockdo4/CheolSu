@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -213,6 +214,7 @@ public class Player : Creature
         uiList[0].SetText($"EXP : {status._exp} / {nextExp}");
         uiList[1].SetText($"{status._level}");
         uiList[2].SetText($"{status._gold} G");
+        uiList[3].SetText($"{status._dragon} G");
 
         uiList2[0].text = $"체력 : {currentHealth}/{MaxHealth}";
         uiList2[1].text = $"공격력 : {Damage}";
@@ -260,6 +262,13 @@ public class Player : Creature
 
     public void PlayerKill()
     {
+        if (dead) return;
+
+        for (int i = 0; i < backGroundScrolls.Count; i++)
+        {
+            backGroundScrolls[i].enabled = false;
+        }
+
         AbsoluteTakeDamage(MaxHealth);
     }
 
@@ -286,5 +295,7 @@ public class Player : Creature
             itemList.Add(item.data, item);
             Data.instance.itemList.Add(item);
         }
+
+        UpdateInterface();
     }
 }
