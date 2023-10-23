@@ -117,8 +117,8 @@ public class Player : Creature
 
         if(Input.GetKeyDown(KeyCode.PageUp))
         {
-            status._gold += 10000;
-            UpdateInterface();
+            //status._gold += 10000;
+            //UpdateInterface();
         }
     }
 

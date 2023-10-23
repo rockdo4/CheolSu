@@ -65,33 +65,33 @@ public class UpgradeManager : MonoBehaviour
     {
         UpdatePoint();
 
-        var data = goldEnhanceTable.GetData(goldLevel.hp_level);
-        HPInfo.text = $"LV.{goldLevel.hp_level}\n{data.GB_HP} 증가";
-        GoldHP.text = $"레벨업 비용\n{data.HP_Gold}G";
+        //var data = goldEnhanceTable.GetData(goldLevel.hp_level);
+        //HPInfo.text = $"LV.{goldLevel.hp_level}\n{data.GB_HP} 증가";
+        //GoldHP.text = $"레벨업 비용\n{data.HP_Gold}G";
 
-        data = goldEnhanceTable.GetData(goldLevel.atk_level);
-        DMGInfo.text = $"LV.{goldLevel.atk_level}\n{data.GB_ATK} 증가";
-        GoldAtk.text = $"레벨업 비용\n{data.ATK_Gold}G";
+        //data = goldEnhanceTable.GetData(goldLevel.atk_level);
+        //DMGInfo.text = $"LV.{goldLevel.atk_level}\n{data.GB_ATK} 증가";
+        //GoldAtk.text = $"레벨업 비용\n{data.ATK_Gold}G";
 
-        data = goldEnhanceTable.GetData(goldLevel.MAP_level);
-        MAPInfo.text = $"LV.{goldLevel.MAP_level}\n{data.GB_MAP} 증가";
-        GoldMAP.text = $"레벨업 비용\n{data.MAP_Gold}G";
+        //data = goldEnhanceTable.GetData(goldLevel.MAP_level);
+        //MAPInfo.text = $"LV.{goldLevel.MAP_level}\n{data.GB_MAP} 증가";
+        //GoldMAP.text = $"레벨업 비용\n{data.MAP_Gold}G";
 
-        data = goldEnhanceTable.GetData(goldLevel.GOD_level);
-        GODInfo.text = $"LV.{goldLevel.GOD_level}\n{data.GB_GOD} 증가";
-        GoldGOD.text = $"레벨업 비용\n{data.GOD_Gold}G";
+        //data = goldEnhanceTable.GetData(goldLevel.GOD_level);
+        //GODInfo.text = $"LV.{goldLevel.GOD_level}\n{data.GB_GOD} 증가";
+        //GoldGOD.text = $"레벨업 비용\n{data.GOD_Gold}G";
 
-        var data2 = enhanceTable.GetData(charLevel.hp_level);
-        HPPointInfo.text = $"LV.{charLevel.hp_level}\n{data2.AB_HP} 증가";
+        //var data2 = enhanceTable.GetData(charLevel.hp_level);
+        //HPPointInfo.text = $"LV.{charLevel.hp_level}\n{data2.AB_HP} 증가";
 
-        data2 = enhanceTable.GetData(charLevel.atk_level);
-        DMGPointInfo.text = $"LV.{charLevel.atk_level}\n{data2.AB_ATK} 증가";
+        //data2 = enhanceTable.GetData(charLevel.atk_level);
+        //DMGPointInfo.text = $"LV.{charLevel.atk_level}\n{data2.AB_ATK} 증가";
 
-        data2 = enhanceTable.GetData(charLevel.MAP_level);
-        MAPPointInfo.text = $"LV.{charLevel.MAP_level}\n{data2.AB_MAP} 증가";
+        //data2 = enhanceTable.GetData(charLevel.MAP_level);
+        //MAPPointInfo.text = $"LV.{charLevel.MAP_level}\n{data2.AB_MAP} 증가";
         
-        data2 = enhanceTable.GetData(charLevel.GOD_level);
-        GODPointInfo.text = $"LV.{charLevel.GOD_level}\n{data2.AB_GOD} 증가";
+        //data2 = enhanceTable.GetData(charLevel.GOD_level);
+        //GODPointInfo.text = $"LV.{charLevel.GOD_level}\n{data2.AB_GOD} 증가";
     }
 
 

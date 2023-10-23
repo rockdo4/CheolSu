@@ -69,6 +69,8 @@ public class GachaManager : MonoBehaviour
     }
     public void WeaponGacha()
     {
+        if (player.status._dragon < 50) return;
+        player.status._dragon -= 50;
         var data = weaponPicker.GetRandomPick();
 
         if (player == null) return;
@@ -80,7 +82,7 @@ public class GachaManager : MonoBehaviour
         }
 
         player.itemList[data].quantity++;
-        Debug.Log($"이름 : {data.Item_Name}, 레어도 : {data.Item_Type}, 현재 수량: {player.itemList[data].quantity}");
+        //Debug.Log($"이름 : {data.Item_Name}, 레어도 : {data.Item_Type}, 현재 수량: {player.itemList[data].quantity}");
 
         var item = Instantiate(weaponList[data.Item_ID - 1]);
         item.transform.SetParent(gachaList.transform, false);
@@ -89,6 +91,7 @@ public class GachaManager : MonoBehaviour
 
     IEnumerator WeaponCoroutine(int count)
     {
+
         isCoroutine = true;
         while (count > 0)
         {
@@ -101,6 +104,8 @@ public class GachaManager : MonoBehaviour
     }
     public void WeaponGacha11()
     {
+        if (player.status._dragon < 500) return;
+        player.status._dragon -= 500;
         if (!isCoroutine)
         {
             StartCoroutine(WeaponCoroutine(11));
@@ -109,6 +114,9 @@ public class GachaManager : MonoBehaviour
 
     public void ArmorGacha()
     {
+        if (player.status._dragon < 50) return;
+        player.status._dragon -= 50;
+
         var data = armorPicker.GetRandomPick();
 
         if (player == null) return;
@@ -142,6 +150,8 @@ public class GachaManager : MonoBehaviour
 
     public void ArmorGacha11()
     {
+        if (player.status._dragon < 500) return;
+        player.status._dragon -= 500;
         if (isCoroutine) return;
         StartCoroutine(ArmorCoroutine(11));
     }

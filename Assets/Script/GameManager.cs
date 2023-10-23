@@ -50,16 +50,16 @@ public class GameManager : MonoBehaviour
     {
         SetStageText();
 
-        var data = SaveLoadSystem.AutoLoad() as SaveDataV1;
+        //var data = SaveLoadSystem.AutoLoad() as SaveDataV1;
 
-        if (data != null)
-        {
-            existSaveData = true;
-            player.DataLoadProcess(data);
-            playerSkill.DataLoadProcess(data);
-            upgradeManager.DataLoadProcess(data);
+        //if (data != null)
+        //{
+        //    existSaveData = true;
+        //    player.DataLoadProcess(data);
+        //    playerSkill.DataLoadProcess(data);
+        //    upgradeManager.DataLoadProcess(data);
 
-        }
+        //}
         bgm.ChangeBGM(gameInfo.mainStageCurr);
     }
 
