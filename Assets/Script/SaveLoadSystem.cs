@@ -21,7 +21,7 @@ public class SaveLoadSystem
         "Save1.json",
         "Save2.json"
     };
-    private static string AutoSaveFileName { get; } = "AutoSave.txt";
+    private static string AutoSaveFileName { get; } = "AutoSave";
 
     public static string SaveDirectory
     {
@@ -79,7 +79,7 @@ public class SaveLoadSystem
 
         SaveData data = null;
 
-        int version = 0;
+        int version = 1;
         var json = File.ReadAllText(path);
 
         using (var reader = new JsonTextReader(new StringReader(json)))

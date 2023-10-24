@@ -50,16 +50,16 @@ public class GameManager : MonoBehaviour
     {
         SetStageText();
 
-        //var data = SaveLoadSystem.AutoLoad() as SaveDataV1;
+        var data = SaveLoadSystem.AutoLoad() as SaveDataV1;
 
-        //if (data != null)
-        //{
-        //    existSaveData = true;
-        //    player.DataLoadProcess(data);
-        //    playerSkill.DataLoadProcess(data);
-        //    upgradeManager.DataLoadProcess(data);
-
-        //}
+        Debug.Log("테스트");
+        if (data != null)
+        {
+            existSaveData = true;
+            player.DataLoadProcess(data);
+            playerSkill.DataLoadProcess(data);
+            upgradeManager.DataLoadProcess(data);
+        }
         bgm.ChangeBGM(gameInfo.mainStageCurr);
     }
 
@@ -117,7 +117,15 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (!enterNext) return; 
+		player.DataSaveProcess();
+		playerSkill.DataSaveProcess();
+		upgradeManager.DataSaveProcess();
+		var sdata = new SaveDataV1();
+
+		SaveLoadSystem.AutoSave(sdata);
+		Debug.Log("세이브 완료");
+
+		if (!enterNext) return; 
 
         gameInfo.subStageCurr++; 
         if (gameInfo.subStageCurr == 11) 
@@ -129,9 +137,7 @@ public class GameManager : MonoBehaviour
         }
 
         SetStageText();
-
-        
-    }
+	}
 
     public void PlayerDie()
     {
