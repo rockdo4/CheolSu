@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviour
             player.DataLoadProcess(data);
             playerSkill.DataLoadProcess(data);
             upgradeManager.DataLoadProcess(data);
-        }
+			SetStageText();
+		}
         bgm.ChangeBGM(gameInfo.mainStageCurr);
     }
 

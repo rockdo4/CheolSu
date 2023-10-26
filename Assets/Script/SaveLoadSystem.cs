@@ -58,7 +58,9 @@ public class SaveLoadSystem
             Directory.CreateDirectory(SaveDirectory);
         }
 
-        var path = Path.Combine(SaveDirectory, filename);
+		Debug.Log(SaveDirectory);
+
+		var path = Path.Combine(SaveDirectory, filename);
         using (var writer = new JsonTextWriter(new StreamWriter(path)))
         {
             var serialize = new JsonSerializer();

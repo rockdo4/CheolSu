@@ -121,7 +121,6 @@ public class Player : Creature
             //UpdateInterface();
         }
     }
-
     private void Attack()
     {
         if (enemy == null) return;
@@ -180,7 +179,7 @@ public class Player : Creature
             backGroundScrolls[i].enabled = true;
         }
 
-        Debug.Log($"gold : {status._gold}, exp : {status._exp}, dgp : {status._dragon}");
+        //Debug.Log($"gold : {status._gold}, exp : {status._exp}, dgp : {status._dragon}");
     }
 
     override public void TakeDamage(int damage)
@@ -209,14 +208,21 @@ public class Player : Creature
 
     public void UpdateInterface()
     {
-        HPUI.fillAmount = (float)currentHealth / MaxHealth;
-        HPUI.GetComponentInChildren<TextMeshProUGUI>().SetText($"{currentHealth} / {MaxHealth}");
+		HPUI.fillAmount = (float)currentHealth / MaxHealth;
+		HPUI.GetComponentInChildren<TextMeshProUGUI>().SetText($"{currentHealth} / {MaxHealth}");
 
-        if (uiList.Count == 0) return;
+		if (uiList.Count == 0) return;
 
         nextExp = playerInfo.CheckLevelUp(this);
+        if(nextExp == -1)
+        {
+			uiList[0].SetText($"EXP : ---");
+		}
+        else 
+        {
+			uiList[0].SetText($"EXP : {status._exp} / {nextExp}");
+		}
 
-        uiList[0].SetText($"EXP : {status._exp} / {nextExp}");
         uiList[1].SetText($"{status._level}");
         uiList[2].SetText($"{status._gold} G");
         uiList[3].SetText($"{status._dragon} G");
@@ -225,7 +231,10 @@ public class Player : Creature
         uiList2[1].text = $"공격력 : {Damage}";
         uiList2[2].text = $"마력 : {status._MAP}";
         uiList2[3].text = $"신력 : {status._GOD}";
-    }
+
+		HPUI.fillAmount = (float)currentHealth / MaxHealth;
+		HPUI.GetComponentInChildren<TextMeshProUGUI>().SetText($"{currentHealth} / {MaxHealth}");
+	}
 
     public void RespawnPlayer()
     {
@@ -293,6 +302,7 @@ public class Player : Creature
 
         status = data.status;
         MaxHealth = data.Maxhealth;
+        currentHealth = MaxHealth;
         Damage = data.Damage;
         GameManager.Instance.gameInfo = data.stageInfo;
 
@@ -309,7 +319,6 @@ public class Player : Creature
             //Debug.Log(item.quantity);
         }
 
-        UpdateInterface();
         GachaManager.Instance.UpdateArmorCount();
         GachaManager.Instance.UpdateWeaponCount();
 
