@@ -7,8 +7,10 @@ public class GachaManager : MonoBehaviour
 {
     public static GachaManager Instance;
 
-    private WeightedRandomPicker<GachaData> weaponPicker = new WeightedRandomPicker<GachaData>();
-    private WeightedRandomPicker<GachaData> armorPicker = new WeightedRandomPicker<GachaData>();
+    
+
+    private GachaSystem<GachaData> weaponPicker = new GachaSystem<GachaData>();
+    private GachaSystem<GachaData> armorPicker = new GachaSystem<GachaData>();
     private GachaTable gachaTable;
 
     private Player player;
@@ -30,8 +32,8 @@ public class GachaManager : MonoBehaviour
 
             gachaTable = DataTableMgr.GetTable<GachaTable>();
 
-            weaponPicker = new WeightedRandomPicker<GachaData>();
-            armorPicker = new WeightedRandomPicker<GachaData>();
+            weaponPicker = new GachaSystem<GachaData>();
+            armorPicker = new GachaSystem<GachaData>();
         }
         else
         {
@@ -42,16 +44,14 @@ public class GachaManager : MonoBehaviour
 
     private void Start()
     {
-        
-
         foreach(var data in gachaTable.m_WeaponList)
         {
-            weaponPicker.Add(data, data.Item_Random);
+            weaponPicker.Add(data, (double)data.Item_Random);
         }
 
         foreach (var data in gachaTable.m_ArmorList)
         {
-            armorPicker.Add(data, data.Item_Random);
+            armorPicker.Add(data, (double)data.Item_Random);
         }
 
         //foreach (var item in weaponPicker.GetNormalizedItemDictReadonly())
@@ -71,7 +71,8 @@ public class GachaManager : MonoBehaviour
     {
         if (player.status._dragon < 50) return;
         player.status._dragon -= 50;
-        var data = weaponPicker.GetRandomPick();
+        var data = weaponPicker.GetGacha();
+        Debug.Log(data.Item_Name);
 
         if (player == null) return;
 
@@ -105,7 +106,6 @@ public class GachaManager : MonoBehaviour
     public void WeaponGacha11()
     {
         if (player.status._dragon < 500) return;
-        player.status._dragon -= 500;
         if (!isCoroutine)
         {
             StartCoroutine(WeaponCoroutine(11));
@@ -117,7 +117,7 @@ public class GachaManager : MonoBehaviour
         if (player.status._dragon < 50) return;
         player.status._dragon -= 50;
 
-        var data = armorPicker.GetRandomPick();
+        var data = armorPicker.GetGacha();
 
         if (player == null) return;
 
@@ -150,8 +150,7 @@ public class GachaManager : MonoBehaviour
 
     public void ArmorGacha11()
     {
-        if (player.status._dragon < 500) return;
-        player.status._dragon -= 500;
+        if (player.status._dragon < 500) return;      
         if (isCoroutine) return;
         StartCoroutine(ArmorCoroutine(11));
     }
